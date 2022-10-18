@@ -4,7 +4,9 @@ import {Link} from "react-router-dom"
 import "./login.css"
 
 function LogIn() {
-    const { register, handleSubmit,  formState: { errors }   } = useForm();
+    const { register, handleSubmit,  formState: { errors,isValid }   } = useForm({
+        mode:"onChange",
+    });
     const [passShow, setPassShow] = useState(false)
     const submition= (data)=>{
         // e.preventDefault()
@@ -72,7 +74,7 @@ const togglePass=(e)=>{
                                 <input type="checkbox" name="remember" id="remember"/>
                                 <label htmlFor="remember" className="text-muted">Remember me</label>
                             </div>
-                            <button className="btn btn-primary btn-block mt-3">Login</button>
+                            <button className="btn btn-primary btn-block mt-3" disabled={!isValid} >Login</button>
                             <div className="text-center pt-4 text-muted">Don't have an account? 
                                 <Link to="/signup" className='ToSignUp'>Sign up</Link>
                              </div>

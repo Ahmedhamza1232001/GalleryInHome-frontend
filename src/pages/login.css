@@ -46,7 +46,6 @@ a:hover {
     padding: 5px;
     display: flex;
     align-items: center;
-    cursor: pointer;
     border: 1px solid #ddd;
     color: #4343ff
 }
@@ -100,6 +99,10 @@ a[target='_blank'] {
     text-transform: capitalize;
     margin: 0;
     
+}
+
+.btn-primary:disabled{
+    cursor:no-drop;
 }
 
 @media(max-width: 360px) {
