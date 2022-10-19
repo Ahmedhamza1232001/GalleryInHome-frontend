@@ -1,5 +1,6 @@
 nav{
     height: 5rem;
+    background-color: var(--clr-grey-1);
 }
 nav a{
     padding: 5px;

@@ -40,7 +40,7 @@ const togglePass=(e)=>{
 
   return (
     <main>
-    <div className="container">
+    <div className="login-wrapper container">
         <div className="row">
             <div className="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
                 <div className="panel border bg-white">
@@ -82,14 +82,14 @@ const togglePass=(e)=>{
                     </div>
                     <div className="mx-3 my-2 py-2 bordert">
                         <div className="text-center py-3"> 
-                            <a href="https://wwww.facebook.com" target="_blank" className="px-2">
+                            <a href="https://wwww.facebook.com" title="Facebook" target="_blank" className="px-2">
                                 <img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg"alt=""/>
                             </a> 
-                            <a href="https://www.google.com" target="_blank" className="px-2">
+                            <a href="https://www.google.com" title="Google" target="_blank" className="px-2">
                                 <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""/> 
                             </a>
-                            <a href="https://www.github.com" target="_blank" className="px-2">
-                                <img src="https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png" alt=""/>
+                            <a href="https://www.twitter.com" title="twitter" target="_blank">
+                                <img src="https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-twitter-icon-smooth-app-iconset-ampeross-29.png"  alt="512x512 logo twitter icon smooth app iconset ampeross" />
                             </a> 
                         </div>
                     </div>
