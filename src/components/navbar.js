@@ -1,15 +1,15 @@
 import React from 'react'
-import "./header.css"
+import "./navbar.css"
 import {Link} from "react-router-dom"
 
-function Header() {
+function Navbar() {
   return (
-    <header className='header-area'>
+    <nav className='header-area'>
       <Link to="/">Home</Link>
       <Link to="/login">login</Link>
       <Link to="/signup">signup</Link>
-    </header>
+    </nav>
     )
 }
 
-export default Header
+export default Navbar

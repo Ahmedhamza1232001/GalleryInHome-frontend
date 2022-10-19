@@ -1,6 +1,6 @@
 import LogIn from './pages/login';
 import SignUp from './pages/signup';
-import Header from './components/header';
+import Navbar from './components/navbar';
 import Home from './pages/home';
 import Error from './pages/error';
 import React from 'react';
@@ -11,7 +11,7 @@ function App () {
   return (
     <div className="app">
     <Router>
-      <Header/>
+      <Navbar/>
       <Routes >
       <Route path="/" element={<Home/>} />
       <Route path='/login' element={<LogIn/>}></Route>
