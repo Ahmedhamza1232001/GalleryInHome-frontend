@@ -63,11 +63,11 @@
     padding: 0 15px;
     color: var(--clr-white);
     background-color:  var(--clr-primary-1);
-}
+} 
 .search-wrapper .search-content button:hover{
     background-color: transparent;
     color: var(--clr-primary-1);
-}
+} 
 /* main content section */
 .main-content{
     position: relative;
