@@ -1,0 +1,45 @@
+nav{
+    height: 5rem;
+    width: 100%;
+    box-shadow: var(--dark-shadow);
+    background-color: var(--clr-white);
+}
+nav .nav-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    width: 85vw;
+    height: 100%;
+    margin: auto;
+}
+nav .logo{
+    height: 2.5rem;
+
+}
+nav img{
+    height: 100%;
+}
+nav ul{
+    display: flex;
+    margin: 0;
+}
+nav .links-center a{
+    padding: 0;
+    color: var(--clr-dark);
+    font-size: 18px;
+    margin: 0 0.5rem;
+    transition:all var(--transition-duration) ease 0s;
+}
+nav .links-center a:hover{
+    color: var(--clr-primary-1);
+}
+.nav-toggle {
+    font-size: 1.75rem;
+    color: var(--clr-primary-1);
+    background: transparent;
+    border-color: transparent;
+    transition: var(--transition);
+    cursor: pointer;
+    outline: none;
+}
