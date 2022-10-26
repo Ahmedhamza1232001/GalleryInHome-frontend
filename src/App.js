@@ -5,6 +5,8 @@ import { useGlobalContext } from './context';
 import Navbar from './components/navbar';
 import Search from './components/search';
 // pages
+
+import Product from './pages/product';
 import SignUp from './pages/signup';
 import LogIn from './pages/login';
 import Error from './pages/error';
@@ -23,6 +25,7 @@ function App () {
         <Route path="/" element={<Home/>} />
         <Route path='/login' element={<LogIn/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
+        <Route path='/product' element={<Product/>}></Route>
         <Route path='*' element={<Error/>}></Route>
           
         </Routes>
