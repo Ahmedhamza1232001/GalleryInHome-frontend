@@ -13,6 +13,7 @@ function Navbar() {
         <div className="links-center">
           <ul>
             <li><Link to="/">Home</Link></li>
+            <li><Link to="/product">Product</Link></li>
             <li><Link to="/login">login</Link></li>
             <li><Link to="/signup">signup</Link></li>
           </ul>
