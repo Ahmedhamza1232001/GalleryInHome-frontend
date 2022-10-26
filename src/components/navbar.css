@@ -1,7 +1,7 @@
 nav{
+    display: block;
     height: 5rem;
     width: 100%;
-    box-shadow: var(--dark-shadow);
     background-color: var(--clr-white);
 }
 nav .nav-header{

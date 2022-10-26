@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 :root{
   /* primary color*/
 --clr-primary-1: hsl(43, 97%, 52%);
 --clr-dark: hsl(0, 3%, 7%);
+--clr-icons:hsl(0deg 0% 62%);
+--clr-price:hsl(0deg 0% 43%);
+--clr-copyrights:hsl(0deg 0% 100% / 40%);
+--clr-layout:hsl(0deg 0% 24% / 70%);
 /* lighter shades of primary color */
 --clr-primary-6: hsl(43, 92%, 62%);
 --clr-primary-7: hsl(205, 90%, 76%);
@@ -53,6 +58,13 @@ box-sizing: border-box;
 }
 ul {
   list-style-type: none;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+
+}
+a{
+  transition: all var(--transition-duration) ease 0s;
 }
 
 
