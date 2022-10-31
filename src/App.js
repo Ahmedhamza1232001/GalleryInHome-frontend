@@ -11,7 +11,7 @@ import SignUp from './pages/signup';
 import LogIn from './pages/login';
 import Error from './pages/error';
 import Home from './pages/home';
-import Category from './components/Category'
+import Category from './pages/Category'
 
 
 function App () {
