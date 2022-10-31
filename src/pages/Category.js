@@ -17,8 +17,8 @@ const Category =() =>{
         const [data ] = useState(CardData);
         return(
             <>
-            <div className="main-content-wrapper d-flex clearfix">
-                <div className="row mt-5 mx-2">
+            <div className="category-main">
+                <div className="row">
                     {/* sidebar */}
                     <div className="sidebar col-md-3">
                     <Col className="catagories ">
@@ -37,8 +37,8 @@ const Category =() =>{
                         )
                     })}
                     </ul>
-                    <Col>
-                        <h1 className="brands">Brands</h1>
+                    <div>
+                        <h1 className="title">Brands</h1>
                         <Form className="brand" >
                             {['checkbox'].map((type) => (
                                 <div key={`default-${type}`} className="mb-3">
@@ -76,12 +76,12 @@ const Category =() =>{
                                 </div>
                             ))}
                             </Form>
-                    </Col>
+                    </div>
                     </Col>
                     </div>
                     
                         {/* cards */}
-                    <div className="col-md-9">
+                    <div className="col-md-9 py-100">
                         <Row>
                             <div className="col-12">
                                 <div className="product-topbar d-xl-flex align-items-end justify-content-between">
@@ -126,7 +126,7 @@ const Category =() =>{
                                 const {id ,price, image} = items;
                                 return(
                                     <>
-                                    <div className='col-md-4' key={id}>
+                                    <div className='col-md-6' key={id}>
                                 <div className="card">
                                     <img src= {img2} 
                                     className="card-img-top" alt="..." />

@@ -7,7 +7,7 @@ import { FaCircle } from "react-icons/fa";
 
 const App = () => {
   return (
-    <div>   
+    <div className='single-product-area'>   
           <div className='ariaLabel'>
             <ol className='label'>
               <li className='productPath'>
@@ -90,9 +90,6 @@ const App = () => {
                       </div>
                   </div>              
           </div>
-          <section className='footer-area'>
-              footer
-          </section>
     </div>
   
 

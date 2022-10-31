@@ -1,29 +1,28 @@
-.App{
-    width: 100%;
-    height: 100%;
-    
+
+.category-main{
+  position: relative;
+    z-index: 1;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(95% - 550px);
+    flex: 0 0 calc(95% - 320px);
+    width: calc(100% - 320px);
+    max-width: calc(95% - 320px);
 }
-body{
-    margin: 0;
-    padding: 0;
-}
+
 .sidebar{
-    float: left;
     background-color:rgb(245, 247, 250);
     position: relative;
     z-index: 1;
     -webkit-box-flex: 0;
     flex: 0 0 230px;
-    width: 300px;
-    max-width: 300px;
+    width: 230px;
+    max-width: 230px;
     padding: 100px 40px;
     
   }
   .catagories .title{
     color: rgb(8, 8, 10);
-    padding-right: 50px;
-    margin-left: 5px;
-    margin-top: -50px;
+   font-size: 25px;
   
   } 
   .catagories .brands{
@@ -36,7 +35,6 @@ body{
     color: gray;
     padding: 20px;
     margin-top: 15px;
-    margin-left: 5px;
     font-size: large;
   }
   
@@ -56,7 +54,7 @@ body{
 
   }
   .brand .check{
-    padding: 20px;
+    padding: 20px 0;
   }
   
   .styleOfCard{
@@ -93,13 +91,6 @@ body{
   }
   .product-sorting , .view {
     display: flex !important;
-  }
-  .fa{
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing:antialiased;
   }
   .sort-by-date{
     margin-right: 20px;

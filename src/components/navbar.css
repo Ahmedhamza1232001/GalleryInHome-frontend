@@ -1,5 +1,5 @@
 nav{
-    display: block;
+    display: none;
     height: 5rem;
     width: 100%;
     background-color: var(--clr-white);

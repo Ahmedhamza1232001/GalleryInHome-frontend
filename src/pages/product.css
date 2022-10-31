@@ -1,4 +1,12 @@
-
+.main-content .single-product-area{
+  position: relative;
+  z-index: 1;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 calc(95% - 320px);
+  flex: 0 0 calc(95% - 320px);
+  width: calc(95% - 320px);
+  max-width: calc(95% - 320px);
+}
 .ariaLabel{
   display: block;
   margin-bottom: -40px;
@@ -47,7 +55,7 @@
   }
   
 .slideShow {
-  width: 50%;
+  width: 60%;
   padding: 40px;
   
 }
@@ -185,13 +193,6 @@
   padding: 2px;
   border: 3px solid #fbb8103e;
   
-}
-
-.footer-area{
-  position: relative;
-  z-index: 1;
-  background-color: #252525;
-  padding: 80px 0;
 }
 
 @media only screen and (max-width:900px) {

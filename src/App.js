@@ -4,6 +4,7 @@ import { useGlobalContext } from './context';
 // components 
 import Navbar from './components/navbar';
 import Search from './components/search';
+import Header from './components/header';
 // pages
 
 import Product from './pages/product';
@@ -22,15 +23,17 @@ function App () {
       <Router>
         <Navbar/>
         <Search/>
-        <Routes >
-        <Route path="/" element={<Home/>} />
-        <Route path='/login' element={<LogIn/>}></Route>
-        <Route path='/signup' element={<SignUp/>}></Route>
-        <Route path='/product' element={<Product/>}></Route>
-        <Route path='/Category' element={<Category/>}></Route>
-        <Route path='*' element={<Error/>}></Route>
-          
-        </Routes>
+        <div className="main-content">
+        <Header/>
+          <Routes >
+            <Route path="/" element={<Home/>} />
+            <Route path='/login' element={<LogIn/>}></Route>
+            <Route path='/signup' element={<SignUp/>}></Route>
+            <Route path='/product' element={<Product/>}></Route>
+            <Route path='/Category' element={<Category/>}></Route>
+            <Route path='*' element={<Error/>}></Route>          
+          </Routes>
+        </div>
       </Router>
   </div>
   )

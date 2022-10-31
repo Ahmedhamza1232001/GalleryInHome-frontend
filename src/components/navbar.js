@@ -5,7 +5,6 @@ import logo from '../images/logo.webp'
 import {Link} from "react-router-dom"
 import { useGlobalContext } from '../context'
 function Navbar() {
-  const {openSearch}= useGlobalContext()
   return (
     <nav>
       <div className="nav-header .container">
@@ -21,7 +20,6 @@ function Navbar() {
         </div>
         <div>
           <span className='nav-toggle'><FaBars/></span>
-          <button className='btn btn-dark' onClick={openSearch}>open search</button>
         </div>
      
       </div>

@@ -5,13 +5,9 @@ import "./home.css"
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-// icons
-import {BsSearch,BsCart4,BsStars} from "react-icons/bs"
-import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
 // global context
 import {useGlobalContext} from "../context"
 // images
-import logo from '../images/logo.webp'
 import pot from "../images/vase.webp"
 import chair from "../images/chair.webp"
 import table from "../images/table.webp"
@@ -20,63 +16,11 @@ import footer from "../images/footer_logo.webp"
 function Home() {
   return (
     <>
-      <section className='main-content'>
         {/* mobaile nav */}
         <div className="mobile-nav">
-
+        
         </div>
-        {/* header */}
-        <div className="header-area">
-          {/* close btn */}
-          <div className="nav-close">
-            <i className="fa fa-times fa-lg"></i>
-          </div>
-          {/*logo image */}
-          <div className="logo">
-            <Link to="/"><img src={logo} alt="logo"/></Link>
-          </div>
-          {/* navigation header */}
-          <div className="header-nav">
-            <ul>
-              <li className='active'><Link to="/">Home</Link></li>
-              <li><Link to="/">Shop</Link></li>
-              <li><Link to="/">Cart</Link></li>
-              <li><Link to="/">Product</Link></li>
-              <li><Link to="/">Checkout</Link></li>
-            </ul>
-          </div>
-          {/* special pages */}
-          <div className="cart-fav-search my-5">
-            <Link to="/">
-              <BsCart4 className='mr-2'/>
-              Cart
-              <span> (0)</span>
-            </Link>
-            <Link to="/">
-              <BsStars className='mr-2'/>
-              Favorite
-            </Link>
-            <Link to="/">
-              <BsSearch className='mr-2'/>
-              Search
-            </Link>
-          </div>
-          {/* social information links */}
-          <div className="social-info ">
-            <a href="https://www.facebook.com/">
-              <FaFacebookF/>
-            </a>
-            <a href="https://www.twitter.com/">
-              <FaTwitter/>
-            </a>
-            <a href="https://www.instagram.com/">
-              <FaInstagram/>
-            </a>
-            <a href="https://www.pinterest.com/">
-              <FaPinterestP/>
-            </a>
-          </div>
-        </div>
+        {/* product category */}
         <div className="products-catagories-area">
           <div className="products-center">
             <article className="single-product">
@@ -162,7 +106,6 @@ function Home() {
             </article>
           </div>
         </div>  
-      </section>
       {/* footer section */}
       <section className='footer-area'>
       <div className="container">
@@ -193,7 +136,6 @@ function Home() {
           </div>
         </div>
       </div>
-
       </section>
     </>
     )
