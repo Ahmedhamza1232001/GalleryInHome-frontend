@@ -5,8 +5,8 @@ import { useGlobalContext } from './context';
 import Navbar from './components/navbar';
 import Search from './components/search';
 import Header from './components/header';
+import Footer from './components/footer';
 // pages
-
 import Product from './pages/product';
 import SignUp from './pages/signup';
 import LogIn from './pages/login';
@@ -34,6 +34,7 @@ function App () {
             <Route path='*' element={<Error/>}></Route>          
           </Routes>
         </div>
+      <Footer/>
       </Router>
   </div>
   )
