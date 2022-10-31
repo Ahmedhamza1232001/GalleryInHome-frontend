@@ -63,7 +63,7 @@ const App = () => {
                       <div className='detailsOfproduct'>
                         <div>
                           <h2 className='price'>$180</h2>
-                          <a href=''>White Modern Chair</a>
+                          <h2>White Modern Chair</h2>
                           <div className='rating'>
                             <div className='ratings'>
                                 <div className='star'><FaStar/>&ensp;<FaStar/>&ensp;
