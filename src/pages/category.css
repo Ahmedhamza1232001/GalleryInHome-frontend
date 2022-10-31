@@ -74,9 +74,10 @@
   }
   .card-price::before{
     position: absolute;
+    top: -10px;
     content: "";
-    width: 70px;
-    height: 2px;
+    width: 80px;
+    height: 3px;
     background-color: #ffc107;
   }
 
@@ -109,6 +110,8 @@
   }
 .card-body{
   justify-content: space-between;
+  margin-top: 25px;
+  padding: 0;
 }
 .dropdown button:hover{
   background-color: #ffc107;

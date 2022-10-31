@@ -144,8 +144,8 @@ const Category =() =>{
                                         <span><BsStarFill color="#ffc107"/></span>
                                         <span><BsStarFill color="#ffc107"/></span>
                                         
-                                        <div className="d-flex">
-                                            <a href="..."><BsCart3 size="30px" color="gray"/></a>
+                                        <div className="d-flex justify-content-end">
+                                            <a href="..."><BsCart3 size="20px" color="gray"/></a>
                                         </div>
                                     </div>
                                     </div>
