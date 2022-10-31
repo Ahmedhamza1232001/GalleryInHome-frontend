@@ -30,11 +30,11 @@ function Footer() {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link className="active"href="#home">Home</Nav.Link>
-                  <Nav.Link href="#Shop">Shop</Nav.Link>
-                  <Nav.Link href="#Product">Product</Nav.Link>
-                  <Nav.Link href="#Cart">Cart</Nav.Link>
-                  <Nav.Link href="#Checkout">Checkout</Nav.Link>
+                  <Nav.Link className="active"href="/">Home</Nav.Link>
+                  <Nav.Link href="/Category">Shop</Nav.Link>
+                  <Nav.Link href="/Product">Product</Nav.Link>
+                  <Nav.Link href="/Cart">Cart</Nav.Link>
+                  <Nav.Link href="/Checkout">Checkout</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>
