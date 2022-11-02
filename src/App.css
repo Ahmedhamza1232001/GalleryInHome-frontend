@@ -1,0 +1,23 @@
+/* seacrh section in open state */
+.search-wrappe-on .main-content{
+    margin-top: 260px;
+}
+
+/* main content */
+.main-content{
+    display: flex;
+    position: relative;
+    z-index: 1;
+    -webkit-transition-duration: var(--transition-duration);
+    transition-duration: var(--transition-duration);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+/* media query */
+@media only screen and (max-width: 767px){
+    .main-content{
+      margin-top: 70px;
+      z-index: 100;
+    }
+  }
+  

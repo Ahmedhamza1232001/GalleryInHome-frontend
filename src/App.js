@@ -1,8 +1,9 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
 import { useGlobalContext } from './context';
 // components 
-import Navbar from './components/navbar';
+import MObNav from './components/mobNav';
 import Search from './components/search';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -21,9 +22,9 @@ function App () {
   return (
     <div className={`${IssearchOpen?"search-wrappe-on":"app-container"}`} >
       <Router>
-        <Navbar/>
         <Search/>
         <div className="main-content">
+        <MObNav/>
         <Header/>
           <Routes >
             <Route path="/" element={<Home/>} />

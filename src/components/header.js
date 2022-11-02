@@ -11,12 +11,12 @@ import logo from '../images/logo.webp'
 
 
 function Header() {
-    const {openSearch}= useGlobalContext()
+    const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
 
     return (
-    <div className="header-area">
+    <div className={`${IsSidebarOpen?"header-area on":"header-area"}`} >
         {/* close btn */}
-        <div className="nav-close">
+        <div className="nav-close" onClick={closeSideBar}>
            <i className="fa fa-times fa-lg"></i>
         </div>
         {/*logo image */}

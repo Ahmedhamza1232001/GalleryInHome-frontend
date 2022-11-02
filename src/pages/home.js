@@ -11,10 +11,6 @@ import table from "../images/table.webp"
 function Home() {
   return (
     <>
-        {/* mobaile nav */}
-        <div className="mobile-nav">
-        
-        </div>
         {/* product category */}
         <div className="products-catagories-area">
           <div className="products-center">
