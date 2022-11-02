@@ -18,9 +18,9 @@ const Category =() =>{
         return(
             <>
             <div className="category-main">
-                <div className="row">
+                <div className="d-flex flex-wrap">
                     {/* sidebar */}
-                    <div className="sidebar col-md-3">
+                    <div className="sidebar">
                     <Col className="catagories ">
                     <h1 className="title">Catagories</h1>
                     <ul className="sidebarList">
@@ -81,87 +81,90 @@ const Category =() =>{
                     </div>
                     
                         {/* cards */}
-                    <div className="col-md-9 py-100">
-                        <Row>
-                            <div className="col-12">
-                                <div className="product-topbar d-xl-flex align-items-end justify-content-between">
-                                    <div className="total-products">
-                                        <p> showing 1-8 of 25</p>
-                                        <div className="view d-flex">
-                                            <a href="..."> <FaThLarge size="30px" color="#ffc107"/> </a>
-                                            <a href="..."> <FaBars size="30px" color="black"/> </a>
-                                        </div>
-                                    </div>
-                                    <div className="product-sorting d-flex">
-                                        <div className="sort-by-date d-flex align-items-center mr-15">
-                                            <Dropdown as={ButtonGroup} >
-                                                <Button variant="success" >Sort by</Button>
-                                                <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-                                                <Dropdown.Menu>
-                                                    <Dropdown.Item href="#/Date">Date</Dropdown.Item>
-                                                    <Dropdown.Item href="#/Newest">Newest</Dropdown.Item>
-                                                    <Dropdown.Item href="#/Popular">Popular</Dropdown.Item>
-                                                    </Dropdown.Menu>
-                                                    </Dropdown>
-                                        </div>
-                                        <div className="view-product d-flex align-items-center">
-                                        <Dropdown as={ButtonGroup}>
-                                        <Button variant="success">View</Button>
-                                        <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item href="#/action-1">12</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2">24</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-3">48</Dropdown.Item>
-                                        </Dropdown.Menu>
-                                        </Dropdown>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </Row>
+                    <div className="product-area py-100">
+                        <div className="container-fluid">
 
-                            {/* cards */}
-                        <Row className="my-2 d-flex justify-content-between">
-                            {data.map((items) =>{
-                                const {id ,price, image} = items;
-                                return(
-                                    <>
-                                    <div className='col-md-6' key={id}>
-                                <div className="card">
-                                    <img src= {img2} 
-                                    className="card-img-top" alt="..." />
-                                    <div className="card-body d-flex">
-                                        <div>
-                                        <h4 className="card-price">{price}</h4>
-                                        <p className="card-description">
-                                            Modern Chair
-                                        </p>
+                            <Row>
+                                <div className="col-12">
+                                    <div className="product-topbar d-xl-flex align-items-end justify-content-between">
+                                        <div className="total-products">
+                                            <p> showing 1-8 of 25</p>
+                                            <div className="view d-flex">
+                                                <a href="..."> <FaThLarge size="30px" color="#ffc107"/> </a>
+                                                <a href="..."> <FaBars size="30px" color="black"/> </a>
+                                            </div>
                                         </div>
-                                    <div className="icon">
-                                        <span><BsStarFill color="#ffc107"/></span>
-                                        <span><BsStarFill color="#ffc107"/></span>
-                                        <span><BsStarFill color="#ffc107"/></span>
-                                        <span><BsStarFill color="#ffc107"/></span>
-                                        <span><BsStarFill color="#ffc107"/></span>
-                                        
-                                        <div className="d-flex justify-content-end">
-                                            <a href="..."><BsCart3 size="20px" color="gray"/></a>
+                                        <div className="product-sorting d-flex">
+                                            <div className="sort-by-date d-flex align-items-center mr-15">
+                                                <Dropdown as={ButtonGroup} >
+                                                    <Button variant="success" >Sort by</Button>
+                                                    <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+                                                    <Dropdown.Menu>
+                                                        <Dropdown.Item href="#/Date">Date</Dropdown.Item>
+                                                        <Dropdown.Item href="#/Newest">Newest</Dropdown.Item>
+                                                        <Dropdown.Item href="#/Popular">Popular</Dropdown.Item>
+                                                        </Dropdown.Menu>
+                                                        </Dropdown>
+                                            </div>
+                                            <div className="view-product d-flex align-items-center">
+                                            <Dropdown as={ButtonGroup}>
+                                            <Button variant="success">View</Button>
+                                            <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item href="#/action-1">12</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-2">24</Dropdown.Item>
+                                                <Dropdown.Item href="#/action-3">48</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                            </Dropdown>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
+                            </Row>
+
+                                {/* cards */}
+                            <Row >
+                                {data.map((items) =>{
+                                    const {id ,price, image} = items;
+                                    return(
+                                        <>
+                                        <div className='col-12 col-sm-6 col-md-12 col-xl-6' key={id}>
+                                            <div className="card">
+                                                <img src= {img2} 
+                                                className="card-img-top" alt="..." />
+                                                <div className="card-body d-flex">
+                                                    <div>
+                                                        <h4 className="card-price">{price}</h4>
+                                                        <p className="card-description">
+                                                            Modern Chair
+                                                        </p>
+                                                    </div>
+                                                    <div className="icon">
+                                                        <span><BsStarFill color="#ffc107"/></span>
+                                                        <span><BsStarFill color="#ffc107"/></span>
+                                                        <span><BsStarFill color="#ffc107"/></span>
+                                                        <span><BsStarFill color="#ffc107"/></span>
+                                                        <span><BsStarFill color="#ffc107"/></span>
+                                                        
+                                                        <div className="d-flex justify-content-end">
+                                                            <a href="..."><BsCart3 size="20px" color="gray"/></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </>
+                                    )
+                                })}
+                                
+                            </Row>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-primary">1.</button>
+                                <button type="button" class="btn btn-primary">2.</button>
+                                <button type="button" class="btn btn-primary">3.</button>
+                                <button type="button" class="btn btn-primary">4.</button>
                             </div>
-                                    </>
-                                )
-                            })}
-                            
-                        </Row>
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-primary">1.</button>
-                            <button type="button" class="btn btn-primary">2.</button>
-                            <button type="button" class="btn btn-primary">3.</button>
-                            <button type="button" class="btn btn-primary">4.</button>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
