@@ -56,15 +56,21 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
+
 ul {
   list-style-type: none;
 }
 body{
   font-family: 'Roboto', sans-serif;
-
+  
 }
 a{
   transition: all var(--transition-duration) ease 0s;
 }
 
+.py-100{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  
+}
 

@@ -1,10 +1,12 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-
+.main-content .single-product-area{
+  position: relative;
+  z-index: 1;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(100% - 320px);
+  width: calc(100% - 320px);
+  max-width: calc(100% - 320px);
+}
 .ariaLabel{
   display: block;
   margin-bottom: -40px;
@@ -17,8 +19,6 @@
   display: flex;
   list-style: none;
   flex-wrap: wrap;
-  margin-top: 100px;
-  margin-left: 60px;
 }
 
 .productPath a{
@@ -45,15 +45,12 @@
   color:#6c757d;
   margin-top: 5px;
 }
-
-.carousel{
-    float: left;
-    width: 50%;
-
+  .carousel-root{
+    margin-bottom: 100px;
   }
   
 .slideShow {
-  width: 50%;
+  width: 60%;
   padding: 40px;
   
 }
@@ -98,16 +95,6 @@
   height: 4px;
   top: -10px;
 }
-
-a{
-  text-decoration: none;
-  color: #131212;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px ;
-  font-weight: 600;
-  
-}
-
 
 .star{
   font-size: 10px;
@@ -166,8 +153,8 @@ a{
   text-decoration: none;
   color: #ffffff;
   background-color: #fbb710;
-  width: 310px;
-  min-width: 160px;
+  width: 100%;
+  max-width: 310px;
   height: 80px;
   line-height: 80px;
   padding: 0 7px;
@@ -192,8 +179,6 @@ a{
     cursor: pointer;
     
 } 
-
-
 .carousel .thumbs .thumb{
   transition: border .15s ease-in;
   display: inline-block;
@@ -202,30 +187,32 @@ a{
   border: 3px solid #fbb8103e;
   
 }
-
-.footer-area{
-  position: relative;
-  z-index: 1;
-  background-color: #252525;
-  padding: 80px 0;
+.control-dots{
+  display: none;
+}
+.carousel .thumbs-wrapper{
+  margin: 0 !important;
 }
 
-@media only screen and (max-width:900px) {
-    .carousel {
-      height: 80vh;
-    }
-  }
-
-@media only screen and (max-width:650px) {
-  .carousel {
-    height: 60vh;
-  }
-}
-
-
-@media only screen and (max-width:500px) {
-  .carousel {
-    height: 50vh;
+/* media query */
+@media only screen and (min-width: 768px) and (max-width: 991px){
+  .main-content .single-product-area{
+    position: relative;
+    z-index: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% - 280px);
+    width: calc(100% - 280px);
+    max-width: calc(100% - 280px);
   }
 }
-
+@media only screen and (max-width: 767px){
+  .main-content .single-product-area{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 50px;
+  }
+}

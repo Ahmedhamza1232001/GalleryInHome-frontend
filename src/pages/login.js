@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import {Link} from "react-router-dom"
 import "./login.css"
+// images
+import facbook from '../images/facebook.jpeg'
+import twitter from '../images/twitter.png'
+import google from '../images/google.png'
+
 
 function LogIn() {
     const { register, handleSubmit,  formState: { errors,isValid }   } = useForm({
@@ -83,13 +88,13 @@ const togglePass=(e)=>{
                     <div className="mx-3 my-2 py-2 bordert">
                         <div className="text-center py-3"> 
                             <a href="https://wwww.facebook.com" title="Facebook" target="_blank" className="px-2">
-                                <img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg"alt=""/>
+                                <img src={facbook}alt="facebook"/>
                             </a> 
                             <a href="https://www.google.com" title="Google" target="_blank" className="px-2">
-                                <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""/> 
+                                <img src={google} alt="google"/> 
                             </a>
                             <a href="https://www.twitter.com" title="twitter" target="_blank">
-                                <img src="https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-twitter-icon-smooth-app-iconset-ampeross-29.png"  alt="512x512 logo twitter icon smooth app iconset ampeross" />
+                                <img src={twitter}  alt="twitter" />
                             </a> 
                         </div>
                     </div>
