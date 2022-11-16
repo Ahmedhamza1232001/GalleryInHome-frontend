@@ -31,8 +31,10 @@ function Header() {
                 <li><Link to="/product">Product</Link></li>
                 <li><Link to="/cart">Cart</Link></li>
                 <li><Link to="/checkout">Checkout</Link></li>
-
             </ul>
+        </div>
+        <div className="login-cont">
+            <Link to="/login" className='btn login-btn'>Login</Link>
         </div>
         {/* special pages */}
         <div className="cart-fav-search my-5">

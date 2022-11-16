@@ -73,6 +73,27 @@
 .main-content .header-area .header-nav li.active a::after{
     left: -75px;
 }
+/* login button */
+.main-content .header-area .login-cont{margin: 30px 0 100px 0;}
+.main-content .header-area .login-cont .login-btn{
+    min-width: 160px;
+    height: 55px;
+    color: var(--clr-white);
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    padding: 0 7px;
+    font-size: 18px;
+    line-height: 57px;
+    background-color: var(--clr-primary-1);
+    font-weight: 400;
+}
+.main-content .header-area .login-cont .login-btn:hover,.main-content .header-area .login-cont .login-btn:focus{
+    font-size: 18px;
+    color: var(--clr-white);
+    background-color: var(--clr-dark)
+}
+
 /* cart fav search */
 .main-content .header-area .cart-fav-search a{
     display: block;
