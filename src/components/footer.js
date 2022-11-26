@@ -8,7 +8,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // image
-import footer from "../images/footer_logo.webp"
+import footer from "../images/logo2.png"
 
 
 
@@ -19,7 +19,7 @@ function Footer() {
       <div className="row align-items-center">
         <div className="col-12 col-lg-4">
           <div className="footer-logo mr-50">
-            <Link to="/"><img src={footer} alt="logo"/></Link>
+            <Link to="/"><img src={footer} alt="logo" width="250px" height="250px"/></Link>
           </div>
           <p className='copy-rights'>This template is made by team-name | credits for <a href="https://colorlib.com" target="_blank">Colorlib</a> &copy; 2022</p>
         </div>

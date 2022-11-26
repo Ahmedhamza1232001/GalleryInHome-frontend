@@ -36,8 +36,8 @@
 }
 /* logo image */
 .main-content .header-area .logo{
-    margin-bottom: 100px;
     display: block;
+    margin: -80px -90px 10px -50px;
 }
 /* navigation links in the header */
 .main-content .header-area .header-nav li a{
@@ -160,3 +160,4 @@ color: var(--clr-icons);
         display: block;
     }
 }
+

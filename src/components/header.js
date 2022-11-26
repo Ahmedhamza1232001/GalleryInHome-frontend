@@ -7,7 +7,7 @@ import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
 // global context
 import {useGlobalContext} from "../context"
 // images
-import logo from '../images/logo.webp'
+import logo from '../images/logo1.png'
 
 
 function Header() {
@@ -21,7 +21,7 @@ function Header() {
         </div>
         {/*logo image */}
         <div className="logo">
-            <Link to="/"><img src={logo} alt="logo"/></Link>
+            <Link to="/"><img src={logo} alt="logo" width="250px" height="250px"/></Link>
         </div>
         {/* navigation header */}
         <div className="header-nav">
