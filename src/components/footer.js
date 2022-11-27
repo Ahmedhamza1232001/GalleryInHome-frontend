@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 import "./footer.css"
+import $ from "jquery"
 // global context
 import {useGlobalContext} from "../context"
 // bootstrap
@@ -13,6 +14,15 @@ import footer from "../images/logo2.png"
 
 
 function Footer() {
+
+  $(function(){
+    $(".footer-area .footer_menu .navbar .nav-link").on("click",function(){
+        $(".footer-area .footer_menu .navbar .nav-link").removeClass("active")
+        $(this).addClass("active")
+    })
+})
+
+
   return (
     <section className='footer-area'>
     <div className="container">
@@ -30,11 +40,12 @@ function Footer() {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                  <Nav.Link className="active"href="/">Home</Nav.Link>
-                  <Nav.Link href="/Category">Shop</Nav.Link>
-                  <Nav.Link href="/Product">Product</Nav.Link>
-                  <Nav.Link href="/Cart">Cart</Nav.Link>
-                  <Nav.Link href="/Checkout">Checkout</Nav.Link>
+
+                  <Link className="nav-link active" to="/">Home</Link>
+                  <Link className="nav-link" to="/Category">Shop</Link>
+                  <Link className="nav-link" to="/Product">Product</Link>
+                  <Link className="nav-link" to="/Cart">Cart</Link>
+                  <Link className="nav-link" to="/Checkout">Checkout</Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>

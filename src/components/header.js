@@ -1,6 +1,7 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {Link,NavLink} from "react-router-dom"
 import "./header.css"
+import $ from "jquery"
 // icons
 import {BsSearch,BsCart4,BsStars} from "react-icons/bs"
 import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
@@ -9,9 +10,15 @@ import {useGlobalContext} from "../context"
 // images
 import logo from '../images/logo1.png'
 
-
 function Header() {
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
+
+    $(function(){
+        $(".header-nav li").on("click",function(){
+            $(".header-nav li").removeClass("active")
+            $(this).addClass("active")
+        })
+    })
 
     return (
     <div className={`${IsSidebarOpen?"header-area on":"header-area"}`} >
