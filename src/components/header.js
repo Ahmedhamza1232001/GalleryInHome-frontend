@@ -37,7 +37,7 @@ function Header() {
         </div>
         {/* special pages */}
         <div className="cart-fav-search my-5">
-            <Link to="/">
+            <Link to="/cart">
                 <BsCart4 className='mr-2'/>
                 Cart
                 <span> (0)</span>
