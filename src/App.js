@@ -15,6 +15,7 @@ import Error from './pages/error';
 import Home from './pages/home';
 import Category from './pages/Category';
 import CheckOut from './pages/checkout';
+import Cart from './pages/cart';
 
 
 function App () {
@@ -32,6 +33,7 @@ function App () {
             <Route path='/login' element={<LogIn/>}></Route>
             <Route path='/signup' element={<SignUp/>}></Route>
             <Route path='/product' element={<Product/>}></Route>
+            <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/Category' element={<Category/>}></Route>
             <Route path='/checkout' element={<CheckOut/>}></Route>    
             <Route path='*' element={<Error/>}></Route>          
