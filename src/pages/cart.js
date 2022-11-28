@@ -9,14 +9,33 @@ import vase from "../images/vase.webp"
 import table from "../images/table.webp"
 
 const Cart =() => {
-    const[count,setCount]=useState(0);
-    const inc=()=>{
-        setCount(count+1);
+    const[count1,setCount1]=useState(1);
+    const inc1=()=>{
+        setCount1(count1+1);
       }
-      const dec=()=>{
-        if(count>1)
-        setCount(count-1);
+      const dec1=()=>{
+        if(count1>1)
+        setCount1(count1-1);
       }
+
+    const[count2,setCount2]=useState(1);
+    const inc2=()=>{
+        setCount2(count2+1);
+     }
+    const dec2=()=>{
+        if(count2>1)
+        setCount2(count2-1);
+     }
+
+    const[count3,setCount3]=useState(1);
+    const inc3=()=>{
+        setCount3(count3+1);
+     }
+    const dec3=()=>{
+        if(count3>1)
+        setCount3(count3-1);
+     }
+
     return(
         <div className='cart-table-area section-padding-100'>
             <div className='container-fluid'>
@@ -50,9 +69,9 @@ const Cart =() => {
                                             <div className="qty">
                                                 <p>Qty</p>
                                                 <div className="quantity">
-                                                    <button onClick={dec} className="qty-symbol" >-</button>
-                                                    {count}
-                                                    <button onClick={inc} className="qty-symbol">+</button>
+                                                    <button onClick={dec1} className="qty-symbol" >-</button>
+                                                    {count1}
+                                                    <button onClick={inc1} className="qty-symbol">+</button>
                                                 </div>  
                                             </div>
                                         </td>
@@ -71,9 +90,9 @@ const Cart =() => {
                                             <div className="qty">
                                                 <p>Qty</p>
                                                 <div className="quantity">
-                                                    <button onClick={dec} className="qty-symbol" >-</button>
-                                                    {count}
-                                                    <button onClick={inc} className="qty-symbol">+</button>
+                                                    <button onClick={dec2} className="qty-symbol" >-</button>
+                                                    {count2}
+                                                    <button onClick={inc2} className="qty-symbol">+</button>
                                                 </div>  
                                             </div>
                                         </td>
@@ -92,9 +111,9 @@ const Cart =() => {
                                             <div className="qty">
                                                 <p>Qty</p>
                                                 <div className="quantity">
-                                                    <button onClick={dec} className="qty-symbol" >-</button>
-                                                    {count}
-                                                    <button onClick={inc} className="qty-symbol">+</button>
+                                                    <button onClick={dec3} className="qty-symbol" >-</button>
+                                                    {count3}
+                                                    <button onClick={inc3} className="qty-symbol">+</button>
                                                 </div>  
                                             </div>
                                         </td>
