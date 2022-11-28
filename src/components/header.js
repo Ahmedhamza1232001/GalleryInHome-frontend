@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {Link,NavLink} from "react-router-dom"
 import "./header.css"
 // icons
 import {BsSearch,BsCart4,BsStars} from "react-icons/bs"
@@ -8,7 +8,6 @@ import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
 import {useGlobalContext} from "../context"
 // images
 import logo from '../images/logo1.png'
-
 
 function Header() {
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
@@ -26,11 +25,11 @@ function Header() {
         {/* navigation header */}
         <div className="header-nav">
             <ul>
-                <li className='active'><Link to="/">Home</Link></li>
-                <li><Link to="/Category">Shop</Link></li>
-                <li><Link to="/product">Product</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
-                <li><Link to="/checkout">Checkout</Link></li>
+                <li><NavLink to="/" end>Home</NavLink></li>
+                <li><NavLink to="/Category">Shop</NavLink></li>
+                <li><NavLink to="/product">Product</NavLink></li>
+                <li><NavLink to="/cart">Cart</NavLink></li>
+                <li><NavLink to="/checkout">Checkout</NavLink></li>
             </ul>
         </div>
         <div className="login-cont">

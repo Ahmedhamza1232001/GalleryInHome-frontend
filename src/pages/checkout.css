@@ -178,7 +178,3 @@
         padding-top: 50px;
     }
 }
-
-* ,::after , ::before{
-    box-sizing: border-box;
-}
