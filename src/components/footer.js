@@ -15,14 +15,6 @@ import footer from "../images/logo2.png"
 
 function Footer() {
 
-  $(function(){
-    $(".footer-area .footer_menu .navbar .nav-link").on("click",function(){
-        $(".footer-area .footer_menu .navbar .nav-link").removeClass("active")
-        $(this).addClass("active")
-    })
-})
-
-
   return (
     <section className='footer-area'>
     <div className="container">
@@ -41,7 +33,7 @@ function Footer() {
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
 
-                  <Link className="nav-link active" to="/">Home</Link>
+                  <Link className="nav-link" to="/">Home</Link>
                   <Link className="nav-link" to="/Category">Shop</Link>
                   <Link className="nav-link" to="/Product">Product</Link>
                   <Link className="nav-link" to="/Cart">Cart</Link>

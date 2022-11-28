@@ -1,7 +1,6 @@
 import React from 'react'
 import {Link,NavLink} from "react-router-dom"
 import "./header.css"
-import $ from "jquery"
 // icons
 import {BsSearch,BsCart4,BsStars} from "react-icons/bs"
 import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
@@ -12,13 +11,6 @@ import logo from '../images/logo1.png'
 
 function Header() {
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
-
-    $(function(){
-        $(".header-nav li").on("click",function(){
-            $(".header-nav li").removeClass("active")
-            $(this).addClass("active")
-        })
-    })
 
     return (
     <div className={`${IsSidebarOpen?"header-area on":"header-area"}`} >
@@ -33,11 +25,11 @@ function Header() {
         {/* navigation header */}
         <div className="header-nav">
             <ul>
-                <li className='active'><Link to="/">Home</Link></li>
-                <li><Link to="/Category">Shop</Link></li>
-                <li><Link to="/product">Product</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
-                <li><Link to="/checkout">Checkout</Link></li>
+                <li><NavLink to="/" end>Home</NavLink></li>
+                <li><NavLink to="/Category">Shop</NavLink></li>
+                <li><NavLink to="/product">Product</NavLink></li>
+                <li><NavLink to="/cart">Cart</NavLink></li>
+                <li><NavLink to="/checkout">Checkout</NavLink></li>
             </ul>
         </div>
         <div className="login-cont">

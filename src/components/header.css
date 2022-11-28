@@ -70,7 +70,7 @@
     content: '';
 }
 .main-content .header-area .header-nav li:hover a::after,
-.main-content .header-area .header-nav li.active a::after{
+.main-content .header-area .header-nav li .active::after{
     left: -75px;
 }
 /* login button */
@@ -141,7 +141,7 @@ color: var(--clr-icons);
     }
 
     .main-content .header-area .header-nav li:hover a::after,
-    .main-content .header-area .header-nav li.active a::after{
+    .main-content .header-area .header-nav li .active::after{
         left: -50px
     }
 }
