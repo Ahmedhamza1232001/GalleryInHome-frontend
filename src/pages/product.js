@@ -22,7 +22,7 @@ const App = () => {
           <div className="col-12">
           <ol className='label'>
             <li className='productPath'>
-              <a href=''>Home</a>
+              <a href='/'>Home</a>
             </li>
             <li className='productPath'>
               <a href=''>Furniture</a>
@@ -102,7 +102,7 @@ const App = () => {
                         <button onClick={inc} className="qty-symbol">+</button>
                     </div>  
                 </div>
-                <a href=''>Add to cart</a>
+                <a href='/cart'>Add to cart</a>
               </div>
           </div>              
         </div>
