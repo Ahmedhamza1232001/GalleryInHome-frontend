@@ -4,8 +4,17 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel} from "react-responsive-carousel";
 import { FaStar } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
+import {useState} from 'react'
 
 const App = () => {
+  const[count,setCount]=useState(1);
+  const inc=()=>{
+      setCount(count+1);
+    }
+    const dec=()=>{
+      if(count>1)
+      setCount(count-1);
+    }
   return (
     <div className='single-product-area py-100'>   
       <div className="container-fluid">
@@ -86,8 +95,12 @@ const App = () => {
               </div>
               <div className='cartClearfix'>
                 <div className='cartbtn'>
-                  <p>Qty</p>
-                  <div className='quantity'></div>
+                    <p>Qty</p>
+                    <div className="quantity">
+                        <button onClick={dec} className="qty-symbol" >-</button>
+                        {count}
+                        <button onClick={inc} className="qty-symbol">+</button>
+                    </div>  
                 </div>
                 <a href=''>Add to cart</a>
               </div>
