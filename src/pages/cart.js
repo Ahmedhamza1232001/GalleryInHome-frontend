@@ -1,7 +1,7 @@
 import React from "react";
 import './cart.css';
-import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import {Link} from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import {useState} from 'react'
 import chair from "../images/chair.webp"
@@ -133,7 +133,7 @@ const Cart =() => {
                                 <li><span>Total:</span><span>$140.00</span></li>
                             </ul>
                             <div className='cart-btn mt-100'>
-                                <Button className='btn amado-btn w-100' as="input" type="submit" value="Checkout" />
+                                <Link to="/checkout" className='btn amado-btn w-100'>Checkout</Link>
                             </div>
                         </div>
                     </div>

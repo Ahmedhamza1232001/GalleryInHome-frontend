@@ -1,3 +1,4 @@
+/* Main style */
 .main-content .single-product-area{
   position: relative;
   z-index: 1;
@@ -7,13 +8,16 @@
   width: calc(100% - 320px);
   max-width: calc(100% - 320px);
 }
-.ariaLabel{
-  display: block;
-  margin-bottom: -40px;
-}
 
 .contant{
   display: flex;
+}
+
+/* Label Aria */
+
+.ariaLabel{
+  display: block;
+  margin-bottom: -40px;
 }
 .label{
   display: flex;
@@ -45,36 +49,60 @@
   color:#6c757d;
   margin-top: 5px;
 }
-  .carousel-root{
-    margin-bottom: 100px;
-  }
+
+/* Image Slider */
+
+.carousel-root{
+  margin-bottom: 100px;
+}
   
 .slideShow {
   width: 60%;
-  padding: 40px;
-  
+  padding: 40px; 
 }
   
 .carousel .slide{
-    height: 80%;    
-    
-  }
+    height: 80%;        
+}
   
 
 .carousel .slide img{
   
-    max-height: 100%;
-    width: 70%;       
-    
-  }
+  max-height: 100%;
+  width: 70%;           
+}
 
 
 .image {
   margin: 0 auto;
   height: 100%;
   width: auto;
-
 }
+
+.carousel .thumbs .thumb.selected, .carousel .thumbs .thumb:hover{
+  
+  border: 3px solid #fbb710;
+  border-radius: 5px;
+  cursor: pointer;  
+} 
+
+.carousel .thumbs .thumb{
+transition: border .15s ease-in;
+display: inline-block;
+margin-right: 6px;
+padding: 2px;
+border: 3px solid #fbb8103e;
+}
+
+.control-dots{
+display: none;
+}
+
+.carousel .thumbs-wrapper{
+margin: 0 !important;
+}
+
+/* Details of Product */
 
 .rightSide{
   padding: 50px;
@@ -95,6 +123,8 @@
   height: 4px;
   top: -10px;
 }
+
+/* Ratting */
 
 .star{
   font-size: 10px;
@@ -134,6 +164,8 @@
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+/* Qty */
 
 .cartbtn p{
   color:#6b6b6b;
@@ -188,7 +220,9 @@
   font-weight: 700;
 }
 
-.cartClearfix a{
+/* Cart Button */
+
+.cartClearfix .cart-link{
   text-decoration: none;
   color: #ffffff;
   background-color: #fbb710;
@@ -206,32 +240,12 @@
   border-radius: 0;
 }
 
-.cartClearfix a:hover{
+.cartClearfix .cart-link:hover{
   background-color: #131212;
   
 }
 
-.carousel .thumbs .thumb.selected, .carousel .thumbs .thumb:hover{
-  
-    border: 3px solid #fbb710;
-    border-radius: 5px;
-    cursor: pointer;
-    
-} 
-.carousel .thumbs .thumb{
-  transition: border .15s ease-in;
-  display: inline-block;
-  margin-right: 6px;
-  padding: 2px;
-  border: 3px solid #fbb8103e;
-  
-}
-.control-dots{
-  display: none;
-}
-.carousel .thumbs-wrapper{
-  margin: 0 !important;
-}
+
 
 /* media query */
 @media only screen and (min-width: 768px) and (max-width: 991px){

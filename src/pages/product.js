@@ -4,7 +4,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel} from "react-responsive-carousel";
 import { FaStar } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
-import {useState} from 'react'
+import {Link} from "react-router-dom";
+import {useState} from 'react';
 
 const App = () => {
   const[count,setCount]=useState(1);
@@ -22,13 +23,13 @@ const App = () => {
           <div className="col-12">
           <ol className='label'>
             <li className='productPath'>
-              <a href='/'>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className='productPath'>
-              <a href=''>Furniture</a>
+              <Link to="">Furniture</Link>
             </li>
             <li className='productPath'>
-              <a href=''>Chairs</a>
+              <Link to="">Chairs</Link>
             </li>
             <li className='productPathSelected'>
               <p>white modern chair</p>
@@ -102,7 +103,7 @@ const App = () => {
                         <button onClick={inc} className="qty-symbol">+</button>
                     </div>  
                 </div>
-                <a href='/cart'>Add to cart</a>
+                <Link to="/cart" className='cart-link'>Add to cart</Link>
               </div>
           </div>              
         </div>
