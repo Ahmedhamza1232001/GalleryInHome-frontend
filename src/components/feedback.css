@@ -1,0 +1,106 @@
+/* Title Style */
+.col-md-12 h2{
+  margin-top: 60px;
+  margin-left: 350px;
+}
+
+
+/* Cards Style */
+#customer-testimonoals .item{
+  width: 600px;
+  text-align: center;
+  padding: 50px;
+  margin-right: -25px;
+  margin-bottom: 0px;
+  opacity: 1;
+  transform: scale3d(0.8, 0.8, 1);
+  transition: all 0.3s ease-in-out;
+}
+
+
+#customer-testimonoals .owl-item.active.center .item {
+  opacity: 1;
+  transform: scale3d(1.0, 1.0, 1);
+}
+
+
+/* Shadow of Cards */
+.shadow-effect {
+    background: #fff;
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #ECECEC;
+    box-shadow: 0 17px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.02);
+}
+
+
+  /* Card Descreption */
+#shadow-effect p {
+  font-family: inherit;
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0 0 17px 0;
+  font-weight: 300;
+}
+
+
+/* Card Image */
+.img-circle {
+  border-radius: 50%;
+  vertical-align: middle;
+  max-width: 120px;
+  min-height: 120px;
+  transform-style: preserve-3d;
+  margin: -107px -1px 20px;
+  border-color: #fbb710 transparent transparent #fbb710;
+  border-style:outset inset inset outset;
+  border-width: 10px;
+}
+
+
+/* Card Name */
+.testimonial-name {
+    margin: 30px 130px -10px;
+    display: table;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    font-size: 20px;
+    padding: 9px 30px;
+    text-align: center;
+    color: #fbb710;
+}
+
+
+/* Add Feedback */
+.addfeedback{
+  display: flex;
+  margin-top: 80px;
+  margin-left: 180px;
+}
+
+
+/* Writing Part */
+.feedback-control{
+  width: 500px;
+}
+
+
+/* Send Button */
+.addfeedback .cart-btn .btn{
+  width: 150px;
+  height: 60px;
+  background-color: #fbb710;
+  font-size: 20px;
+  margin-left: 100px;
+  margin-top: 60px;
+  border: none;
+  border-radius: 0;
+}
+
+.addfeedback .cart-btn .btn:hover{
+  background-color: #131212;
+  border-color: #131212;
+}
