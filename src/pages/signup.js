@@ -20,7 +20,7 @@ function SignUp() {
 
 
   return (
-    <main>
+    <main className='registration-wrapper'>
     <div className="login-wrapper container">
         <div className="row">
             <div className="offset-md-2 col-lg-6 col-md-7 offset-lg-3 offset-md-3">

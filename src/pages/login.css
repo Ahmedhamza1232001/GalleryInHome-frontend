@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-main {
-    min-height: calc(100vh - 5rem);
-    background: linear-gradient(to top, #c9c9ff 50%, #9090fa 90%) no-repeat
+main.registration-wrapper {
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 999;
+    background: linear-gradient(to top, var(--clr-white) 5%, var(--clr-grey-9) 100%) no-repeat
 }
 .login-wrapper {
     padding-top: 2.5rem;

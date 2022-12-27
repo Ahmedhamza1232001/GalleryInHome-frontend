@@ -44,7 +44,7 @@ const togglePass=(e)=>{
 }   
 
   return (
-    <main>
+    <main className='registration-wrapper'>
     <div className="login-wrapper container">
         <div className="row">
             <div className="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">

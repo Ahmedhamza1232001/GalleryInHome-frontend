@@ -4,8 +4,18 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel} from "react-responsive-carousel";
 import { FaStar } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa";
+import {Link} from "react-router-dom";
+import {useState} from 'react';
 
 const App = () => {
+  const[count,setCount]=useState(1);
+  const inc=()=>{
+      setCount(count+1);
+    }
+    const dec=()=>{
+      if(count>1)
+      setCount(count-1);
+    }
   return (
     <div className='single-product-area py-100'>   
       <div className="container-fluid">
@@ -13,13 +23,13 @@ const App = () => {
           <div className="col-12">
           <ol className='label'>
             <li className='productPath'>
-              <a href=''>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className='productPath'>
-              <a href=''>Furniture</a>
+              <Link to="">Furniture</Link>
             </li>
             <li className='productPath'>
-              <a href=''>Chairs</a>
+              <Link to="">Chairs</Link>
             </li>
             <li className='productPathSelected'>
               <p>white modern chair</p>
@@ -45,7 +55,7 @@ const App = () => {
                 <div className="image">
                   <img src="../images/img5.jpg" alt="Image4"/>
                 </div>
-                <div className="image">
+                {/* <div className="image">
                   <img src="../images/img6.jpg" alt="Image4"/>
                 </div>
                 <div className="image">
@@ -59,7 +69,7 @@ const App = () => {
                 </div>
                 <div className="image">
                   <img src="../images/img10.jpg" alt="Image4"/>
-                </div>
+                </div> */}
               </Carousel>
           </div>  
           <div className='col-12 col-xl-5'>
@@ -86,10 +96,14 @@ const App = () => {
               </div>
               <div className='cartClearfix'>
                 <div className='cartbtn'>
-                  <p>Qty</p>
-                  <div className='quantity'></div>
+                    <p>Qty</p>
+                    <div className="quantity">
+                        <button onClick={dec} className="qty-symbol" >-</button>
+                        {count}
+                        <button onClick={inc} className="qty-symbol">+</button>
+                    </div>  
                 </div>
-                <a href=''>Add to cart</a>
+                <Link to="/cart" className='cart-link'>Add to cart</Link>
               </div>
           </div>              
         </div>

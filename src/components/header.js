@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from "react-router-dom"
+import {Link,NavLink} from "react-router-dom"
 import "./header.css"
 // icons
 import {BsSearch,BsCart4,BsStars} from "react-icons/bs"
@@ -7,8 +7,7 @@ import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
 // global context
 import {useGlobalContext} from "../context"
 // images
-import logo from '../images/logo.webp'
-
+import logo from '../images/logo1.png'
 
 function Header() {
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
@@ -21,22 +20,25 @@ function Header() {
         </div>
         {/*logo image */}
         <div className="logo">
-            <Link to="/"><img src={logo} alt="logo"/></Link>
+            <Link to="/"><img src={logo} alt="logo" width="250px" height="250px"/></Link>
         </div>
         {/* navigation header */}
         <div className="header-nav">
             <ul>
-                <li className='active'><Link to="/">Home</Link></li>
-                <li><Link to="/Category">Shop</Link></li>
-                <li><Link to="/product">Product</Link></li>
-                <li><Link to="/cart">Cart</Link></li>
-                <li><Link to="/checkout">Checkout</Link></li>
-
+                <li><NavLink to="/" end>Home</NavLink></li>
+                <li><NavLink to="/Category">Shop</NavLink></li>
+                <li><NavLink to="/product">Product</NavLink></li>
+                <li><NavLink to="/cart">Cart</NavLink></li>
+                <li><NavLink to="/checkout">Checkout</NavLink></li>
+                <li><NavLink to="/feedback">Feedback</NavLink></li>
             </ul>
+        </div>
+        <div className="login-cont">
+            <Link to="/login" className='btn login-btn'>Login</Link>
         </div>
         {/* special pages */}
         <div className="cart-fav-search my-5">
-            <Link to="/">
+            <Link to="/cart">
                 <BsCart4 className='mr-2'/>
                 Cart
                 <span> (0)</span>

@@ -6,6 +6,7 @@ import { useGlobalContext } from './context';
 import MObNav from './components/mobNav';
 import Search from './components/search';
 import Header from './components/header';
+import Feedback from './components/feedback';
 import Footer from './components/footer';
 // pages
 import Product from './pages/product';
@@ -13,7 +14,9 @@ import SignUp from './pages/signup';
 import LogIn from './pages/login';
 import Error from './pages/error';
 import Home from './pages/home';
-import Category from './pages/Category'
+import Category from './pages/Category';
+import CheckOut from './pages/checkout';
+import Cart from './pages/cart';
 
 
 function App () {
@@ -31,7 +34,10 @@ function App () {
             <Route path='/login' element={<LogIn/>}></Route>
             <Route path='/signup' element={<SignUp/>}></Route>
             <Route path='/product' element={<Product/>}></Route>
+            <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/Category' element={<Category/>}></Route>
+            <Route path='/checkout' element={<CheckOut/>}></Route> 
+            <Route path='/feedback' element={<Feedback/>}></Route>     
             <Route path='*' element={<Error/>}></Route>          
           </Routes>
         </div>
