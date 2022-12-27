@@ -9,7 +9,7 @@ const FeedbackDetails = ({FeedBackDetail}) => {
                 <p>{name}</p>
             </div>
             <div class="shadow-effect">
-                <img class="img-circle" src={img} />
+                <img class="img-circle" src={img} alt="client_img"/>
                 <p>{description}</p>
             </div>
         </div>

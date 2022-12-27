@@ -58,8 +58,8 @@ const Feedback = () => {
     };
     return (
 
-        <div id="testimonial" className="testimonials pt-70 ">
-            <div className="container mt-5 ml-5">
+        <div id="testimonial" className="testimonials ">
+            <div className="container mt-5">
 
                 {/* first row "Page Title" */}
                 <div className='row'>
@@ -76,7 +76,7 @@ const Feedback = () => {
                                 feedbacks.length === 0 ?
                                     <div class="item">
                                         <div class="shadow-effect">
-                                            <img class="img-circle" src={userPic} />
+                                            <img class="img-circle" src={userPic} alt="userPic"/>
                                             <div class="testimonial-name">
                                                 <p>Rajon Rony</p>
                                             </div>

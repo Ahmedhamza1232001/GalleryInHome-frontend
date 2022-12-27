@@ -55,7 +55,7 @@ const App = () => {
                 <div className="image">
                   <img src="../images/img5.jpg" alt="Image4"/>
                 </div>
-                <div className="image">
+                {/* <div className="image">
                   <img src="../images/img6.jpg" alt="Image4"/>
                 </div>
                 <div className="image">
@@ -69,7 +69,7 @@ const App = () => {
                 </div>
                 <div className="image">
                   <img src="../images/img10.jpg" alt="Image4"/>
-                </div>
+                </div> */}
               </Carousel>
           </div>  
           <div className='col-12 col-xl-5'>
