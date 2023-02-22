@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import FeedbackDetails from './FeedbackDetails.js'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -33,26 +33,33 @@ const Feedback = () => {
     ]
     
     //Owl Carousel Settings
+
     const options = {
-        loop: true,
-        center: false,
-        items: 2,
-        margin: 0,
+        loop:true,
+        
         autoplay: true,
         dots: false,
         autoplayTimeout: 8500,
         smartSpeed: 450,
-        autoWidth: true,
-        nav: false,
-        responsive: {
-            0: {
-                items: 1
+        center: false,
+        margin:0,
+        nav:false,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1,
             },
-            600: {
-                items: 2
+            644:{
+                items:2,
             },
-            1000: {
-                items: 2
+            780:{
+                items:1,
+            },
+            991:{
+                items:2,
+            },
+            1200:{
+                items:3,
             }
         }
     };
@@ -64,7 +71,7 @@ const Feedback = () => {
                 {/* first row "Page Title" */}
                 <div className='row'>
                     <div className="col-md-12 ">
-                        <h2>Whats Our Clients Say ?</h2>
+                        <h2 className='feedback-title'>Whats Our Clients Say ?</h2>
                     </div>
                 </div>
 
@@ -99,7 +106,7 @@ const Feedback = () => {
                     <div className='col-md-12 '>
                         <div className='addfeedback'>
                             <FloatingLabel controlId="floatingTextarea2" >
-                                <Form.Control 
+                                <Form
                                 className='feedback-control'
                                 as="textarea"
                                 placeholder="We would love to know what you think of our service 
@@ -107,8 +114,8 @@ const Feedback = () => {
                                 style={{ height: '200px'}}
                                 />
                             </FloatingLabel>
-                            <div className='cart-btn mt-100'>
-                                <Button className='btn amado-btn' as="input" type="submit" value="Send" />
+                            <div className='cart-btn'>
+                                <Button className='btn ' as="input" type="submit" value="Send" />
                             </div>
                         </div>
                     </div>
