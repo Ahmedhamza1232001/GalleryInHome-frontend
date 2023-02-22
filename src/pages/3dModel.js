@@ -20,8 +20,11 @@ export default function App() {
             console.log("Loaded");
           }}
         >
-          <DirectionLight color={0x800000} />
+          <DirectionLight           
+            className="canv_1"
+            color={0x800000} />
           <DirectionLight
+            className="canv_1"
             position={{ x: 180, y: 100, z: 100 }}
             color={0x800000}
           />

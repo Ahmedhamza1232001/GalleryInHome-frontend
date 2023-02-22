@@ -1,5 +1,29 @@
 .App {
-    font-family: sans-serif;
-    text-align: center;
+  font-family: sans-serif;
+  text-align: center;
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: calc(100% - 320px);
+  width: calc(100% - 320px);
+  max-width: calc(100% - 320px);
   }
 
+  div[data-loader="obj"]{
+    width: 100% !important;
+
+  } 
+  canvas{
+    width: 100% !important; 
+    height: 800px;
+    position: absolute!important;
+    left: 0!important;
+    top: 0!important;
+  }
+@media only screen and  (max-width: 767px){
+  .App{
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
