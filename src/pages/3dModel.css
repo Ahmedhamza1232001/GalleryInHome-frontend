@@ -8,6 +8,7 @@
   width: calc(100% - 320px);
   max-width: calc(100% - 320px);
   }
+ 
 
   div[data-loader="obj"]{
     width: 100% !important;
