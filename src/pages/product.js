@@ -32,51 +32,25 @@ const App = () => {
               <Link to="">Chairs</Link>
             </li>
             <li className='productPathSelected'>
-              <p>white modern chair</p>
+              <p>Maroon modern chair</p>
             </li>
           </ol>
           </div>
         </div>
         <div className='row'>
           <div className='col-12 col-xl-7'>
-              <Carousel infiniteLoop autoPlay>
-                <div className="image">
-                  <img src="../images/img1.jpg" alt="Image1"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img2.jpg" alt="Image2"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img3.jpg" alt="Image3"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img4.jpg" alt="Image4"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img5.jpg" alt="Image4"/>
-                </div>
-                {/* <div className="image">
-                  <img src="../images/img6.jpg" alt="Image4"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img7.jpg" alt="Image4"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img8.jpg" alt="Image4"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img9.jpg" alt="Image4"/>
-                </div>
-                <div className="image">
-                  <img src="../images/img10.jpg" alt="Image4"/>
-                </div> */}
-              </Carousel>
+            <div className='pictureOfProduct'>
+              <img src="../images/LEATHERSOFA.jpg" alt="chair"/>
+            </div>
+            <div className='show3dButton'>
+              <Link to="/ThreeDModel" className='threedLink'>Show 3D</Link>
+            </div>
           </div>  
           <div className='col-12 col-xl-5'>
               <div className='detailsOfproduct'>
                 <div>
                   <h2 className='price'>$180</h2>
-                  <h2>White Modern Chair</h2>
+                  <h2>Maroon Modern Chair</h2>
                   <div className='rating'>
                     <div className='ratings'>
                         <div className='star'><FaStar/>&ensp;<FaStar/>&ensp;
