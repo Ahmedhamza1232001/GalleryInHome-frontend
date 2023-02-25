@@ -78,12 +78,16 @@
   position: relative;
   animation: example 4s 2s infinite;
 }
+
 @keyframes example {
   0%   {background-color:#fbb710; left:550px; top:-300px;}
   50%  {background-color:#fbb710; left:600px; top:-300px;}
   100%  {background-color:#fbb710; left:550px; top:-300px;}
 
 }
+
+/* pop up */
+
 
 
 /* Details of Product */
