@@ -5,9 +5,9 @@ import { FaCircle } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import Modal from './Modal3d.js';
 import { OBJModel, DirectionLight } from "react-3d-viewer";
-import count from './productConst.js';
-import inc from './productConst.js';
-import dec from './productConst.js';
+// import count from './productConst.js';
+// import inc from './productConst.js';
+// import dec from './productConst.js';
   
 class Dashboard extends Component {
   constructor() {
@@ -112,14 +112,14 @@ class Dashboard extends Component {
                   </p>
                 </div>
                 <div className='cartClearfix'>
-                  <div className='cartbtn'>
+                  {/* <div className='cartbtn'>
                       <p>Qty</p>
                       <div className="quantity">
                           <button onClick={dec} className="qty-symbol" >-</button>
                           {count}
                           <button onClick={inc} className="qty-symbol">+</button>
                       </div>  
-                  </div>
+                  </div> */}
                   <Link to="/cart" className='cart-link'>Add to cart</Link>
                 </div>
             </div>              
