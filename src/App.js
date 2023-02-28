@@ -41,7 +41,6 @@ function App () {
             <Route path='/checkout' element={<CheckOut/>}></Route> 
             <Route path='/feedback' element={<Feedback/>}></Route>  
             <Route path='/ThreeDModel' element={<ThreeDModel/>}></Route> 
-            <Route path='/profile' element={<Profile/>}></Route>    
             <Route path='*' element={<Error/>}></Route>          
           </Routes>
         </div>
