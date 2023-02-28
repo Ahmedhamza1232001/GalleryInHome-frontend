@@ -17,6 +17,8 @@ import Home from './pages/home';
 import Category from './pages/Category';
 import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
+import ThreeDModel from './pages/3dModel';
+import Profile from './pages/profile';
 
 
 function App () {
@@ -37,7 +39,9 @@ function App () {
             <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/Category' element={<Category/>}></Route>
             <Route path='/checkout' element={<CheckOut/>}></Route> 
-            <Route path='/feedback' element={<Feedback/>}></Route>    
+            <Route path='/feedback' element={<Feedback/>}></Route>  
+            <Route path='/ThreeDModel' element={<ThreeDModel/>}></Route> 
+            <Route path='/profile' element={<Profile/>}></Route>     
             <Route path='*' element={<Error/>}></Route>          
           </Routes>
         </div>
