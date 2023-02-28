@@ -1,0 +1,76 @@
+.profilee{
+    position: relative;
+    z-index: 1;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(95% - 550px);
+    flex: 0 0 calc(100% - 320px);
+    width: calc(100% - 320px);
+    max-width: calc(100% - 320px);
+    padding-top: 20px;
+}
+.aiz-user-sidenav-wrap {
+    flex: 0 0 265px;
+    max-width: 265px;
+    border-radius: 4px;
+    border: 1px solid rgb(245, 247, 250);
+    background-color: rgb(245, 247, 250);
+    z-index: 1;
+    -webkit-box-flex: 0;
+
+}
+.pic{
+    background-color: #fbb710;
+    text-align: center;
+    position: relative;
+    
+}
+.imagee{
+    border-radius: 50%;
+    width: 110px;
+    padding-bottom: 10px;
+}
+.aiz-size-nav-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.profileList .row{
+    color: gray;
+    padding-left: 50px;
+    margin-top: 20px;
+    font-size: large;
+
+}
+.profileList .row:hover{
+    color: #ffc107;
+    cursor: pointer;
+}
+.profile-area{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+}
+.bg-grad{
+    background-color: rgb(245, 247, 250);
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    width: 90%;
+    height: 90%;
+    border-right: 3px solid #ffc107;
+    border-top: 3px solid #ffc107;
+}
+.tit{
+    color: #ffc107;
+    font-size: 22px;
+}
+.Shipping{
+    margin-left:12px;
+    width: 700px;
+    height: 200px;
+    border: 1px solid rgba(0,0,0,.125) ;
+}
+.card-header{
+    background-color:rgb(245, 247, 250) ;
+}

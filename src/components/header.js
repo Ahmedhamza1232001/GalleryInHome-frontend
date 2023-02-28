@@ -26,12 +26,14 @@ function Header() {
         <div className="header-nav">
             <ul>
                 <li><NavLink to="/" end>Home</NavLink></li>
+                <li><NavLink to="/profile">Profile </NavLink></li>
                 <li><NavLink to="/Category">Shop</NavLink></li>
                 <li><NavLink to="/product">Product</NavLink></li>
                 <li><NavLink to="/cart">Cart</NavLink></li>
                 <li><NavLink to="/checkout">Checkout</NavLink></li>
                 <li><NavLink to="/feedback">Feedback</NavLink></li>
                 <li><NavLink to="/ThreeDModel">ThreeDModel</NavLink></li>
+                
             </ul>
         </div>
         <div className="login-cont">
