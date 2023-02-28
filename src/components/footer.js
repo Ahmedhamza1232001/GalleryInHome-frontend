@@ -34,6 +34,7 @@ function Footer() {
                 <Nav className="me-auto">
 
                   <Link className="nav-link" to="/">Home</Link>
+                  <Link className="nav-link" to="/profile">Profile</Link>
                   <Link className="nav-link" to="/Category">Shop</Link>
                   <Link className="nav-link" to="/Product">Product</Link>
                   <Link className="nav-link" to="/Cart">Cart</Link>
