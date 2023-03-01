@@ -65,7 +65,7 @@ class Dashboard extends Component {
                         position={{ x: 0, y: -40, z: 0 }}
                         rotation={{ x:.2 , y:0 , z:0 }}
                         enableKeys={false}
-                        enableZoom={false}
+                        enableZoom={true}
                         src="../images/LEATHERSOFA-2019-obj.obj"
 
                         onLoad={() => {
