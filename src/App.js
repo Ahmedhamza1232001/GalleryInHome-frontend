@@ -18,7 +18,11 @@ import Category from './pages/Category';
 import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
-import Admin from './Admin Pages/admin';
+import AdminHeader from './Admin Pages/adminHeader';
+import AdminDashboard from './Admin Pages/adminDashboard';
+import NewProduct from './Admin Pages/newProduct';
+import AdminProfile from './Admin Pages/adminProfile';
+import AdminSettings from './Admin Pages/adminSettings';
 import { Outlet } from 'react-router-dom';
 
   
@@ -29,6 +33,13 @@ import { Outlet } from 'react-router-dom';
       <Header />
       <Outlet />
       <Footer/>  
+    </>
+  );
+
+  const HeaderAdminLayout = () => (
+    <>
+      <AdminHeader/>
+      <Outlet /> 
     </>
   );
 function App() {
@@ -46,12 +57,18 @@ function App() {
               <Route path='/Category' element={<Category/>}></Route>
               <Route path='/checkout' element={<CheckOut/>}></Route> 
               <Route path='/feedback' element={<Feedback/>}></Route>  
-              <Route path='/profile' element={<Profile/>}></Route>
-              <Route path='/Admin' element={<Admin/>}></Route>  
+              <Route path='/profile' element={<Profile/>}></Route>  
               <Route path='*' element={<Error/>}></Route>   
             </Route> 
             <Route path='/login' element={<LogIn/>}></Route>
-            <Route path='/signup' element={<SignUp/>}></Route>      
+            <Route path='/signup' element={<SignUp/>}></Route>  
+            <Route element={<HeaderAdminLayout/>}>
+              <Route path='/AdminHeader' element={<AdminHeader/>}></Route>  
+              <Route path='/adminDashboard' element={<AdminDashboard/>}></Route>
+              <Route path='/newProduct' element={<NewProduct/>}></Route>   
+              <Route path='/adminProfile' element={<AdminProfile/>}></Route>
+              <Route path='/adminSettings' element={<AdminSettings/>}></Route>   
+            </Route> 
           </Routes>
         </div>
       </Router>

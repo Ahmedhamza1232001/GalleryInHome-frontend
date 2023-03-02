@@ -1,0 +1,116 @@
+.topbar{
+    position: fixed;
+    top: 0;
+    left: 0px;
+    right: 0;
+    height: 80px;
+    border-bottom: 1px solid var(--clr-primary-1);
+    z-index: 10;
+    display: flex!important;
+}
+.adminHeader{
+    width: 100%;
+    height: 80px;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.adminHeader .logo{
+    width: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 0;
+}
+
+.adminHeader .adminPages{
+    border-left: 1px solid var(--clr-primary-1);
+    width: 1150px;
+    height: 60px;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.adminHeader .adminPages ul{
+    display: flex;
+}
+
+.adminHeader .adminPages li a{
+    color: var(--clr-dark);
+    text-transform: uppercase;
+    position: relative;
+    padding-left: 50px;
+    top: 20px;
+}
+
+.adminHeader .adminPages li a:hover,
+.adminHeader .adminPages li a:focus{
+    color: var(--clr-primary-1);
+    transition: all var(--transition-duration) ease 0s;
+}
+
+.adminHeader .adminBox{
+    border-left: 1px solid var(--clr-primary-1);
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    padding-left: 20px;
+}
+
+.adminHeader .adminBox .adminInformation{
+    display: flex;
+}
+
+.adminHeader .adminBox .adminInformation .adminPicture img{
+    border-radius: 50%;
+    width: 50px;
+    vertical-align: middle;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.adminHeader .adminBox .adminInformation .admin-info{
+    color: var(--clr-dark);
+    font-size: 14px;
+    font-weight: normal;
+    padding-left: 20px;
+    margin-top: 12px;
+}
+
+.adminHeader .adminBox .dropdown-menu ul{
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    border: 0px solid #e9ecef;
+    font-size: 14px;
+    min-width: 10rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #a91313;
+    background-clip: padding-box;
+    border-radius: .25rem;
+}
+
+/* .adminHeader .adminBox .dropdown-menu li{
+    display: list-item;
+    text-align: -webkit-match-parent;
+    display: block;
+    width: 100%;
+    padding: .25rem 1rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+} */

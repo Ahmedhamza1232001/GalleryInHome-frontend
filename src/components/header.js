@@ -32,7 +32,7 @@ function Header() {
                 <li><NavLink to="/cart">Cart</NavLink></li>
                 <li><NavLink to="/checkout">Checkout</NavLink></li>
                 <li><NavLink to="/feedback">Feedback</NavLink></li>
-                <li><NavLink to="/Admin">Admin</NavLink></li>     
+                <li><NavLink to="/AdminHeader">Admin</NavLink></li>     
             </ul>
         </div>
         <div className="login-cont">
