@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, } from 'react'
 import { useForm } from "react-hook-form";
-import {Link} from "react-router-dom"
+import {Link  } from "react-router-dom"
 import "./login.css"
 // images
 import facbook from '../images/facebook.jpeg'
@@ -12,10 +12,28 @@ function LogIn() {
     const { register, handleSubmit,  formState: { errors,isValid }   } = useForm({
         mode:"onChange",
     });
-    const [passShow, setPassShow] = useState(false)
+    const [passShow, setPassShow] = useState(false)    
     const submition= (data)=>{
-        // e.preventDefault()
-        console.log(typeof(data.email));    
+        
+        fetch("http://localhost:5267/Auth/login",{
+            method:"POST",
+            headers:{'content-type':'application/json'},
+            body:JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(res=>{
+            if(res.success){
+                sessionStorage.setItem("jwtTok",res.data)
+                window.location.href= "/"
+            }
+            else{
+                console.log(res.message)
+            }
+        })
+        .catch(err=>console.log(err.message))
+        
+        
+
     }
 
 // function to show and hide password
@@ -55,11 +73,10 @@ const togglePass=(e)=>{
                     <div className="panel-body p-3">
                         <form onSubmit={handleSubmit(submition)}>
                             <div className="form-group py-2">
-                                {<p className='error'>{errors.email?.message}</p>}
-                                <div className="input-field">
+                                 <div className="input-field">
                                     <span className="far fa-user p-2"></span>
-                                    <input type="email" name='email' placeholder="Enter your Email"
-                                    {...register("email",{required:"this is requied*",pattern:{value:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,6}$/,message:"please enter  valid email"}})}/>
+                                    <input type="text" name='userName' placeholder="Enter your name"
+                                    {...register("userName",{required:"this is requied*"})}/>
                                  </div>
 
                             </div>

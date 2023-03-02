@@ -68,6 +68,11 @@
     border: none;
     display: flex;
   }
+  .card-img{
+    width: 100%;
+    min-height: 370px;
+    height: 360px;
+  }
   .card-price{
     position: relative;
     color: #ffc107;

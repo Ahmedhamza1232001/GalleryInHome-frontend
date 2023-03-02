@@ -1,10 +1,8 @@
 import React from "react";
-import {useState} from "react";
+import { useGlobalContext } from "../context";
 import { Row , Col } from "react-bootstrap";
 import "./category.css";
 import {SidebarData} from './sidebarData';
-import CardData from './cardData';
-import img2 from "../images/5.jpeg";
 import {FaThLarge , FaBars} from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -14,8 +12,15 @@ import Form from 'react-bootstrap/Form';
 
 
 const Category =() =>{
-        const [data ] = useState(CardData);
+  
+    const {products} = useGlobalContext()
+    if(!products){
         return(
+            <h3 style={{width:"auto",margin:"30px auto" }}>NO DATA EXIST </h3>
+            )
+    }
+
+    return(
             <>
             <div className="category-main">
                 <div className="d-flex flex-wrap">
@@ -124,19 +129,20 @@ const Category =() =>{
 
                                 {/* cards */}
                             <Row >
-                                {data.map((items) =>{
-                                    const {id ,price, image} = items;
+                                {products?.map((items) =>{
+                                    const {id ,price, images,description} = items;
                                     return(
                                         <>
-                                        <div className='col-12 col-sm-6 col-md-12 col-xl-6' key={id}>
-                                            <div className="card">
-                                                <img src= {img2} 
-                                                className="card-img-top" alt="..." />
+                                        <div className='col-12 col-sm-6 col-md-12 col-xl-6' >
+                                            <div className="card" key={id}>
+                                                {images?.map(img=>
+                                                    <img src= {img.name} key={img.id} className="card-img" alt={img.name} />
+                                                )}
                                                 <div className="card-body d-flex">
                                                     <div>
-                                                        <h4 className="card-price">{price}</h4>
+                                                        <h4 className="card-price">{price} EGP</h4>
                                                         <p className="card-description">
-                                                            Modern Chair
+                                                            {description}
                                                         </p>
                                                     </div>
                                                     <div className="icon">

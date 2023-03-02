@@ -1,103 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from "react-router-dom"
 import "./home.css"
 // global context
 import {useGlobalContext} from "../context"
-// images
-import pot from "../images/vase.webp"
-import chair from "../images/chair.webp"
-import table from "../images/table.webp"
 
 function Home() {
+  const {products} = useGlobalContext()
+  var data = products&&products.slice(0,9)
+
+
+
+
+  if(!products)return(
+    <h3 style={{width:"auto",margin:"30px auto" }}>NO DATA EXIST </h3>
+  )
   return (
     <>
         {/* product category */}
         <div className="products-catagories-area">
           <div className="products-center">
-            <article className="single-product">
-              <Link to="/">
-                <img src={chair} alt="chair" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>modern chair</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="vase" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-            <Link to="/">
-                <img src={table} alt="table" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>small table</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="vase" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={chair} alt="chair" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>modern chair</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="vase" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={table} alt="table" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>small table</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="pot" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={table} alt="table" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>small table</h4>
-                </div>
-              </Link>
-            </article>
+            {data?.map(product=>  
+              <article className="single-product" key={product.id}>
+                <Link to="/product">
+                  <img src={product.images[0].name} alt={product.name} />
+                  <div className="product-content">
+                    <p>from{product.price} EGP</p>
+                    <h4>{product.description}</h4>
+                  </div>
+                </Link>
+              </article>
+              )}
           </div>
         </div>  
-      {/* footer section */}
     </>
     )
 }

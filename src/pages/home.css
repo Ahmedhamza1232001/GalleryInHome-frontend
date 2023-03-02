@@ -16,6 +16,7 @@
 .main-content .products-catagories-area .single-product{
     position: relative;
     z-index: 1;
+    max-height:70vh ;
 }
 .main-content .products-catagories-area .single-product a{
     display: block;
