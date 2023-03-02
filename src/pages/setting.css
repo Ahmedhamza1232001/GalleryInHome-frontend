@@ -1,0 +1,51 @@
+.setting{
+    position: relative;
+    z-index: 1;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(95% - 550px);
+    flex: 0 0 calc(100% - 320px);
+    width: calc(100% - 320px);
+    max-width: calc(100% - 320px);
+    padding-top: 20px;
+}
+.aiz-user-sidenav-wrap {
+    flex: 0 0 265px;
+    max-width: 265px;
+    border-radius: 4px;
+    border: 1px solid rgb(245, 247, 250);
+    background-color: rgb(245, 247, 250);
+    z-index: 1;
+    -webkit-box-flex: 0;
+
+}
+.form-control{
+    margin-top: 15px;
+    height: 60px;
+    border: none;
+    border-radius: 0;
+    background-color: #f5f7fa;
+    padding: 30px;
+    color: #6b6b6b;
+    font-size: 14px;
+}
+.subs-btn{
+    color: black;
+    margin-top: 20px;
+    padding-left: 710px;
+}
+.sub-btn{
+    display: inline-block;
+    min-width: 160px;
+    height: 55px;
+    color: #ffffff;
+    border: none;
+    border-radius: 0;
+    padding: 0 15px;
+    font-size: 18px;
+    line-height: 56px;
+    background-color: #fbb710;
+    font-weight: 400;
+}
+.sub-btn:hover{
+    background-color: #fbb710;
+}
