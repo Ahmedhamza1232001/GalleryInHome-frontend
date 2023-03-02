@@ -17,8 +17,8 @@ import Home from './pages/home';
 import Category from './pages/Category';
 import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
-
 import Profile from './pages/profile';
+import Settings from './pages/setting';
 
 
 function App () {
@@ -41,6 +41,7 @@ function App () {
             <Route path='/checkout' element={<CheckOut/>}></Route> 
             <Route path='/feedback' element={<Feedback/>}></Route>  
             <Route path='/profile' element={<Profile/>}></Route> 
+            <Route path='/setting' element={<Settings/>}></Route> 
             <Route path='*' element={<Error/>}></Route>          
           </Routes>
         </div>
