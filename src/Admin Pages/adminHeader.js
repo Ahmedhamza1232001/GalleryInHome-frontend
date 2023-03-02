@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link,NavLink} from "react-router-dom"
-import {useGlobalContext} from "../context"
 import logo from '../images/logo1.png'
 import './adminHeader.css'
+import { BiLogOutCircle } from "react-icons/bi";
 
 
 const AdminHeader =() =>{
@@ -16,6 +16,8 @@ const AdminHeader =() =>{
                     <ul>
                         <li><NavLink to="/adminDashboard">Admin Dashboard</NavLink></li>
                         <li><NavLink to="/newProduct">New Product</NavLink></li> 
+                        <li><NavLink to="/adminProfile">Profile</NavLink></li>
+                        <li><NavLink to="/adminSettings">Settings</NavLink></li>
                     </ul>
                 </div>
                 <div className='adminBox'>
@@ -27,12 +29,9 @@ const AdminHeader =() =>{
                             <p className='admin-name mb-0'>Rabab Hamdy</p>
                         </div>
                     </div>
-                    <div className='dropdown-menu'>
-                        <ul>
-                            <li><NavLink to="/adminProfile">Profile</NavLink></li>
-                            <li><NavLink to="/adminSettings">Settings</NavLink></li>
-                            <li><NavLink to="/login">Logout</NavLink></li>
-                        </ul>
+                    <div className='logout'>
+                        <span><BiLogOutCircle/></span>
+                        <Link to="/login" className='btn login-btn'>Logout</Link>
                     </div>
                 </div>
             </div>

@@ -30,11 +30,10 @@
 }
 
 .adminHeader .adminPages{
-    border-left: 1px solid var(--clr-primary-1);
-    width: 1150px;
+    width: 2200px;
     height: 60px;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 40px;
     font-size: 14px;
     font-weight: normal;
 }
@@ -61,7 +60,7 @@
     border-left: 1px solid var(--clr-primary-1);
     display: flex;
     align-items: center;
-    width: 300px;
+    width: 600px;
     height: 60px;
     padding-left: 20px;
 }
@@ -86,31 +85,27 @@
     margin-top: 12px;
 }
 
-.adminHeader .adminBox .dropdown-menu ul{
-    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-    border: 0px solid #e9ecef;
-    font-size: 14px;
-    min-width: 10rem;
-    color: #212529;
-    text-align: left;
-    list-style: none;
-    background-color: #a91313;
-    background-clip: padding-box;
-    border-radius: .25rem;
+.adminHeader .adminBox .logout{
+    padding-left: 55px;
+    padding-top: 18px;
+    display: flex;
+    width: 130px;
+    height: 60px;
 }
 
-/* .adminHeader .adminBox .dropdown-menu li{
-    display: list-item;
-    text-align: -webkit-match-parent;
-    display: block;
-    width: 100%;
-    padding: .25rem 1rem;
-    clear: both;
-    font-weight: 400;
-    color: #212529;
-    text-align: inherit;
-    text-decoration: none;
-    white-space: nowrap;
-    background-color: transparent;
-    border: 0;
-} */
+.adminHeader .adminBox .logout span{
+    margin-top: -3px;
+}
+
+.adminHeader .adminBox .logout a{
+    color: var(--clr-primary-1);
+    font-size: 14px;
+    font-weight: normal;
+    padding-left: 5px;
+    margin-top: -7px;
+}
+
+.adminHeader .adminBox .logout a:hover{
+    color: var(--clr-dark);
+    transition: all var(--transition-duration) ease 0s;
+}
