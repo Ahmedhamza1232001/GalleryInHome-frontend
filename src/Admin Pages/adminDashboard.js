@@ -1,6 +1,8 @@
 import './adminDashboard.css'
 import { BsCart } from "react-icons/bs";
-import { IoWalletOutline } from "react-icons/io";
+import { IoWalletOutline } from "react-icons/io5";
+import { AiOutlineBulb } from "react-icons/ai";
+import { BiChat } from "react-icons/bi";
 
 const AdminDashboard =() =>{
 
@@ -44,8 +46,42 @@ const AdminDashboard =() =>{
                         </div>
                     </div>
                 </div>
-                <div className='col'></div>
-                <div className='col'></div>
+                <div className='col'>
+                    <div className='card radius-10 overflow-hidden bg-gradient-Ohhappiness'>
+                        <div className='card-body'>
+                            <div className='d-flex align-items-center'>
+                                <div>
+                                    <p className='mb-0 text-white'>Total Users</p>
+                                    <h5 className='mb-0 text-white'>24.5k</h5>
+                                </div>
+                                <div className='ms-auto text-white'>
+                                    <span className='bx bx-cart font-30'><AiOutlineBulb/></span>
+                                </div>
+                            </div>
+                            <div className='progress bg-white-2 radius-10 mt-4'>
+                                <div className='progress-bar bg-white' role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='col'>
+                    <div className='card radius-10 overflow-hidden bg-gradient-moonlit'>
+                        <div className='card-body'>
+                            <div className='d-flex align-items-center'>
+                                <div>
+                                    <p className='mb-0 text-white'>Comments</p>
+                                    <h5 className='mb-0 text-white'>869</h5>
+                                </div>
+                                <div className='ms-auto text-white'>
+                                    <span className='bx bx-cart font-30'><BiChat/></span>
+                                </div>
+                            </div>
+                            <div className='progress bg-white-2 radius-10 mt-4'>
+                                <div className='progress-bar bg-white' role="progressbar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div className='col'></div>
             </div>
         </div>
