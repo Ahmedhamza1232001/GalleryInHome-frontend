@@ -113,7 +113,7 @@ const Settings =() => {
                         <Form.Control className='form-control' size="lg" type="text" placeholder="Address" />
                     </div>
                     <div className='subs-btn'>
-                        <Link to="/checkout" className='btn sub-btn w-100 '>Checkout</Link>
+                        <Link to="/profile" className='btn sub-btn w-100 '>Submit</Link>
                         </div>
                         </Row>
                         </form>
