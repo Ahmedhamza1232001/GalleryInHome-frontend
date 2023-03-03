@@ -18,7 +18,8 @@ import Category from './pages/Category';
 import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
-import AdminHeader from './Admin Pages/adminHeader';
+// import AdminHeader from './Admin Pages/adminHeader';
+import HeaderAdmin from './Admin Pages/HeaderAdmin';
 import AdminDashboard from './Admin Pages/adminDashboard';
 import NewProduct from './Admin Pages/newProduct';
 import AdminProfile from './Admin Pages/adminProfile';
@@ -32,13 +33,15 @@ import { Outlet } from 'react-router-dom';
       <MObNav/>
       <Header />
       <Outlet />
-      <Footer/>  
+      <Footer/>
     </>
   );
 
   const HeaderAdminLayout = () => (
     <>
-      <AdminHeader/>
+      {/* <AdminHeader/> */}
+      <MObNav/>
+      <HeaderAdmin />
       <Outlet /> 
     </>
   );
@@ -63,7 +66,8 @@ function App() {
             <Route path='/login' element={<LogIn/>}></Route>
             <Route path='/signup' element={<SignUp/>}></Route>  
             <Route element={<HeaderAdminLayout/>}>
-              <Route path='/AdminHeader' element={<AdminHeader/>}></Route>  
+              {/* <Route path='/AdminHeader' element={<AdminHeader/>}></Route>   */}
+              <Route path='/HeaderAdmin' element={<HeaderAdmin/>}></Route>
               <Route path='/adminDashboard' element={<AdminDashboard/>}></Route>
               <Route path='/newProduct' element={<NewProduct/>}></Route>   
               <Route path='/adminProfile' element={<AdminProfile/>}></Route>

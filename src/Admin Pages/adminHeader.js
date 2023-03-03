@@ -4,6 +4,11 @@ import logo from '../images/logo1.png'
 import './adminHeader.css'
 import { BiLogOutCircle } from "react-icons/bi";
 
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 const AdminHeader =() =>{
     return(
@@ -36,7 +41,37 @@ const AdminHeader =() =>{
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default AdminHeader;
+        
+// function AdminHeader() {
+//     return (
+//     <Navbar collapseOnSelet expand="lg" bg="light" variant="light" fixed="top">
+//         <Container>
+//         <Navbar.Brand href="/adminDashboard">
+//             <img src={logo} alt="logo" width="80px" height="80px"/>
+//         </Navbar.Brand>
+//         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+//         <Navbar.Collapse id="responsive-navbar-nav">
+//             <Nav className="ml-auto">
+//             <Nav.Link href="/adminDashboard">Admin Dashboard</Nav.Link>
+//             <Nav.Link href="/newProduct">New Product</Nav.Link>
+//             </Nav>
+//             <Nav className="ml-auto">
+//             <NavDropdown title="" id="collasible-nav-dropdown">
+//                 <NavDropdown.Item href="/adminProfile/3.1">Profile</NavDropdown.Item>
+//                 <NavDropdown.Item href="/adminSettings/3.2">
+//                 Settings
+//                 </NavDropdown.Item>
+//                 <NavDropdown.Divider />
+//                 <NavDropdown.Item href="/login/3.3">
+//                 Logout
+//                 </NavDropdown.Item>
+//             </NavDropdown>
+//             <Button variant="outline-warning">Rabab Hamdy</Button>
+//             </Nav>
+//         </Navbar.Collapse>
+//         </Container>
+//     </Navbar>
