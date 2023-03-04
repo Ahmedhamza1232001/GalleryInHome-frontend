@@ -1,0 +1,234 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+    border-radius: .25rem;
+    margin-top: 60px;
+    left: 10px;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.5rem!important;
+}
+
+.card-title {
+    margin-bottom: .5rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem!important;
+}
+
+.form-body .row{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+@media (min-width: 992px){
+.col-lg-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}}
+
+@media (min-width: 992px){
+.col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+}}
+
+.col-lg-8 .border{
+    border: 1px solid #dee2e6!important;
+    border-radius: .25rem!important;
+    border-width: 3px!important;
+    padding: 1.5rem!important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem!important;
+}
+
+.border .Form-Label{
+    margin-bottom: .5rem;
+    display: inline-block;
+}
+
+.border .Form-Control{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.imageuploadify {
+    border: 2px dashed #d2d2d2;
+    position: relative;
+    min-height: 350px;
+    min-width: 250px;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+    color: #007bff;
+}
+
+.imageuploadify .imageuploadify-overlay {
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    display: none;
+    font-size: 7em;
+    background-color: rgba(242, 242, 242, .7);
+    text-align: center;
+    pointer-events: none;
+}
+
+.imageuploadify .imageuploadify-overlay i{
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.imageuploadify .imageuploadify-images-list {
+    display: inline-block;
+    text-align: center!important;
+}
+
+.imageuploadify .imageuploadify-images-list i {
+    display: block;
+    font-size: 7em;
+    text-align: center;
+    margin-top: .5em;
+    padding-bottom: 12px;
+}
+
+.imageuploadify .imageuploadify-images-list span {
+    font-size: 24px;
+    border-top: 1px solid #007bff;
+    border-bottom: 1px solid #007bff;
+    padding: 10px;
+    display: inline-block;
+}
+
+.imageuploadify .imageuploadify-images-list button.btn-default {
+    display: block;
+    border-color: #007bff;
+    border-radius: 1em;
+    margin: 25px auto;
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    color: rgb(58, 160, 255);
+    letter-spacing: .5px;
+}
+
+.imageuploadify .imageuploadify-images-list button.btn-default:hover{
+    color: white;
+    background-color: rgb(58, 160, 255);
+}
+
+.col-lg-4 .border{
+    border: 1px solid #dee2e6!important;
+    border-radius: .25rem!important;
+    border-width: 3px!important;
+    padding: 1.5rem!important;
+}
+
+.col-lg-4 .border .row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+@media (min-width: 768px){
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}}
+
+
+.col-lg-4 .border .row .form-select{
+    display: block;
+    width: 100%;
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    appearance: none;
+}
+
+.col-12{
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.col-12 .form-label{
+    margin-bottom: .5rem;
+    display: inline-block;
+}
+
+.col-12 .btn{
+    color: #fff;
+    background-color: var(--clr-primary-1);
+    border-color: var(--clr-primary-1);
+    letter-spacing: .5px;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    width: 100%;
+}
+
+.col-12 .btn:hover{
+    background-color: var(--clr-dark);
+    border-color: var(--clr-dark);
+}
