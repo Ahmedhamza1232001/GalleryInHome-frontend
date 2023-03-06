@@ -8,7 +8,12 @@
     max-width: calc(100% - 320px);
     padding-top: 20px;
 }
-.aiz-user-sidenav-wrap {
+
+.profilee .profile-area .container-fluid .card{
+    box-shadow: none;
+}
+
+.profilee .d-flex .aiz-user-sidenav-wrap {
     flex: 0 0 265px;
     max-width: 265px;
     border-radius: 4px;
@@ -24,16 +29,19 @@
     position: relative;
     
 }
+
 .imagee{
     border-radius: 50%;
     width: 110px;
     padding-bottom: 10px;
 }
+
 .aiz-size-nav-list{
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .profileList .row{
     color: gray;
     padding-left: 50px;
@@ -41,16 +49,19 @@
     font-size: large;
 
 }
+
 .profileList .row:hover{
     color: #ffc107;
     cursor: pointer;
 }
-.profile-area{
+
+.profilee .d-flex .profile-area{
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
 }
-.bg-grad{
+
+.profilee .profile-area .container-fluid .card .bg-grad{
     background-color: rgb(245, 247, 250);
     padding-top: 30px;
     padding-right: 30px;
@@ -61,16 +72,19 @@
     border-right: 3px solid #ffc107;
     border-top: 3px solid #ffc107;
 }
+
 .tit{
     color: #ffc107;
     font-size: 22px;
 }
-.Shipping{
+
+.profilee .profile-area .container-fluid .Shipping{
     margin-left:12px;
     width: 700px;
     height: 200px;
     border: 1px solid rgba(0,0,0,.125) ;
 }
+
 .card-header{
     background-color:rgb(245, 247, 250) ;
 }
