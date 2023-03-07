@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link,NavLink} from "react-router-dom"
-import "./header.css"
+import "../components/header.css"
 // icons
 import {BsSearch,BsCart4,BsStars} from "react-icons/bs"
 import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
@@ -25,36 +25,16 @@ function Header() {
         {/* navigation header */}
         <div className="header-nav">
             <ul>
-                <li><NavLink to="/" end>Home</NavLink></li>
-                <li><NavLink to="/profile">Profile </NavLink></li>
-                <li><NavLink to="/Category">Shop</NavLink></li>
-                <li><NavLink to="/product">Product</NavLink></li>
-                <li><NavLink to="/cart">Cart</NavLink></li>
-                <li><NavLink to="/checkout">Checkout</NavLink></li>
-                <li><NavLink to="/feedback">Feedback</NavLink></li>
-                <li><NavLink to="/adminDashboard">Admin</NavLink></li>
-                
+                <li><NavLink to="/adminDashboard" end>Admin Dashboard</NavLink></li>
+                <li><NavLink to="/newProduct">New Product</NavLink></li>
+                <li><NavLink to="/adminProfile">Admin Profile</NavLink></li>
+                <li><NavLink to="/adminSettings">Admin Settings</NavLink></li>     
             </ul>
         </div>
         <div className="login-cont">
-            <Link to="/login" className='btn login-btn'>Login</Link>
+            <Link to="/login" className='btn login-btn'>Logout</Link>
         </div>
-        {/* special pages */}
-        <div className="cart-fav-search my-5">
-            <Link to="/cart">
-                <BsCart4 className='mr-2'/>
-                Cart
-                <span> (0)</span>
-            </Link>
-            <Link to="/">
-                <BsStars className='mr-2'/>
-                Favorite
-            </Link>
-            <Link onClick={openSearch}>
-                <BsSearch className='mr-2'/>
-                Search
-            </Link>
-        </div>
+
         {/* social information links */}
         <div className="social-info ">
             <a href="https://www.facebook.com/">

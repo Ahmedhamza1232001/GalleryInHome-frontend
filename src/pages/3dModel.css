@@ -7,7 +7,7 @@
   flex-basis: calc(100% - 320px);
   width: calc(100% - 320px);
   max-width: calc(100% - 320px);
-  height: 700px;
+  height: 600px;
   left: 140px;
   top: 4px;
   }
@@ -19,7 +19,7 @@
   } 
   canvas{
     width: 100% !important; 
-    height: 800px;
+    height: 400px;
     position: absolute!important;
     left: 0!important;
     top: 0!important;

@@ -18,7 +18,31 @@ import Category from './pages/Category';
 import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
+import Settings from './pages/setting';
+// import AdminHeader from './Admin Pages/adminHeader';
+import HeaderAdmin from './Admin Pages/HeaderAdmin';
+import AdminDashboard from './Admin Pages/adminDashboard';
+import NewProduct from './Admin Pages/newProduct';
+import AdminProfile from './Admin Pages/adminProfile';
+import { Outlet } from 'react-router-dom';
 
+const SidebarLayout = () => (
+  <>
+    <Search/>
+    <MObNav/>
+    <Header/>
+    <Outlet />
+    <Footer/>
+  </>
+);
+
+const HeaderAdminLayout = () => (
+  <>
+    <MObNav/>
+    <HeaderAdmin/>
+    <Outlet />
+  </>
+);
 
 function App () {
   const {IssearchOpen} = useGlobalContext()
@@ -26,15 +50,30 @@ function App () {
   return (
     <div className={`${IssearchOpen?"search-wrappe-on":"app-container"}`} >
       <Router>
-        <Search/>
         <div className="main-content">
-        <MObNav/>
-        <Header/>
           <Routes >
             <Route element={<SidebarLayout/>}>
+              <Route path="/" element={<Home/>} />
+                <Route path='/product' element={<Product/>}></Route>
+                <Route path='/cart' element={<Cart/>}></Route>
+                <Route path='/Category' element={<Category/>}></Route>
+                <Route path='/checkout' element={<CheckOut/>}></Route> 
+                <Route path='/feedback' element={<Feedback/>}></Route>  
+                <Route path='/profile' element={<Profile/>}></Route> 
+                <Route path='/setting' element={<Settings/>}></Route> 
+                <Route path='*' element={<Error/>}></Route>   
+              </Route> 
+              <Route path='/login' element={<LogIn/>}></Route>
+              <Route path='/signup' element={<SignUp/>}></Route>  
+            <Route element={<HeaderAdminLayout/>}>
+              {/* <Route path='/AdminHeader' element={<AdminHeader/>}></Route>   */}
+              <Route path='/HeaderAdmin' element={<HeaderAdmin/>}></Route>
+              <Route path='/adminDashboard' element={<AdminDashboard/>}></Route>
+              <Route path='/newProduct' element={<NewProduct/>}></Route>   
+              <Route path='/adminProfile' element={<AdminProfile/>}></Route>
+            </Route> 
           </Routes>
         </div>
-      <Footer/>
       </Router>
   </div>
   )

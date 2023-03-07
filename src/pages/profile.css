@@ -1,14 +1,36 @@
+.profilee .row .col-lg-3{
+    width: 94%;
+    padding-right: 0;
+}
+
 .profilee{
     position: relative;
     z-index: 1;
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 calc(95% - 550px);
-    flex: 0 0 calc(100% - 320px);
-    width: calc(100% - 320px);
-    max-width: calc(100% - 320px);
-    padding-top: 20px;
 }
-.aiz-user-sidenav-wrap {
+
+.profilee .container-fluid .row{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: start;
+    width: 100%;
+    height: 200px;
+    margin-left: auto;
+}
+
+.profilee .profile-area .container-fluid{
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 50px;
+}
+
+.profilee .profile-area .container-fluid .card{
+    box-shadow: none;
+}
+
+.profilee .d-flex .aiz-user-sidenav-wrap {
+    width:fit-content;
     flex: 0 0 265px;
     max-width: 265px;
     border-radius: 4px;
@@ -16,41 +38,41 @@
     background-color: rgb(245, 247, 250);
     z-index: 1;
     -webkit-box-flex: 0;
-
 }
+
 .pic{
     background-color: #fbb710;
     text-align: center;
     position: relative;
     
 }
+
 .imagee{
     border-radius: 50%;
     width: 110px;
     padding-bottom: 10px;
 }
+
 .aiz-size-nav-list{
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .profileList .row{
     color: gray;
     padding-left: 50px;
     margin-top: 20px;
     font-size: large;
-
 }
+
 .profileList .row:hover{
     color: #ffc107;
     cursor: pointer;
 }
-.profile-area{
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-left: 20px;
-}
-.bg-grad{
+
+
+.profilee .profile-area .container-fluid .card .bg-grad{
     background-color: rgb(245, 247, 250);
     padding-top: 30px;
     padding-right: 30px;
@@ -61,16 +83,18 @@
     border-right: 3px solid #ffc107;
     border-top: 3px solid #ffc107;
 }
+
 .tit{
     color: #ffc107;
     font-size: 22px;
 }
-.Shipping{
-    margin-left:12px;
-    width: 700px;
+
+.profilee .profile-area .container-fluid .Shipping{
+    width: 280px;
     height: 200px;
     border: 1px solid rgba(0,0,0,.125) ;
 }
+
 .card-header{
     background-color:rgb(245, 247, 250) ;
 }
