@@ -27,8 +27,7 @@ function Header() {
             <ul>
                 <li><NavLink to="/adminDashboard" end>Admin Dashboard</NavLink></li>
                 <li><NavLink to="/newProduct">New Product</NavLink></li>
-                <li><NavLink to="/adminProfile">Admin Profile</NavLink></li>
-                <li><NavLink to="/adminSettings">Admin Settings</NavLink></li>     
+                <li><NavLink to="/adminProfile">Admin Profile</NavLink></li>  
             </ul>
         </div>
         <div className="login-cont">

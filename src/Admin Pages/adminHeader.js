@@ -22,7 +22,6 @@ const AdminHeader =() =>{
                         <li><NavLink to="/adminDashboard">Admin Dashboard</NavLink></li>
                         <li><NavLink to="/newProduct">New Product</NavLink></li> 
                         <li><NavLink to="/adminProfile">Profile</NavLink></li>
-                        <li><NavLink to="/adminSettings">Settings</NavLink></li>
                     </ul>
                 </div>
                 <div className='adminBox'>
