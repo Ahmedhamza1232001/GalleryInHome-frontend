@@ -52,7 +52,7 @@ class Dashboard extends Component {
           <div className='row'>
             <div className='col-12 col-xl-7'>
               <div className='pictureOfProduct'>
-                <img src="../images/LEATHERSOFA.jpg" alt="chair"/>
+                <img src="../images/img7.jpg" alt="chair"/>
               </div>
               <div className='show3dButton'>         
                 <button className='threedLink' type='button' onClick={this.showModal}>Show 3D</button>
@@ -61,7 +61,7 @@ class Dashboard extends Component {
                     <div style={{ margin: "auto" }}>
                       <OBJModel
                         width="1400"
-                        height="720"
+                        height="600"
                         position={{ x: 0, y: -40, z: 0 }}
                         rotation={{ x:.2 , y:0 , z:0 }}
                         enableKeys={false}

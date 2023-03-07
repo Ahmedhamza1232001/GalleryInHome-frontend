@@ -197,13 +197,24 @@
     height: 50px;
 }
 
+.dashboard-page .page-content .row .card 
+.support-list .d-flex .ps-3 {
+    padding-left: 1rem!important;
+}
+
+.dashboard-page .page-content .row .card 
+.support-list .d-flex .ms-auto {
+    margin-left: auto!important;
+    margin-bottom: 0!important;
+}
+
 .dashboard-page .page-content .row .col .card 
 .support-list .d-flex .ps-3 .text-primary {
     color: var(--clr-primary-1)!important;
     float: right!important;
     --bs-text-opacity: 1;
     font-size: 13px;
-    margin-left: 120px;
+    margin-left: 130px;
 }
 
 .dashboard-page .page-content .row .col .card 
