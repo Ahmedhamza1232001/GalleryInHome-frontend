@@ -18,7 +18,6 @@ import Category from './pages/Category';
 import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
-import Settings from './pages/setting';
 
 
 function App () {
@@ -33,16 +32,7 @@ function App () {
         <Header/>
           <Routes >
             <Route path="/" element={<Home/>} />
-            <Route path='/login' element={<LogIn/>}></Route>
-            <Route path='/signup' element={<SignUp/>}></Route>
-            <Route path='/product' element={<Product/>}></Route>
-            <Route path='/cart' element={<Cart/>}></Route>
-            <Route path='/Category' element={<Category/>}></Route>
-            <Route path='/checkout' element={<CheckOut/>}></Route> 
-            <Route path='/feedback' element={<Feedback/>}></Route>  
-            <Route path='/profile' element={<Profile/>}></Route> 
-            <Route path='/setting' element={<Settings/>}></Route> 
-            <Route path='*' element={<Error/>}></Route>          
+            <Route path='/login' element={<LogIn/>}></Route>    
           </Routes>
         </div>
       <Footer/>
