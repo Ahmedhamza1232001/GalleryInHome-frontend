@@ -19,26 +19,39 @@ import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
 
+  
+  const SidebarLayout = () => (
+    <>
+      <Search/>
+      <MObNav/>
+      <Header />
+      <Outlet />
+      <Footer/>
+    </>
+  );
 
-function App () {
+  const HeaderAdminLayout = () => (
+    <>
+      {/* <AdminHeader/> */}
+      <MObNav/>
+      <HeaderAdmin />
+      <Outlet /> 
+    </>
+  );
+function App() {
   const {IssearchOpen} = useGlobalContext()
 
   return (
     <div className={`${IssearchOpen?"search-wrappe-on":"app-container"}`} >
-      <Router>
-        <Search/>
-        <div className="main-content">
-        <MObNav/>
-        <Header/>
+      <Router>   
+        <div className="main-content">  
           <Routes >
             <Route element={<SidebarLayout/>}>
           </Routes>
         </div>
-      <Footer/>
       </Router>
   </div>
   )
 }
 
 export default App
-

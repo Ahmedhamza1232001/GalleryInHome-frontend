@@ -42,111 +42,115 @@ const Profile =() => {
     return(
         <>
         <div className="container profilee">
-            <div className="d-flex align-items-start">
-                <div className="aiz-user-sidenav-wrap position-relative z-1 shadow-sm">
-                    <div className="aiz-user-sidenav rounded c-scrollbar-light pb-5 pb-xl-0">
-                        <div className="pic p-4 text-xl-center mb-4 border-bottom text-white">
-                            <span className="avatar avatar-md mb-3">
-                                <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" 
-                                className="imagee" alt = "..."/>
-                            </span>
-                            <h4 className="h5 fs-16 mb-1 fw-600"> ghada wahb </h4>
-                            <div className="text-truncate opacity-60">ghadawahb2008@gmail.com</div>
-                        </div>
-                        <div className="profileList mb-3">
-                        <ul className="aiz-size-nav-list px-2 metismenu ">
-                        {ProfileData.map((val,key) => {
-                        return(
-                            <li key={key} 
-                            className="row"
-                            id = {window.location.pathname === val.link ? "active" : " "}  
-                            onClick={()=> {window.location.pathname= val.link}}>  
-                            <div>
-                                {val.icoon}
-                                {val.title}
-                            </div>
-                            </li>
-                        )
-                    })}
-                    </ul>
-                        </div>
-                </div>
-                </div>
-                
-                <div className="profile-area">
-                    <div className="container-fluid">
-                        <Row>
-                        <div className="col-12">
-                            <div className="profile-topbar d-xl-flex align-items-end justify-content-between">
-                            <div className="total-products">
-                            <h3> <BsHouseDoor className='mr-2' /> My Account </h3>
-                            </div>
+                <Row>
+                <div className='col-lg-3'>
+                        <div className="aiz-user-sidenav-wrap position-relative z-1 shadow-sm">
+                            <div className="aiz-user-sidenav rounded c-scrollbar-light pb-5 pb-xl-0">
+                                <div className="pic p-4 text-xl-center mb-4 border-bottom text-white">
+                                    <span className="avatar avatar-md mb-3">
+                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" 
+                                        className="imagee" alt = "..."/>
+                                    </span>
+                                    <h4 className="h5 fs-16 mb-1 fw-600"> ghada wahb </h4>
+                                    <div className="text-truncate opacity-60">ghadawahb2008@gmail.com</div>
+                                </div>
+                                <div className="profileList mb-3">
+                                <ul className="aiz-size-nav-list px-2 metismenu ">
+                                {ProfileData.map((val,key) => {
+                                return(
+                                    <li key={key} 
+                                    className="row"
+                                    id = {window.location.pathname === val.link ? "active" : " "}  
+                                    onClick={()=> {window.location.pathname= val.link}}>  
+                                    <div>
+                                        {val.icoon}
+                                        {val.title}
+                                    </div>
+                                    </li>
+                                )
+                            })}
+                            </ul>
+                                </div>
                         </div>
                         </div>
-                        </Row>
-                        <Row >
-                        <Col>
-                        <Card style={{ width: '25rem' }}>
-                            <Card.Body className="bg-grad rounded-lg mb-4 overflow-hidden">
-                            <Card.Title className="tit">(0) Products</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">in your cart</Card.Subtitle>
-                            <Card.Text>
-                            The products you have added to the shopping cart will appear here.
-                            </Card.Text>
-                            <Card.Link href="#">Cart</Card.Link>
-                            </Card.Body>
-                        </Card>
-                        </Col>
-                        
-                        <Col>
-                        <Card style={{ width: '25rem' }}>
-                            <Card.Body className="bg-grad  rounded-lg mb-4 overflow-hidden">
-                            <Card.Title className="tit">(0) Products</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">in your favorite list</Card.Subtitle>
-                            <Card.Text>
-                            The products that you liked will appear here.
-                            </Card.Text>
-                            <Card.Link href="#">Favorite list</Card.Link>
-                            </Card.Body>
-                        </Card>
-                        </Col>
-                    
-
-                        <Col>
-                        
-                        <Card style={{ width: '25rem' }}>
-                            <Card.Body className="bg-grad rounded-lg mb-4 overflow-hidden">
-                            <Card.Title className="tit">(0) Products</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">you purchased</Card.Subtitle>
-                            <Card.Text>
-                            The products you have bought will appear here.
-                            </Card.Text>
-                            <Card.Link href="#">Purchases</Card.Link>
-                            </Card.Body>
-                        </Card>
-                        </Col>
-                        </Row>
-
-                        <Row>
-                        <Card className="Shipping">
-                        <Card.Header className="tit">
-                        
-                            Shipping details ...
-                            <MdOutlineLocalShipping className='mr-2' />
-                            </Card.Header>
-                        <Card.Body>
-                        <blockquote className="blockquote mb-0">
-                        <footer className="blockquote-footer">
-                        Details will appear when you place an order.
-                        </footer>
-                        </blockquote>
-                        </Card.Body>
-                        </Card>
-                        </Row>
                     </div>
-                    
-                </div>
-            </div>
+
+                    <div className='col-lg-9'>
+                        <div className="profile-area">
+                            <div className="container-fluid">
+                                <Row style={{height:'20px'}}>
+                                    <div className="col-12">
+                                        <div className="profile-topbar d-xl-flex align-items-end justify-content-between">
+                                        <div className="total-products">
+                                        <h3> <BsHouseDoor className='mr-2' /> My Account </h3>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </Row>
+                                <Row>                                   
+                                    
+                                        <Card style={{ width: '20rem' }} className="card">
+                                            <Card.Body className="bg-grad rounded-lg mb-4 overflow-hidden">
+                                            <Card.Title className="tit">(0) Products</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">in your cart</Card.Subtitle>
+                                            <Card.Text>
+                                            The products you have added to the shopping cart will appear here.
+                                            </Card.Text>
+                                            <Card.Link href="#">Cart</Card.Link>
+                                            </Card.Body>
+                                        </Card>
+                                    
+                                </Row>
+                                <Row>
+                                    
+                                        <Card style={{ width: '20rem' }} className="card">
+                                            <Card.Body className="bg-grad  rounded-lg mb-4 overflow-hidden">
+                                            <Card.Title className="tit">(0) Products</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">in your favorite list</Card.Subtitle>
+                                            <Card.Text>
+                                            The products that you liked will appear here.
+                                            </Card.Text>
+                                            <Card.Link href="#">Favorite list</Card.Link>
+                                            </Card.Body>
+                                        </Card>
+                                    
+                                </Row>
+
+                                <Row style={{height:'250px'}}>
+                                                      
+                                        <Card style={{ width: '20rem' }} className="card">
+                                            <Card.Body className="bg-grad rounded-lg mb-4 overflow-hidden">
+                                            <Card.Title className="tit">(0) Products</Card.Title>
+                                            <Card.Subtitle className="mb-2 text-muted">you purchased</Card.Subtitle>
+                                            <Card.Text>
+                                            The products you have bought will appear here.
+                                            </Card.Text>
+                                            <Card.Link href="#">Purchases</Card.Link>
+                                            </Card.Body>
+                                        </Card>
+                                    
+                                </Row>
+
+                                <Row style={{height:'300px'}}>                                
+                                    <Card className="Shipping">
+                                    <Card.Header className="tit">
+                                    
+                                        Shipping details ...
+                                        <MdOutlineLocalShipping className='mr-2' />
+                                        </Card.Header>
+                                    <Card.Body>
+                                    <blockquote className="blockquote mb-0">
+                                    <footer className="blockquote-footer">
+                                    Details will appear when you place an order.
+                                    </footer>
+                                    </blockquote>
+                                    </Card.Body>
+                                    </Card>               
+                                </Row>
+                            </div>         
+                        </div>
+                    </div>
+                </Row>
         </div>
         </>
     )}
