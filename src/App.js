@@ -31,8 +31,17 @@ function App () {
         <MObNav/>
         <Header/>
           <Routes >
-            <Route path="/" element={<Home/>} />
-            <Route path='/login' element={<LogIn/>}></Route>    
+            <Route element={<SidebarLayout/>}>
+                <Route path="/" element={<Home/>} />
+                <Route path='/product' element={<Product/>}></Route>
+                <Route path='/cart' element={<Cart/>}></Route>
+                <Route path='/Category' element={<Category/>}></Route>
+                <Route path='/checkout' element={<CheckOut/>}></Route> 
+                <Route path='/feedback' element={<Feedback/>}></Route>  
+                <Route path='/profile' element={<Profile/>}></Route>  
+                <Route path='*' element={<Error/>}></Route>   
+              </Route> 
+              <Route path='/login' element={<LogIn/>}></Route>  
           </Routes>
         </div>
       <Footer/>
