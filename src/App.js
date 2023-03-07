@@ -36,15 +36,15 @@ const SidebarLayout = () => (
   </>
 );
 
-const HeaderAdminLayout = () => (
-  <>
-    <MObNav/>
-    <HeaderAdmin/>
-    <Outlet />
-  </>
-);
-
-function App () {
+  const HeaderAdminLayout = () => (
+    <>
+      {/* <AdminHeader/> */}
+      <MObNav/>
+      <HeaderAdmin />
+      <Outlet /> 
+    </>
+  );
+function App() {
   const {IssearchOpen} = useGlobalContext()
 
   return (
@@ -80,4 +80,3 @@ function App () {
 }
 
 export default App
-
