@@ -3,7 +3,7 @@
 }
 
 .dashboard-page .page-content{
-    position: absolute;
+    position: relative;
 }
 
 .dashboard-page .page-content .row{
