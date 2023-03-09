@@ -7,6 +7,11 @@
     position: relative;
     z-index: 1;
     -webkit-box-flex: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% - 320px);
+    width: calc(100% - 320px);
+    max-width: calc(100% - 320px);
 }
 
 .profilee .container-fluid .row{
@@ -98,3 +103,25 @@
 .card-header{
     background-color:rgb(245, 247, 250) ;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .main-content .profilee{
+      position: relative;
+      z-index: 1;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc(100% - 280px);
+      width: calc(100% - 280px);
+      max-width: calc(100% - 280px);
+    }
+  }
+  @media only screen and (max-width: 767px){
+    .main-content .profilee{
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      padding-top: 50px;
+    }
+  }
