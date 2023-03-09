@@ -1,5 +1,10 @@
 .dashboard-page{
     margin-top: 60px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% - 340px);
+    width: calc(100% - 340px);
+    max-width: calc(100% - 340px);
 }
 
 .dashboard-page .page-content{
@@ -221,3 +226,25 @@
 .support-list .d-flex .ps-3 .text-secondary{
     font-size: 13px;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .main-content .dashboard-page{
+      position: relative;
+      z-index: 1;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc(100% - 320px);
+      width: calc(100% - 320px);
+      max-width: calc(100% - 320px);
+    }
+  }
+  @media only screen and (max-width: 767px){
+    .main-content .dashboard-page{
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 95%;
+      flex: 0 0 95%;
+      width: 95%;
+      max-width: 95%;
+      padding-top: 50px;
+    }
+  }
