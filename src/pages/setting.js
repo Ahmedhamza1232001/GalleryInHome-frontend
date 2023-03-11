@@ -14,7 +14,7 @@ const Settings =() => {
         const ProfileData =[
         {
             icoon: <BsHouseDoor className='mr-2' /> ,
-            title:"My Mccount",
+            title:"My Account",
             link:"/profile",
         },
         {

@@ -4,13 +4,14 @@ import { Row , Col } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import {BsGear,BsHeart,BsHouseDoor,BsCalendar2Date} from "react-icons/bs"
 import { MdPayment , MdOutlineLocalShipping } from "react-icons/md";
+import { BiLogOutCircle } from "react-icons/bi";
 
 const Profile =() => {
     const ProfileData =[
         {
             icoon: <BsHouseDoor className='mr-2' /> ,
-            title:"My Mccount",
-            link:"/account",
+            title:"My Account",
+            link:"/profile",
         },
         {
             icoon: <BsHeart className='mr-2' /> ,
@@ -24,13 +25,18 @@ const Profile =() => {
         }, 
         {
             icoon: <BsGear className='mr-2' /> ,
-            title:"Profile Management",
+            title:"Settings",
             link:"/setting",
         },
         {
             icoon: <MdPayment className='mr-2' /> ,
             title:"Payment",
             link:"/payment",
+        },
+        {
+            icoon: <BiLogOutCircle className='mr-2' /> ,
+            title:"Logout",
+            link:"/login",
         }]
 
     return(
