@@ -32,7 +32,7 @@ const AdminSettings =() => {
         <>
             <div className="container setting">
                 <Row>
-                    <div className='col-lg-3'>
+                    <div className='col-lg-4'>
                         <div className="aiz-user-sidenav-wrap position-relative z-1 shadow-sm">
                             <div className="aiz-user-sidenav rounded c-scrollbar-light pb-5 pb-xl-0">
                                 <div className="pic p-4 text-xl-center mb-4 border-bottom text-white">
@@ -64,7 +64,7 @@ const AdminSettings =() => {
                         </div>
                     </div>
                     
-                    <div className='col-lg-9'>
+                    <div className='col-lg-8'>
                         <div className="profile-area">
                             <div className="container-fluid">
                                 <Row>
@@ -101,7 +101,7 @@ const AdminSettings =() => {
                                             </div>
                                         </Row>
                                         <Row>
-                                            <div className='col-md-6 mb-3'>
+                                            <div className='col-12 mb-3'>
                                                 <Form.Label>Phone No :</Form.Label>
                                                 <Form.Control className='form-control' size="lg" type="number" min={0} placeholder="01091827364" />
                                             </div>

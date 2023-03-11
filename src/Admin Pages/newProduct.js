@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 const NewProduct =() =>{
 
     return(
-        <Card className='card'>
+        <Card className='addCard'>
             <Card.Body className='card-body p-4'>
                 <Card.Title className='card-title'>
                     <h5>Add New Product</h5>

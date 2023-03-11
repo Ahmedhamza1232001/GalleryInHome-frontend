@@ -9,10 +9,8 @@
     max-width: calc(100% - 320px);
 }
 
-.setting .col-lg-3 .aiz-user-sidenav-wrap {
-    width:fit-content;
-    flex: 0 0 265px;
-    max-width: 265px;
+.setting .aiz-user-sidenav-wrap {
+    min-width:100%;
     border-radius: 4px;
     border: 1px solid rgb(245, 247, 250);
     /* background-color: rgb(245, 247, 250); */
@@ -20,13 +18,13 @@
     -webkit-box-flex: 0;
 }
 
-.setting .col-lg-9 .profile-area .container-fluid{
+.setting .profile-area .container-fluid{
     padding-right: 0;
     padding-left: 0;
     margin-top: 50px;
 }
 
-.setting .col-lg-9 .profile-area .row .mb-3 .form-control{
+.setting .profile-area .row .mb-3 .form-control{
     margin-top: 15px;
     height: 60px;
     border: none;

@@ -35,9 +35,10 @@ const Profile =() => {
 
     return(
         <>
-        <div className="container profilee">
-                <Row>
-                <div className='col-lg-3'>
+        <div className=" profilee">
+            <div className="container">
+            <Row>
+                <div className='col-lg-4'>
                         <div className="aiz-user-sidenav-wrap position-relative z-1 shadow-sm">
                             <div className="aiz-user-sidenav rounded c-scrollbar-light pb-5 pb-xl-0">
                                 <div className="pic p-4 text-xl-center mb-4 border-bottom text-white">
@@ -69,10 +70,10 @@ const Profile =() => {
                         </div>
                     </div>
 
-                    <div className='col-lg-9'>
+                    <div className='col-lg-8'>
                         <div className="profile-area">
                             <div className="container-fluid">
-                                <Row style={{height:'20px'}}>
+                                <Row>
                                     <div className="col-12">
                                         <div className="profile-topbar d-xl-flex align-items-end justify-content-between">
                                         <div className="total-products">
@@ -145,6 +146,7 @@ const Profile =() => {
                         </div>
                     </div>
                 </Row>
+            </div>
         </div>
         </>
     )}
