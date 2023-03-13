@@ -96,13 +96,12 @@ const AdminProfile =() => {
                                             </div>
                                         </Row>
                                         <Row>
-                                            <div className='col-12 mb-3'>
+                                            <div className='col-md-6 mb-3'>
                                                 <Form.Label>Password :</Form.Label>
                                                 <Form.Text>R123@</Form.Text>
                                             </div>
-                                        </Row>
-                                        <Row>
-                                            <div className='col-12 mb-3'>
+
+                                            <div className='col-md-6 mb-3'>
                                                 <Form.Label>Phone No :</Form.Label>
                                                 <Form.Text>01012345678</Form.Text>
                                             </div>
