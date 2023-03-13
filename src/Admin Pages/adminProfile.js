@@ -82,35 +82,35 @@ const AdminProfile =() => {
                                         <Row>
                                             <div className='col-md-6 mb-3'>
                                                 <Form.Label>First Name :</Form.Label>
-                                                <Form.Control  className='form-control' size="lg" type="text" disabled="disabled" placeholder="Rabab" />
+                                                <Form.Text>Rabab</Form.Text>
                                             </div>
                                             <div className='col-md-6 mb-3'>
                                                 <Form.Label>Last Name :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="text" disabled="disabled" placeholder="Hamdy" />
+                                                <Form.Text>Hamdy</Form.Text>
                                             </div>
                                         </Row>
                                         <Row>
                                             <div className='col-12 mb-3'>
                                                 <Form.Label>Email :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="email" disabled="disabled" placeholder="rabab_hamdyy@gmail.com" />
+                                                <Form.Text>rabab_hamdyy@gmail.com</Form.Text>
                                             </div>
                                         </Row>
                                         <Row>
                                             <div className='col-12 mb-3'>
                                                 <Form.Label>Password :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="password" disabled="disabled" placeholder="R123@" />
+                                                <Form.Text>R123@</Form.Text>
                                             </div>
                                         </Row>
                                         <Row>
                                             <div className='col-12 mb-3'>
                                                 <Form.Label>Phone No :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="number" min={0} disabled="disabled" placeholder="01091827364" />
+                                                <Form.Text>01012345678</Form.Text>
                                             </div>
                                         </Row>
                                         <Row>
                                             <div className='col-12 mb-3'>
                                             <Form.Label>Address :</Form.Label>
-                                            <Form.Control className='form-control' size="lg" type="text" disabled="disabled" placeholder="Cairo, Damietta" />
+                                            <Form.Text>Cairo, Damietta</Form.Text>
                                             </div>
                                         </Row>
                                         <Row>
