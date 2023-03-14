@@ -1,5 +1,7 @@
 import "./DarkMode.css";
 import { ChangeEventHandler } from "react";
+import { CiLight } from "react-icons/ci";
+import { CiDark } from "react-icons/ci";
 
 // 1
 const setDark = () => {
@@ -42,7 +44,7 @@ const toggleTheme: ChangeEventHandler<HTMLInputElement> = (e) => {
 const DarkMode = () => {
   return (
     <div className="toggle-theme-wrapper">
-      <span>☀️</span>
+      <span><CiLight/></span>
       <label className="toggle-theme" htmlFor="checkbox">
         <input
           type="checkbox"
@@ -54,7 +56,7 @@ const DarkMode = () => {
         />
         <div className="slider round"></div>
       </label>
-      <span>🌒</span>
+      <span><CiDark/></span>
     </div>
   );
 };
