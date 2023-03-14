@@ -29,7 +29,7 @@
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
-  color: #242424;
+  color: var(--font-color);
   font-weight: bold;
   margin-right: 20px;
 }
@@ -73,18 +73,10 @@
   border: none;
   border-radius: 0;
   top: 20px;
-  /* left: 20px; */
-  /* margin-bottom: 50px; */
   position: relative;
   animation: example 4s 2s infinite;
 }
 
-@keyframes example {
-  0%   {background-color:#fbb710; left:0px; top:20px;}
-  50%  {background-color:#fbb710; left:15px; top:20px;}
-  100%  {background-color:#fbb710; left:0px; top:20px;}
-
-}
 
 /* pop up */
 
@@ -127,12 +119,12 @@
 .review a{
   text-decoration: none;
   font-size: 13px;
-  color: #6b6b6b;
+  color: var(--checkBox-color);
   margin-top: 10px;  
 }
 
 .avaibility{
-  color:#6b6b6b;
+  color:var(--checkBox-color);
   margin-top: 15px;
   font-size: 12px;
   font-weight: bold;
@@ -145,7 +137,7 @@
 }
 
 .shortOverview{
-  color: #6b6b6b;
+  color: var(--checkBox-color);
   font-size: 16px;
   font-weight: 400;
   line-height: 2.1;

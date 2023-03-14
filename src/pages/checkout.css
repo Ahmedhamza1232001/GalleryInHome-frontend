@@ -51,7 +51,7 @@
     height: 60px;
     border: none;
     border-radius: 0;
-    background-color: #f5f7fa;
+    background-color: var(--grad-color);
     padding: 30px;
     color: #6b6b6b;
     font-size: 14px;
@@ -61,7 +61,7 @@
     height: 60px;
     border: none;
     border-radius: 0;
-    background-color: #f5f7fa;
+    background-color: var(--grad-color);
     padding: 20px;
     color: #6b6b6b;
     font-size: 14px;
@@ -83,7 +83,7 @@
 
 /* check box of Form */
 .cart-table-area .container-fluid .row .col-12 .checkout_details_area .cart-title form .check label{
-    color: #6b6b6b;
+    color: var(--checkBox-color);
     margin-bottom: 15px;
     font-size: 14px;
 }
@@ -91,7 +91,7 @@
 
 /* Cart Total Information */
 .cart-table-area .container-fluid .row .col-12 .cart-summary{
-    background-color: #f5f7fa;
+    background-color: var(--background-color);
     margin-top: 70px;
     position: relative;
     z-index: 1;
@@ -103,7 +103,7 @@
     -webkit-box-pack: justify;
     justify-content: space-between;
     margin-bottom: 30px;
-    color: #6b6b6b;
+    color: var(--gray-color);
     font-size: 14px;
     margin-top: 30px;
 }
@@ -118,7 +118,7 @@
     display: block;
     min-height: 1.5rem;
     margin-right: 0.5rem !important;
-    color: #6b6b6b;
+    color: var(--checkBox-color);
     font-size: 14px;
 }
 

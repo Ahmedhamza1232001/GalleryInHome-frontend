@@ -8,7 +8,7 @@
     flex: 0 0 320px;
     width: 320px;
     max-width: 320px;
-    background-color: var(--clr-white);
+    background-color: var(--background-color);
     padding: 60px 75px;
 }
 .main-content .header-area.on{
@@ -24,7 +24,7 @@
     top: 0;
     right: 15px;
     text-align: center;
-    color: #fff;
+    color: var(--font-color);
     line-height: 40px;
     font-size: 12px;
     cursor: pointer;
@@ -48,12 +48,12 @@
     padding: 20px 0;
     display: block;
     line-height: .9;
-    color: var(--clr-dark);
+    color: var(--font-color);
     font-weight: normal;
 }
 .main-content .header-area .header-nav li a:hover,
 .main-content .header-area .header-nav li a:focus{
-    color: var(--clr-primary-1);
+    color: var(--font-color);
     transition: all var(--transition-duration) ease 0s;
 }
 .main-content .header-area .header-nav li a::after{
@@ -101,7 +101,7 @@
     font-size: 16px;
     padding: 15px 0;
     line-height: 1;
-    color: var(--clr-dark);
+    color: var(--font-color);
 }
 .main-content .header-area .cart-fav-search span,  
 .main-content .header-area .cart-fav-search svg{

@@ -8,6 +8,7 @@ import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
 import {useGlobalContext} from "../context"
 // images
 import logo from '../images/logo1.png'
+import DarkMode from "../DarkMode.jsx";
 
 function Header() {
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
@@ -33,6 +34,10 @@ function Header() {
         <div className="login-cont">
             <Link to="/login" className='btn login-btn'>Logout</Link>
         </div>
+
+        <DarkMode />
+        <br></br>
+        <br></br>
 
         {/* social information links */}
         <div className="social-info ">
