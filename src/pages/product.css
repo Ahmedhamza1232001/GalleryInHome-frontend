@@ -52,40 +52,20 @@
 
 /* Image Slider */
 
-
-.row .col-12 .pictureOfProduct img{
-  width: 500px;
-}
-
-.row .col-12 .threedLink{
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #fbb710;
-  width: 50%;
-  max-width: 120px;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 10px;
-  font-size: 18px;
-  font-weight: 400;
-  text-align: center;
-  display: inline-block;
-  border: none;
-  border-radius: 0;
-  top: 20px;
+.col-lg-5{
   position: relative;
-  animation: example 4s 2s infinite;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
-
-
-/* pop up */
-
 
 
 /* Details of Product */
 
 .rightSide{
   padding: 50px;
+  margin-top: 20px;
 }
 
 .price{
@@ -145,83 +125,60 @@
   margin-bottom: 50px;
 }
 
-/* Qty */
 
-/* .cartbtn p{
-  color:#6b6b6b;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.cartbtn{
-  background-color: #f5f7fa;
-  line-height: 40px;
-  height: 40px;
-  padding: 0 15px;
-  width: 140px;
-}
-.cartClearfix .cartbtn{
-  display: flex;
-}
-
-.cartClearfix .cartbtn p{
-  margin-bottom: 0;
-  line-height: 40px;
-  height: 40px;
-  padding: 0 15px;
-  background-color: #f5f7fa;
-  color: #6b6b6b;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.cartClearfix .cartbtn .quantity{
-  text-align: center;
-  border: none;
-  background-color: #f5f7fa;
-  height: 40px;
-  width: 60px;
-  color:#6b6b6b;
-  font-size: 15px;
-}
-
-.cartClearfix .cartbtn .quantity .qty-symbol{
-  border: none;
-  background-color: #f5f7fa;
-  right: 0;
-  top: 0;
-  line-height: 40px;
-  width: 20px;
-  text-align: center;
-  height: 40px;
-  color: #6b6b6b;
-  font-size: 15px;
-  font-weight: 700;
-} */
 
 /* Cart Button */
+
+.cartClearfix{
+  display: flex;
+}
 
 .cartClearfix .cart-link{
   text-decoration: none;
   color: #ffffff;
   background-color: #fbb710;
   width: 100%;
-  max-width: 310px;
-  height: 80px;
-  line-height: 80px;
+  max-width: 210px;
+  /* max-width: 310px; */
+  height: 60px;
+  line-height: 60px;
   padding: 0 7px;
   font-size: 18px;
   font-weight: 400;
   text-align: center;
   display: inline-block;
-  margin-top: 50px;
+  margin-top: 20px;
   border: none;
   border-radius: 0;
 }
 
 .cartClearfix .cart-link:hover{
   background-color: #131212;
-  
+}
+
+.row .col-lg-5 .threedLink{
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #fbb710;
+  width: 100%;
+  max-width: 210px;
+  /* max-width: 310px; */
+  height: 60px;
+  line-height: 60px;
+  padding: 0 7px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  border: none;
+  border-radius: 0;
+  top: 20px;
+  position: relative;
+}
+
+
+.row .col-lg-5 .threedLink:hover{
+  background-color: #131212;
 }
 
 

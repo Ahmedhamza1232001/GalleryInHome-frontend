@@ -5,10 +5,9 @@ import { FaCircle } from "react-icons/fa";
 import {Link} from "react-router-dom";
 import Modal from './Modal3d.js';
 import { OBJModel, DirectionLight } from "react-3d-viewer";
-// import count from './productConst.js';
-// import inc from './productConst.js';
-// import dec from './productConst.js';
-  
+
+
+
 class Dashboard extends Component {
   constructor() {
     super();
@@ -26,6 +25,7 @@ class Dashboard extends Component {
   hideModal = () => {
     this.setState({ show: false });
   };
+
 
   render() {
     return (
@@ -50,46 +50,31 @@ class Dashboard extends Component {
             </div>
           </div>
           <div className='row'>
-            <div className='col-12 col-xl-7'>
-              <div className='pictureOfProduct'>
-                <img src="../images/img7.jpg" alt="chair"/>
-              </div>
-              <div className='show3dButton'>         
-                <button className='threedLink' type='button' onClick={this.showModal}>Show 3D</button>
-                <Modal show={this.state.show} handleClose={this.hideModal}>
-                  <div className="App">
-                    <div style={{ margin: "auto" }}>
-                      <OBJModel
-                        width="1400"
-                        height="600"
-                        position={{ x: 0, y: -40, z: 0 }}
-                        rotation={{ x:.2 , y:0 , z:0 }}
-                        enableKeys={false}
-                        enableZoom={true}
-                        src="../images/LEATHERSOFA-2019-obj.obj"
+            <div className='col-lg-5'>
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 
-                        onLoad={() => {
-                          console.log("Loading");
-                        }}
-                        onProgress={(xhr) => {
-                          console.log("Loaded");
-                        }}
-                      >
-                        <DirectionLight           
-                          className="canv_1"
-                          color={0x800000} />
-                        <DirectionLight
-                          className="canv_1"
-                          position={{ x: 180, y: 100, z: 100 }}
-                          color={0x800000}
-                        />
-                      </OBJModel>
-                    </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="../images/popular3.png.webp" class="d-block w-100" alt="img"></img>
                   </div>
-                </Modal>
+                  <div class="carousel-item">
+                    <img src="../images/popular2.png.webp" class="d-block w-100" alt="img"></img>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="../images/popular8.png.webp" class="d-block w-100" alt="img"></img>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
             </div>  
-            <div className='col-12 col-xl-5'>
+            <div className='col-lg-5'>
                 <div className='detailsOfproduct'>
                   <div>
                     <h2 className='price'>$180</h2>
@@ -112,15 +97,41 @@ class Dashboard extends Component {
                   </p>
                 </div>
                 <div className='cartClearfix'>
-                  {/* <div className='cartbtn'>
-                      <p>Qty</p>
-                      <div className="quantity">
-                          <button onClick={dec} className="qty-symbol" >-</button>
-                          {count}
-                          <button onClick={inc} className="qty-symbol">+</button>
-                      </div>  
-                  </div> */}
                   <Link to="/cart" className='cart-link'>Add to cart</Link>
+                </div>
+                <div className='show3dButton'>         
+                  <button className='threedLink' type='button' onClick={this.showModal}>Show 3D</button>
+                  <Modal show={this.state.show} handleClose={this.hideModal}>
+                    <div className="App">
+                      <div style={{ margin: "auto" }}>
+                        <OBJModel
+                          width="1400"
+                          height="600"
+                          position={{ x: 0, y: -40, z: 0 }}
+                          rotation={{ x:.2 , y:0 , z:0 }}
+                          enableKeys={false}
+                          enableZoom={true}
+                          src="../images/LEATHERSOFA-2019-obj.obj"
+
+                          onLoad={() => {
+                            console.log("Loading");
+                          }}
+                          onProgress={(xhr) => {
+                            console.log("Loaded");
+                          }}
+                        >
+                          <DirectionLight           
+                            className="canv_1"
+                            color={0x800000} />
+                          <DirectionLight
+                            className="canv_1"
+                            position={{ x: 180, y: 100, z: 100 }}
+                            color={0x800000}
+                          />
+                        </OBJModel>
+                      </div>
+                    </div>
+                  </Modal>
                 </div>
             </div>              
           </div>
