@@ -1,17 +1,18 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes ,Outlet } from 'react-router-dom';
 import { useGlobalContext } from './context';
+import SignUp from './pages/signup';
+import LogIn from './pages/login';
+
 // components 
 import MObNav from './components/mobNav';
 import Search from './components/search';
 import Header from './components/header';
-import Feedback from './components/feedback';
 import Footer from './components/footer';
-// pages
+// user pages
 import Product from './pages/product';
-import SignUp from './pages/signup';
-import LogIn from './pages/login';
+import Feedback from './components/feedback';
 import Error from './pages/error';
 import Home from './pages/home';
 import Category from './pages/Category';
@@ -19,13 +20,15 @@ import CheckOut from './pages/checkout';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
 import Settings from './pages/setting';
+import Favorite from './pages/favorite';
+// admin pages
 import HeaderAdmin from './Admin Pages/HeaderAdmin';
 import FooterAdmin from './Admin Pages/FooterAdmin';
 import AdminDashboard from './Admin Pages/adminDashboard';
 import NewProduct from './Admin Pages/newProduct';
 import AdminProfile from './Admin Pages/adminProfile';
 import AdminSettings from './Admin Pages/adminSettings';
-import { Outlet } from 'react-router-dom';
+
 
 const SidebarLayout = () => (
   <>
@@ -59,6 +62,7 @@ function App() {
                 <Route path='/product' element={<Product/>}></Route>
                 <Route path='/cart' element={<Cart/>}></Route>
                 <Route path='/Category' element={<Category/>}></Route>
+                <Route path='/favorite' element={<Favorite/>}></Route>
                 <Route path='/checkout' element={<CheckOut/>}></Route> 
                 <Route path='/feedback' element={<Feedback/>}></Route>  
                 <Route path='/profile' element={<Profile/>}></Route> 

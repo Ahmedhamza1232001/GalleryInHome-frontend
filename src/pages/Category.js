@@ -4,12 +4,13 @@ import { Row , Col } from "react-bootstrap";
 import "./category.css";
 import {SidebarData} from './sidebarData';
 import CardData from './cardData';
-import img2 from "../images/5.jpeg";
 import {FaThLarge , FaBars} from "react-icons/fa";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import {BsCart3 , BsStarFill} from "react-icons/bs";
+// import {GrFavorite} from "react-icons/gr" ;
+import {AiOutlineHeart} from "react-icons/ai" ;
 import Form from 'react-bootstrap/Form';
 
 
@@ -125,29 +126,30 @@ const Category =() =>{
                                 {/* cards */}
                             <Row >
                                 {data.map((items) =>{
-                                    const {id ,price, image} = items;
+                                    const {id ,price, image,desc,rating} = items;
                                     return(
                                         <>
                                         <div className='col-12 col-sm-6 col-md-12 col-xl-6' key={id}>
                                             <div className="card">
-                                                <img src= {img2} 
+                                                <img src= {image} 
                                                 className="card-img-top" alt="..." />
                                                 <div className="card-body d-flex">
                                                     <div>
-                                                        <h4 className="card-price">{price}</h4>
+                                                        <h4 className="card-price">{price} EGP</h4>
                                                         <p className="card-description">
-                                                            Modern Chair
+                                                            {desc}
                                                         </p>
                                                     </div>
                                                     <div className="icon">
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
+                                                    <div className="stars">
+                                                        {[...Array(rating)].map((star,i)=>{
+                                                            return <BsStarFill key={i} color="var(--clr-primary-1)"/>
+                                                         }) }       
+                                                    </div>
                                                         
-                                                        <div className="d-flex justify-content-end">
-                                                            <a href="..."><BsCart3 size="20px" color="gray"/></a>
+                                                        <div className="d-flex" style={{    justifyContent:"space-around",marginTop:"8px"}}>
+                                                            <AiOutlineHeart size="25px" color="red"/>
+                                                            <BsCart3 size="25px" color="gray"/>
                                                         </div>
                                                     </div>
                                                 </div>
