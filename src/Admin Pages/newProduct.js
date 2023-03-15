@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import { TiCloudStorage } from 'react-icons/ti';
 import Button from 'react-bootstrap/Button';
+import { AiOutlineCaretDown } from "react-icons/ai";
 
 const NewProduct =() =>{
 
@@ -54,20 +55,20 @@ const NewProduct =() =>{
                                     <Form.Group  className='col-12'>
                                         <Form.Label className='form-label'>Catagory</Form.Label>
                                         <Form.Select aria-label="Default select example" className='form-select'>
-                                            <option></option>
+                                            <option>Select Catagory</option>
                                             <option value="1">Chairs</option>
                                             <option value="2">Beds</option>
                                             <option value="3">Accesories</option>
                                             <option value="4">Furniture</option>
                                             <option value="5">Home Deco</option>
                                             <option value="6">Dressings</option>    
-                                            <option value="7">Tables</option>                                         
+                                            <option value="7">Tables</option>                                        
                                         </Form.Select>                      
                                     </Form.Group >
                                     <Form.Group  className='col-12'>
                                         <Form.Label className='form-label'>Brands</Form.Label>
                                         <Form.Select aria-label="Default select example" className='form-select'>
-                                            <option></option>
+                                            <option>Select Brands</option>
                                             <option value="1">Amado</option>
                                             <option value="2">Ikea</option>
                                             <option value="3">The Factory</option>
