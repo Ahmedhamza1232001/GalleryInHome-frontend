@@ -127,7 +127,7 @@ const Header= () =>{
                 Cart
                 <span> (0)</span>
             </Link>
-            <Link to="/">
+            <Link to="/favorite">
                 <BsStars className='mr-2'/>
                 Favorite
             </Link>
