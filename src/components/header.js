@@ -10,6 +10,7 @@ import {useGlobalContext} from "../context"
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import logo from '../images/logo1.png'
+import DarkMode from "../DarkMode.jsx";
 import { useState } from "react";
 import "../pages/reels.css"
 import Video from "../pages/video";
@@ -122,7 +123,7 @@ const Header= () =>{
         <div className="login-cont">
             <Link to="/login" className='btn login-btn'>Login</Link>
         </div>
-
+        <DarkMode />
         {/* special pages */}
         <div className="cart-fav-search my-5">
             <Link to="/cart">
