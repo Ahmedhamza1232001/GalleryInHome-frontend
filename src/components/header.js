@@ -13,11 +13,14 @@ import logo from '../images/logo1.png'
 import { useState } from "react";
 import "../pages/reels.css"
 import Video from "../pages/video";
-import logo1 from "../images/logo1.png"
 import Vid11 from "../videos/vid11.mp4"
 import Vid22 from "../videos/vid22.mp4"
 import Vid33 from "../videos/vid33.mp4"
-import {AiOutlineClose} from "react-icons/ai";
+import Vid1 from "../videos/vid1.mp4"
+import Vid2 from "../videos/vid2.mp4"
+import Vid3 from "../videos/vid3.mp4"
+import Vid4 from "../videos/vid4.mp4"
+import Vid5 from "../videos/vid5.mp4"
 
 
 const Header= () =>{
@@ -28,13 +31,28 @@ const Header= () =>{
     const handleShow = () => setShow(true);
     const data = [
         {
-            url: Vid11,
+            url: Vid1,
         },
         {
             url: Vid22,
         },
         {
+            url: Vid3,
+        },
+        {
+            url: Vid2,
+        },
+        {
+            url: Vid4,
+        },
+        {
+            url: Vid5,
+        },
+        {
             url: Vid33,
+        },
+        {
+            url: Vid11,
         },
         ];
 
