@@ -66,7 +66,7 @@ function App() {
                 <Route path='/checkout' element={<CheckOut/>}></Route> 
                 <Route path='/feedback' element={<Feedback/>}></Route>  
                 <Route path='/profile' element={<Profile/>}></Route> 
-                <Route path='/setting' element={<Settings/>}></Route> 
+                <Route path='/setting' element={<Settings/>}></Route>
                 <Route path='*' element={<Error/>}></Route>   
               </Route> 
               <Route path='/login' element={<LogIn/>}></Route>

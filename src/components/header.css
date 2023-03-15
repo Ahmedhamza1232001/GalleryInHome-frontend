@@ -88,6 +88,7 @@
     background-color: var(--clr-primary-1);
     font-weight: 400;
 }
+
 .main-content .header-area .login-cont .login-btn:hover,.main-content .header-area .login-cont .login-btn:focus{
     font-size: 18px;
     color: var(--clr-white);

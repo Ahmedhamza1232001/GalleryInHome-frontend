@@ -23,11 +23,6 @@ const Settings =() => {
             link:"/favorite",
         },
         {
-            icoon: <BsCalendar2Date className='mr-2' /> ,
-            title:"Date of purchase",
-            link:"/date",
-        }, 
-        {
             icoon: <BsGear className='mr-2' /> ,
             title:"Settings",
             link:"/setting",

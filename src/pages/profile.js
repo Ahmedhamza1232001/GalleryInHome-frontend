@@ -19,11 +19,6 @@ const Profile =() => {
             link:"/favorite",
         },
         {
-            icoon: <BsCalendar2Date className='mr-2' /> ,
-            title:"Date of purchase",
-            link:"/date",
-        }, 
-        {
             icoon: <BsGear className='mr-2' /> ,
             title:"Settings",
             link:"/setting",
@@ -83,7 +78,7 @@ const Profile =() => {
                                     <div className="col-12">
                                         <div className="profile-topbar d-xl-flex align-items-end justify-content-between">
                                         <div className="total-products">
-                                        <h3> <BsHouseDoor className='mr-2' /> My Account </h3>
+                                        <h3> <BsHouseDoor AiOutlineClose /> My Account </h3>
                                         </div>
                                     </div>
                                     </div>
@@ -99,10 +94,7 @@ const Profile =() => {
                                             </Card.Text>
                                             <Card.Link href="#">Cart</Card.Link>
                                             </Card.Body>
-                                        </Card>
-                                    
-                                </Row>
-                                <Row>
+                                        </Card>           
                                     
                                         <Card style={{ width: '20rem' }} className="card">
                                             <Card.Body className="bg-grad  rounded-lg mb-4 overflow-hidden">
