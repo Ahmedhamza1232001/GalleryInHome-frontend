@@ -19,7 +19,6 @@ import Vid22 from "../videos/vid22.mp4"
 import Vid33 from "../videos/vid33.mp4"
 import Vid1 from "../videos/vid1.mp4"
 import Vid2 from "../videos/vid2.mp4"
-import Vid3 from "../videos/vid3.mp4"
 import Vid4 from "../videos/vid4.mp4"
 import Vid5 from "../videos/vid5.mp4"
 
@@ -36,9 +35,6 @@ const Header= () =>{
         },
         {
             url: Vid22,
-        },
-        {
-            url: Vid3,
         },
         {
             url: Vid2,
@@ -88,7 +84,7 @@ const Header= () =>{
             </div>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header>
-                <Modal.Title>Reels</Modal.Title>
+                <Modal.Title style={{color:'black'}}>Reels</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="reel">
