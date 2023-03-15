@@ -7,6 +7,8 @@ import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
 // global context
 import {useGlobalContext} from "../context"
 // images
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import logo from '../images/logo1.png'
 import DarkMode from "../DarkMode.jsx";
 import { useState } from "react";
@@ -22,8 +24,38 @@ import Vid4 from "../videos/vid4.mp4"
 import Vid5 from "../videos/vid5.mp4"
 
 
-function Header() {
+const Header= () =>{
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const data = [
+        {
+            url: Vid1,
+        },
+        {
+            url: Vid22,
+        },
+        {
+            url: Vid3,
+        },
+        {
+            url: Vid2,
+        },
+        {
+            url: Vid4,
+        },
+        {
+            url: Vid5,
+        },
+        {
+            url: Vid33,
+        },
+        {
+            url: Vid11,
+        },
+        ];
 
     return (
     <div className={`${IsSidebarOpen?"header-area on":"header-area"}`} >
@@ -49,6 +81,45 @@ function Header() {
                 
             </ul>
         </div>
+
+        <div className='reels'>
+            <div className='button' onClick={handleShow}>
+            Reels
+            </div>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header>
+                <Modal.Title>Reels</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="reel">
+                    <center>
+
+                        {/*  */}
+
+                        <div className="video-container" id="video-container">
+                        {/*  */}
+
+                        {data.map((list, i) => (
+                            <Video
+                            
+                            url={list.url}
+                            
+                            />
+                        ))}
+
+                        {/*  */}
+                        </div>
+                    </center>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose} className='CloseButton'>
+                    Close
+                </Button>
+                </Modal.Footer>
+            </Modal>
+        </div>
+
         <div className="login-cont">
             <Link to="/login" className='btn login-btn'>Login</Link>
         </div>
@@ -60,7 +131,7 @@ function Header() {
                 Cart
                 <span> (0)</span>
             </Link>
-            <Link to="/favorite">
+            <Link to="/">
                 <BsStars className='mr-2'/>
                 Favorite
             </Link>
