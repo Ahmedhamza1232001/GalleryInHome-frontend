@@ -77,7 +77,7 @@ class Dashboard extends Component {
             <div className='col-lg-5'>
                 <div className='detailsOfproduct'>
                   <div>
-                    <h2 className='price'>$180</h2>
+                    <h2 className='price'>180 EGP</h2>
                     <h2>Maroon Modern Chair</h2>
                     <div className='rating'>
                       <div className='ratings'>

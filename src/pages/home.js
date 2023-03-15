@@ -18,7 +18,7 @@ function Home() {
               <Link to="/">
                 <img src={chair} alt="chair" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>modern chair</h4>
                 </div>
               </Link>
@@ -27,7 +27,7 @@ function Home() {
               <Link to="/">
                 <img src={pot} alt="vase" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>plant pot</h4>
                 </div>
               </Link>
@@ -36,7 +36,7 @@ function Home() {
             <Link to="/">
                 <img src={table} alt="table" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>small table</h4>
                 </div>
               </Link>
@@ -45,7 +45,7 @@ function Home() {
               <Link to="/">
                 <img src={pot} alt="vase" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>plant pot</h4>
                 </div>
               </Link>
@@ -54,7 +54,7 @@ function Home() {
               <Link to="/">
                 <img src={chair} alt="chair" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>modern chair</h4>
                 </div>
               </Link>
@@ -63,7 +63,7 @@ function Home() {
               <Link to="/">
                 <img src={pot} alt="vase" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>plant pot</h4>
                 </div>
               </Link>
@@ -72,7 +72,7 @@ function Home() {
               <Link to="/">
                 <img src={table} alt="table" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>small table</h4>
                 </div>
               </Link>
@@ -81,7 +81,7 @@ function Home() {
               <Link to="/">
                 <img src={pot} alt="pot" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>plant pot</h4>
                 </div>
               </Link>
@@ -90,7 +90,7 @@ function Home() {
               <Link to="/">
                 <img src={table} alt="table" />
                 <div className="product-content">
-                  <p>from $13</p>
+                  <p>from 13 EGP</p>
                   <h4>small table</h4>
                 </div>
               </Link>

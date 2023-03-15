@@ -63,7 +63,7 @@ const Cart =() => {
                                             <h5>White Modern Chair</h5>
                                         </td>
                                         <td className="cart_product_price">
-                                            <span className="pricee">$130</span>
+                                            <span className="pricee">130 EGP</span>
                                         </td>
                                         <td className="cart_product_qty">
                                             <div className="qty">
@@ -84,7 +84,7 @@ const Cart =() => {
                                             <h5>Minimal Plant Pot</h5>
                                         </td>
                                         <td className="cart_product_price">
-                                            <span className="pricee">$10</span>
+                                            <span className="pricee">10 EGP</span>
                                         </td>
                                         <td className="cart_product_qty">
                                             <div className="qty">
@@ -105,7 +105,7 @@ const Cart =() => {
                                             <h5>White Modern Table</h5>
                                         </td>
                                         <td className="cart_product_price">
-                                            <span className="pricee">$200</span>
+                                            <span className="pricee">200 EGP</span>
                                         </td>
                                         <td className="cart_product_qty">
                                             <div className="qty">
@@ -128,9 +128,9 @@ const Cart =() => {
                         <div className='cart-summary'>
                             <h5>Cart Total</h5>
                             <ul>
-                                <li><span>Subtotal:</span><span>$140.00</span></li>
+                                <li><span>Subtotal:</span><span>140.00 EGP</span></li>
                                 <li><span>Delivery:</span><span>Free</span></li>
-                                <li><span>Total:</span><span>$140.00</span></li>
+                                <li><span>Total:</span><span>140.00 EGP</span></li>
                             </ul>
                             <div className='cart-btn mt-100'>
                                 <Link to="/checkout" className='btn amado-btn w-100'>Checkout</Link>

@@ -45,7 +45,7 @@ const AdminDashboard =() =>{
                                 <Card.Subtitle className='d-flex align-items-center'>
                                     <div>
                                         <p className='mb-0 text-white'>Total Income</p>
-                                        <h5 className='mb-0 text-white'>$52,945</h5>
+                                        <h5 className='mb-0 text-white'>52,945 EGP</h5>
                                     </div>
                                     <div className='ms-auto text-white'>
                                         <span className='bx bx-cart font-30'><IoWalletOutline/></span>
@@ -113,9 +113,9 @@ const AdminDashboard =() =>{
                                     </div>
                                     <div className='ps-3'>
                                         <h6 className='mb-0 '>Small Vase</h6>
-                                        <p className='mb-0 text-secondary'>$29/Each 56 Orders</p>
+                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
                                     </div>
-                                    <p className='ms-auto mb=0 text-secondary'>$24.52</p>
+                                    <p className='ms-auto mb=0 text-secondary'>24.52 EGP</p>
                                 </div>
                                 <hr></hr>
                                 <div className='d-flex align-items-center'>
@@ -124,9 +124,9 @@ const AdminDashboard =() =>{
                                     </div>
                                     <div className='ps-3'>
                                         <h6 className='mb-0 '>White Chair</h6>
-                                        <p className='mb-0 text-secondary'>$29/Each 56 Orders</p>
+                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
                                     </div>
-                                    <p className='ms-auto mb=0 text-secondary'>$52.52</p>
+                                    <p className='ms-auto mb=0 text-secondary'>52.52 EGP</p>
                                 </div>
                                 <hr></hr>
                                 <div className='d-flex align-items-center'>
@@ -135,9 +135,9 @@ const AdminDashboard =() =>{
                                     </div>
                                     <div className='ps-3'>
                                         <h6 className='mb-0 '>White Classic Table</h6>
-                                        <p className='mb-0 text-secondary'>$29/Each 56 Orders</p>
+                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
                                     </div>
-                                    <p className='ms-auto mb=0 text-secondary'>$94.52</p>
+                                    <p className='ms-auto mb=0 text-secondary'>94.52 EGP</p>
                                 </div>
                                 <hr></hr>
                                 <div className='d-flex align-items-center'>
@@ -146,9 +146,9 @@ const AdminDashboard =() =>{
                                     </div>
                                     <div className='ps-3'>
                                         <h6 className='mb-0 '>Sofra Chair</h6>
-                                        <p className='mb-0 text-secondary'>$29/Each 56 Orders</p>
+                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
                                     </div>
-                                    <p className='ms-auto mb=0 text-secondary'>$421.52</p>
+                                    <p className='ms-auto mb=0 text-secondary'>421.52 EGP</p>
                                 </div>
                                 <hr></hr>
                                 <div className='d-flex align-items-center'>
@@ -157,9 +157,9 @@ const AdminDashboard =() =>{
                                     </div>
                                     <div className='ps-3'>
                                         <h6 className='mb-0 '>Beige Modern Chair</h6>
-                                        <p className='mb-0 text-secondary'>$29/Each 56 Orders</p>
+                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
                                     </div>
-                                    <p className='ms-auto mb=0 text-secondary'>$342.52</p>
+                                    <p className='ms-auto mb=0 text-secondary'>342.52 EGP</p>
                                 </div>
                                 <hr></hr>
                                 <div className='d-flex align-items-center'>
@@ -168,9 +168,9 @@ const AdminDashboard =() =>{
                                     </div>
                                     <div className='ps-3'>
                                         <h6 className='mb-0 '>Modern Leather Sofa</h6>
-                                        <p className='mb-0 text-secondary'>$29/Each 56 Orders</p>
+                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
                                     </div>
-                                    <p className='ms-auto mb=0 text-secondary'>$521.52</p>
+                                    <p className='ms-auto mb=0 text-secondary'>521.52 EGP</p>
                                 </div>
                                 <hr></hr>
                                 <div className='d-flex align-items-center'>
@@ -179,9 +179,9 @@ const AdminDashboard =() =>{
                                     </div>
                                     <div className='ps-3'>
                                         <h6 className='mb-0 '>Small Vase</h6>
-                                        <p className='mb-0 text-secondary'>$29/Each 56 Orders</p>
+                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
                                     </div>
-                                    <p className='ms-auto mb=0 text-secondary'>$24.52</p>
+                                    <p className='ms-auto mb=0 text-secondary'>24.52 EGP</p>
                                 </div>
                             </Card.Body>
                             </SimpleBar>
