@@ -36,10 +36,14 @@
     flex: 0 0 265px;
     max-width: 265px;
     border-radius: 4px;
-    border: 1px solid rgb(245, 247, 250);
+    border: 1px solid var(--Border-color);
     /* background-color: rgb(245, 247, 250); */
     z-index: 1;
     -webkit-box-flex: 0;
+}
+
+.shadow-sm{
+    box-shadow: 0 .125rem .25rem var(--Border-color)!important;
 }
 
 .pic{

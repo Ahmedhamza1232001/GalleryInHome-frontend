@@ -48,7 +48,7 @@ const togglePass=(e)=>{
     <div className="login-wrapper container">
         <div className="row">
             <div className="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
-                <div className="panel border bg-white">
+                <div className="panel border">
                     <div className="panel-heading">
                         <h3 className="pt-3 font-weight-bold">Login</h3>
                     </div>

@@ -10,6 +10,7 @@
     --BrandsColors: gray;
     --BoxShadow-color1: rgb(218 218 253 / 65%);
     --BoxShadow-color2: rgb(206 206 238 / 54%);
+    --Border-color: rgb(245, 247, 250);
 }
 
 /* 2 */
@@ -24,6 +25,7 @@
 --BrandsColors: rgba(245, 247, 250, 0.815);
 --BoxShadow-color1: #333;
 --BoxShadow-color2: rgb(206 206 238 / 54%);
+--Border-color: #fbb710;
 }
 
 /* 3 */

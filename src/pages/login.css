@@ -8,7 +8,7 @@ main.registration-wrapper {
     width: 100%;
     position: absolute;
     z-index: 999;
-    background: linear-gradient(to top, var(--clr-white) 5%, var(--clr-grey-9) 100%) no-repeat
+    background: linear-gradient(to top, var(--background-color) 5%, var(--clr-grey-9) 100%) no-repeat
 }
 .login-wrapper {
     padding-top: 2.5rem;
@@ -42,7 +42,8 @@ a:hover {
 .panel {
     min-height: 380px;
     box-shadow: 20px 20px 80px rgb(218, 218, 218);
-    border-radius: 12px
+    border-radius: 12px;
+    background-color: var(--background-color);
 }
 
 .input-field {
@@ -54,6 +55,7 @@ a:hover {
     color: #4343ff
 }
 
+
 input[type='text'],
 input[type='number'],
 input[type='email'],
@@ -61,7 +63,9 @@ input[type='password'] {
     border: none;
     outline: none;
     box-shadow: none;
-    width: 100%
+    width: 100%;
+    background-color: var(--background-color);
+    color: var(--font-color);
 }
 
 .fa-eye-slash.btn {
@@ -96,7 +100,7 @@ a[target='_blank'] {
     top: -13px;
     transform: translateX(-50%);
     left: 51%;
-    background-color: #fff;
+    background-color: var(--background-color);
     padding: 0px 8px
 }
 .form-group p.error{
