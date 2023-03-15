@@ -19,11 +19,6 @@ const Profile =() => {
             link:"/favorite",
         },
         {
-            icoon: <BsCalendar2Date className='mr-2' /> ,
-            title:"Date of purchase",
-            link:"/date",
-        }, 
-        {
             icoon: <BsGear className='mr-2' /> ,
             title:"Settings",
             link:"/setting",
@@ -99,9 +94,7 @@ const Profile =() => {
                                             </Card.Text>
                                             <Card.Link href="#">Cart</Card.Link>
                                             </Card.Body>
-                                        </Card>
-                                    
-                        
+                                        </Card>           
                                     
                                         <Card style={{ width: '20rem' }} className="card">
                                             <Card.Body className="bg-grad  rounded-lg mb-4 overflow-hidden">
