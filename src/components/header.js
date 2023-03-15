@@ -9,6 +9,18 @@ import {useGlobalContext} from "../context"
 // images
 import logo from '../images/logo1.png'
 import DarkMode from "../DarkMode.jsx";
+import { useState } from "react";
+import "../pages/reels.css"
+import Video from "../pages/video";
+import Vid11 from "../videos/vid11.mp4"
+import Vid22 from "../videos/vid22.mp4"
+import Vid33 from "../videos/vid33.mp4"
+import Vid1 from "../videos/vid1.mp4"
+import Vid2 from "../videos/vid2.mp4"
+import Vid3 from "../videos/vid3.mp4"
+import Vid4 from "../videos/vid4.mp4"
+import Vid5 from "../videos/vid5.mp4"
+
 
 function Header() {
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
