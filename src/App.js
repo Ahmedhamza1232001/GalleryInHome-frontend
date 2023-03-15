@@ -25,7 +25,6 @@ import AdminDashboard from './Admin Pages/adminDashboard';
 import NewProduct from './Admin Pages/newProduct';
 import AdminProfile from './Admin Pages/adminProfile';
 import AdminSettings from './Admin Pages/adminSettings';
-import Reels from './pages/reels';
 import { Outlet } from 'react-router-dom';
 
 const SidebarLayout = () => (
@@ -64,7 +63,6 @@ function App() {
                 <Route path='/feedback' element={<Feedback/>}></Route>  
                 <Route path='/profile' element={<Profile/>}></Route> 
                 <Route path='/setting' element={<Settings/>}></Route>
-                <Route path='/reels' element={<Reels/>}></Route>
                 <Route path='*' element={<Error/>}></Route>   
               </Route> 
               <Route path='/login' element={<LogIn/>}></Route>

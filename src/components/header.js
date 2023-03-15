@@ -37,6 +37,7 @@ const Header= () =>{
             url: Vid33,
         },
         ];
+
     return (
     <div className={`${IsSidebarOpen?"header-area on":"header-area"}`} >
         {/* close btn */}
@@ -57,30 +58,23 @@ const Header= () =>{
                 <li><NavLink to="/cart">Cart</NavLink></li>
                 <li><NavLink to="/checkout">Checkout</NavLink></li>
                 <li><NavLink to="/feedback">Feedback</NavLink></li>
-                <li><NavLink to="/reels">Reels</NavLink></li>
                 <li><NavLink to="/adminDashboard">Admin</NavLink></li>
                 
             </ul>
         </div>
-        <div className="login-cont">
-            <Link to="/login" className='btn login-btn'>Login</Link>
-        </div>
-        <div className='wee'>
-            <Button variant="primary" onClick={handleShow}>
-            Launch demo modal
-            </Button>
 
+        <div className='reels'>
+            <div className='button' onClick={handleShow}>
+            Reels
+            </div>
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
+                <Modal.Header>
                 <Modal.Title>Reels</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="reel">
-                    <center className="cenn">
-                        <div className="logo">
-                        <img alt="logo" src={logo1} className="insta-logo" />
-                        </div>
-                        <h3>Reels</h3>
+                    <center>
+
                         {/*  */}
 
                         <div className="video-container" id="video-container">
@@ -100,15 +94,17 @@ const Header= () =>{
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button variant="secondary" onClick={handleClose} className='CloseButton'>
                     Close
-                </Button>
-                <Button variant="primary" onClick={handleClose}>
-                    Save Changes
                 </Button>
                 </Modal.Footer>
             </Modal>
         </div>
+
+        <div className="login-cont">
+            <Link to="/login" className='btn login-btn'>Login</Link>
+        </div>
+
         {/* special pages */}
         <div className="cart-fav-search my-5">
             <Link to="/cart">
