@@ -18,7 +18,6 @@
 #customer-testimonoals .item{
   width: 100%;
   padding: 5px 0;
-  /* margin-right: -25px; */
   margin-bottom: 0px;
   position: relative;
   opacity: 1;
@@ -63,7 +62,6 @@
   max-width: 100px;
   min-height: 100px;
   transform-style: preserve-3d;
-  /* margin: 0 0 20px 0; */
   border-color: #fbb710 transparent transparent #fbb710;
   border-style: outset inset inset outset;
   border-width: 10px;
