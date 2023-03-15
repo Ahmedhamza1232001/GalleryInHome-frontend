@@ -24,7 +24,7 @@ function SignUp() {
     <div className="login-wrapper container">
         <div className="row">
             <div className="offset-md-2 col-lg-6 col-md-7 offset-lg-3 offset-md-3">
-                <div className="panel border bg-white">
+                <div className="panel border ">
                     <div className="panel-heading">
                         <h3 className="pt-3 font-weight-bold">Sign Up</h3>
                     </div>

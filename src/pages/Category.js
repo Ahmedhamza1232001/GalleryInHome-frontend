@@ -148,7 +148,7 @@ const Category =() =>{
                                                     </div>
                                                         
                                                         <div className="d-flex" style={{    justifyContent:"space-around",marginTop:"8px"}}>
-                                                            <AiOutlineHeart size="25px" color="red"/>
+                                                            <AiOutlineHeart size="25px" color="var(--clr-orange-6)"/>
                                                             <BsCart3 size="25px" color="gray"/>
                                                         </div>
                                                     </div>

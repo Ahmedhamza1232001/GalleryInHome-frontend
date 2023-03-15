@@ -103,6 +103,7 @@ a[target='_blank'] {
     background-color: var(--background-color);
     padding: 0px 8px
 }
+
 .form-group p.error{
     color: red;
     padding: 5px 0;

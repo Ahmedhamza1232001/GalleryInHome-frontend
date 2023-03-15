@@ -38,7 +38,7 @@ const Favorite = () => {
                                             </div>
                                             <div className="icons">
                                                 <BsCart3 color="gray" size="30px" style={{paddingRight:"5px"}}/>
-                                                <AiFillHeart color="red" size="30px" />
+                                                <AiFillHeart color="var(--clr-orange-6)" size="30px" />
                                             </div>
                                         </div>
                                     </div>
