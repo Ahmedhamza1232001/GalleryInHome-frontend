@@ -83,7 +83,7 @@ const Profile =() => {
                                     <div className="col-12">
                                         <div className="profile-topbar d-xl-flex align-items-end justify-content-between">
                                         <div className="total-products">
-                                        <h3> <BsHouseDoor className='mr-2' /> My Account </h3>
+                                        <h3> <BsHouseDoor AiOutlineClose /> My Account </h3>
                                         </div>
                                     </div>
                                     </div>

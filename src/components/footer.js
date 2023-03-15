@@ -40,6 +40,7 @@ function Footer() {
                   <Link className="nav-link" to="/Cart">Cart</Link>
                   <Link className="nav-link" to="/Checkout">Checkout</Link>
                   <Link className="nav-link" to="/feedback">Feedback</Link>
+                  <Link className="nav-link" to="/reels">Reels</Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>

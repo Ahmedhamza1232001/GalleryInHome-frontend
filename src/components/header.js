@@ -7,11 +7,36 @@ import {FaFacebookF,FaPinterestP,FaInstagram,FaTwitter} from "react-icons/fa"
 // global context
 import {useGlobalContext} from "../context"
 // images
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import logo from '../images/logo1.png'
+import { useState } from "react";
+import "../pages/reels.css"
+import Video from "../pages/video";
+import logo1 from "../images/logo1.png"
+import Vid11 from "../videos/vid11.mp4"
+import Vid22 from "../videos/vid22.mp4"
+import Vid33 from "../videos/vid33.mp4"
+import {AiOutlineClose} from "react-icons/ai";
 
-function Header() {
+
+const Header= () =>{
     const {IsSidebarOpen,openSearch,closeSideBar}= useGlobalContext()
+    const [show, setShow] = useState(false);
 
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const data = [
+        {
+            url: Vid11,
+        },
+        {
+            url: Vid22,
+        },
+        {
+            url: Vid33,
+        },
+        ];
     return (
     <div className={`${IsSidebarOpen?"header-area on":"header-area"}`} >
         {/* close btn */}
@@ -32,12 +57,57 @@ function Header() {
                 <li><NavLink to="/cart">Cart</NavLink></li>
                 <li><NavLink to="/checkout">Checkout</NavLink></li>
                 <li><NavLink to="/feedback">Feedback</NavLink></li>
+                <li><NavLink to="/reels">Reels</NavLink></li>
                 <li><NavLink to="/adminDashboard">Admin</NavLink></li>
                 
             </ul>
         </div>
         <div className="login-cont">
             <Link to="/login" className='btn login-btn'>Login</Link>
+        </div>
+        <div className='wee'>
+            <Button variant="primary" onClick={handleShow}>
+            Launch demo modal
+            </Button>
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                <Modal.Title>Reels</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="reel">
+                    <center className="cenn">
+                        <div className="logo">
+                        <img alt="logo" src={logo1} className="insta-logo" />
+                        </div>
+                        <h3>Reels</h3>
+                        {/*  */}
+
+                        <div className="video-container" id="video-container">
+                        {/*  */}
+
+                        {data.map((list, i) => (
+                            <Video
+                            
+                            url={list.url}
+                            
+                            />
+                        ))}
+
+                        {/*  */}
+                        </div>
+                    </center>
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleClose}>
+                    Save Changes
+                </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
         {/* special pages */}
         <div className="cart-fav-search my-5">
