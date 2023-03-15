@@ -101,8 +101,7 @@ const Profile =() => {
                                             </Card.Body>
                                         </Card>
                                     
-                                </Row>
-                                <Row>
+                        
                                     
                                         <Card style={{ width: '20rem' }} className="card">
                                             <Card.Body className="bg-grad  rounded-lg mb-4 overflow-hidden">
