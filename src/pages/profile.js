@@ -92,7 +92,7 @@ const Profile =() => {
                                             <Card.Text>
                                             The products you have added to the shopping cart will appear here.
                                             </Card.Text>
-                                            <Card.Link href="#">Cart</Card.Link>
+                                            <Card.Link href="/cart">Cart</Card.Link>
                                             </Card.Body>
                                         </Card>           
                                     
@@ -103,7 +103,7 @@ const Profile =() => {
                                             <Card.Text>
                                             The products that you liked will appear here.
                                             </Card.Text>
-                                            <Card.Link href="#">Favorite list</Card.Link>
+                                            <Card.Link href="/favorite">Favorite list</Card.Link>
                                             </Card.Body>
                                         </Card>
                                     
