@@ -98,27 +98,30 @@ const CheckOut =() => {
 
                             {/* Payment Method */}
                             <div className='payment-method'>
-                                {['checkbox'].map((type) => (
-                                <div key={`default-${type}`} className="mb-3">
+                                {['radio'].map((type) => (
+                                <div key={`inline-${type}`} className="mb-3">
                                     <Form.Check
                                     className="check"
                                     type={type}
+                                    name="group1"
                                     label={`Cash on Delivery`}
-                                    id={`default-${type}`}
+                                    id={`inline-${type}-1`}
                                     />
                                     <div className="paypal">
                                         <Form.Check
                                         className="check"
                                         type={type}
-                                        label={`Paypal`}
-                                        id={`default-${type}`}
+                                        name="group1"
+                                        label={`Credit Card`}
+                                        id={`inline-${type}-2`}
+                                        checked
                                         />
                                         <img className='paypalimage' src="../images/paypal.png.webp" alt="Paypal"/>   
                                     </div>
                                 </div> ))}
                             </div>
                             <div className='cart-btn mt-100'>
-                                <Button className='btn amado-btn w-100' as="input" type="submit" value="Checkout" />
+                                <Button className='btn amado-btn w-100' as="input" type="submit" value="Order Now" />
                             </div>
                         </div>
                     </div>
