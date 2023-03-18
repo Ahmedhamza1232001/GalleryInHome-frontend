@@ -22,6 +22,7 @@ import Profile from './pages/profile';
 import Settings from './pages/setting';
 import Favorite from './pages/favorite';
 import Payment from './pages/Payment';
+import Purchases from './pages/purchases'
 // admin pages
 import HeaderAdmin from './Admin Pages/HeaderAdmin';
 import FooterAdmin from './Admin Pages/FooterAdmin';
@@ -69,6 +70,7 @@ function App() {
                 <Route path='/profile' element={<Profile/>}></Route> 
                 <Route path='/setting' element={<Settings/>}></Route>
                 <Route path='/payment' element={<Payment/>}></Route>
+                <Route path='/purchases' element={<Purchases/>}></Route>
                 <Route path='*' element={<Error/>}></Route>   
               </Route> 
               <Route path='/login' element={<LogIn/>}></Route>
