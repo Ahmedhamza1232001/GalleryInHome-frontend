@@ -87,7 +87,7 @@ const Profile =() => {
                                     
                                         <Card style={{ width: '20rem' }} className="card">
                                             <Card.Body className="bg-grad rounded-lg mb-4 overflow-hidden">
-                                            <Card.Title className="tit">(0) Products</Card.Title>
+                                            <Card.Title className="tit">(3) Products</Card.Title>
                                             <Card.Subtitle className="mb-2 text-muted">in your cart</Card.Subtitle>
                                             <Card.Text>
                                             The products you have added to the shopping cart will appear here.
@@ -98,7 +98,7 @@ const Profile =() => {
                                     
                                         <Card style={{ width: '20rem' }} className="card">
                                             <Card.Body className="bg-grad  rounded-lg mb-4 overflow-hidden">
-                                            <Card.Title className="tit">(0) Products</Card.Title>
+                                            <Card.Title className="tit">(5) Products</Card.Title>
                                             <Card.Subtitle className="mb-2 text-muted">in your favorite list</Card.Subtitle>
                                             <Card.Text>
                                             The products that you liked will appear here.
@@ -113,12 +113,12 @@ const Profile =() => {
                                                       
                                         <Card style={{ width: '20rem' }} className="card">
                                             <Card.Body className="bg-grad rounded-lg mb-4 overflow-hidden">
-                                            <Card.Title className="tit">(0) Products</Card.Title>
+                                            <Card.Title className="tit">(4) Products</Card.Title>
                                             <Card.Subtitle className="mb-2 text-muted">you purchased</Card.Subtitle>
                                             <Card.Text>
                                             The products you have bought will appear here.
                                             </Card.Text>
-                                            <Card.Link href="#">Purchases</Card.Link>
+                                            <Card.Link href="/purchases">Purchases</Card.Link>
                                             </Card.Body>
                                         </Card>
                                     
