@@ -1,9 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 import "./footer.css"
-import $ from "jquery"
-// global context
-import {useGlobalContext} from "../context"
 // bootstrap
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -23,7 +20,7 @@ function Footer() {
           <div className="footer-logo mr-50">
             <Link to="/"><img src={footer} alt="logo" width="250px" height="250px"/></Link>
           </div>
-          <p className='copy-rights'>This template is made by team-name | credits for <a href="https://colorlib.com" target="_blank">Colorlib</a> &copy; 2022</p>
+          <p className='copy-rights'>This template is made by team-name &copy; 2022</p>
         </div>
         <div className="col-12 col-lg-8">
           <div className="footer_menu">
