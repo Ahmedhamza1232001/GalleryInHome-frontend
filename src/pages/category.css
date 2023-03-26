@@ -85,11 +85,10 @@
     background-color: #ffc107;
   }
 
-
   .product-topbar{
     position: relative;
     z-index: 100;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   .product-sorting , .view {
     display: flex !important;
@@ -114,13 +113,15 @@
   margin-top: 25px;
   padding: 0;
 }
-.dropdown button:hover{
-  background-color: #ffc107;
-  border: none;
-}
+
 .btn-group button:hover{
   background-color: #ffc107;
   border: none;
+}
+
+.product-area svg{ 
+  cursor: pointer;
+  padding-left: 5px;
 }
 /* media query */
 @media only screen and (min-width: 992px) and (max-width: 1199px){

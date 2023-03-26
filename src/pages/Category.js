@@ -5,17 +5,20 @@ import "./category.css";
 import {SidebarData} from './sidebarData';
 import CardData from './cardData';
 import {FaThLarge , FaBars} from "react-icons/fa";
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
+// import Button from 'react-bootstrap/Button';
+// import ButtonGroup from 'react-bootstrap/ButtonGroup';
+// import Dropdown from 'react-bootstrap/Dropdown';
 import {BsCart3 , BsStarFill} from "react-icons/bs";
-// import {GrFavorite} from "react-icons/gr" ;
 import {AiOutlineHeart} from "react-icons/ai" ;
+
 import Form from 'react-bootstrap/Form';
 
 
 const Category =() =>{
+        const [DisRow, setDisRow] = useState(true)
         const [data ] = useState(CardData);
+
+
         return(
             <>
             <div className="category-main">
@@ -89,13 +92,12 @@ const Category =() =>{
                                 <div className="col-12">
                                     <div className="product-topbar d-xl-flex align-items-end justify-content-between">
                                         <div className="total-products">
-                                            <p> showing 1-8 of 25</p>
                                             <div className="view d-flex">
-                                                <a href="..."> <FaThLarge size="30px" color="#ffc107"/> </a>
-                                                <a href="..."> <FaBars size="30px" color="black"/> </a>
+                                                <FaThLarge size="30px" color={`${DisRow?"black":"#ffc107"}`} onClick={()=>setDisRow(false)}/>
+                                                <FaBars size="30px" color={`${DisRow?"#ffc107":"black"}`} onClick={()=>setDisRow(true)}/>
                                             </div>
                                         </div>
-                                        <div className="product-sorting d-flex">
+                                        {/* <div className="product-sorting d-flex">
                                             <div className="sort-by-date d-flex align-items-center mr-15">
                                                 <Dropdown as={ButtonGroup} >
                                                     <Button variant="success" >Sort by</Button>
@@ -118,7 +120,7 @@ const Category =() =>{
                                             </Dropdown.Menu>
                                             </Dropdown>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </Row>
@@ -129,7 +131,7 @@ const Category =() =>{
                                     const {id ,price, image,desc,rating} = items;
                                     return(
                                         <>
-                                        <div className='col-12 col-sm-6 col-md-12 col-xl-6' key={id}>
+                                        <div className={`col-12 col-sm-6 col-md-12 ${DisRow?"col-xl-12":"col-xl-6"}`} key={id}>
                                             <div className="card">
                                                 <img src= {image} 
                                                 className="card-img-top" alt="..." />
@@ -147,7 +149,7 @@ const Category =() =>{
                                                          }) }       
                                                     </div>
                                                         
-                                                        <div className="d-flex" style={{    justifyContent:"space-around",marginTop:"8px"}}>
+                                                        <div className="d-flex" style={{    justifyContent:"center",marginTop:"8px",gap:"5px"}}>
                                                             <AiOutlineHeart size="25px" color="var(--clr-orange-6)"/>
                                                             <BsCart3 size="25px" color="gray"/>
                                                         </div>
