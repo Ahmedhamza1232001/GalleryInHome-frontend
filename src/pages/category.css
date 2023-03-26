@@ -121,7 +121,6 @@
 
 .product-area svg{ 
   cursor: pointer;
-  padding-left: 5px;
 }
 /* media query */
 @media only screen and (min-width: 992px) and (max-width: 1199px){
