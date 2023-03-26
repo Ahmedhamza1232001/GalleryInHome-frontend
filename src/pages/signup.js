@@ -29,32 +29,14 @@ function SignUp() {
                         <h3 className="pt-3 font-weight-bold">Sign Up</h3>
                     </div>
                     <div className="panel-body p-3">
-                        <form onSubmit={handleSubmit(submition)}>
-                            <div className="row">
-                              <div className="form-group col-6">
-                                  {<p className='error'>{errors.firstname?.message}</p>}
-                                  <div className="input-field">
-                                      <span className="far fa-user p-2"></span>
-                                      <input type="text" name='firstname' placeholder="First Name"
-                                      {...register("firstname",{required:"FirstName is requied*",pattern:{value:/^[A-Za-z]+$/i ,message:"Enter Valid Name"}})}/>
-                                  </div>
-                              </div>
-                              <div className="form-group  col-6">
-                                  {<p className='error'>{errors.lastname?.message}</p>}
-                                  <div className="input-field">
-                                      <span className="far fa-user p-2"></span>
-                                      <input type="text" name='lastname' placeholder="Last Name"
-                                      {...register("lastname",{required:"LastName is requied*",pattern:{value:/^[A-Za-z]+$/i ,message:"Enter Valid Name"}})}/>
-                                  </div>
-                              </div>
-                            </div>
+                        <form onSubmit={handleSubmit(submition)}>    
                             <div className="form-group">
-                                {<p className='error'>{errors.age?.message}</p>}
+                                {<p className='error'>{errors.username?.message}</p>}
                                 <div className="input-field">
                                     <span className="far fa-user p-2"></span>
-                                    <input type="number" name='age' placeholder="Enter Your Age"
-                                    {...register("age",{required:"Age is requied*",valueAsNumber:true})} min="18" max="99"/>
-                                 </div>
+                                    <input type="text" name='username' placeholder="User Name"
+                                    {...register("username",{required:"User Name is requied*",pattern:{value:/^[A-Za-z]+$/i ,message:"Enter Valid Name"}})}/>
+                                </div>
                             </div>
                             <div className="form-group">
                                 {<p className='error'>{errors.email?.message}</p>}
@@ -64,7 +46,7 @@ function SignUp() {
                                     {...register("email",{required:"this is requied*",pattern:{value:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,6}$/,message:"please enter  valid email"}})}/>
                                  </div>
                             </div>
-                            <div className="form-group py-1">
+                            <div className="form-group">
                                 {<p className='error'>{errors.password?.message}</p>}
 
                                 <div className="input-field">
@@ -74,8 +56,10 @@ function SignUp() {
                                 </div>
                             </div>
                             <button className="btn btn-primary btn-block mt-3" disabled={!isValid} >Sign Up</button>
+                            <Link to='/' className="btn back-home btn-block mt-3" >Back Home</Link>
+
                             <div className="text-center pt-4 text-muted">already have an account? 
-                                <Link to="/login" className='ToSignUp'>logIn</Link>
+                                <Link to="/login" className='ToSignUp'>Sign in</Link>
                              </div>
                         </form>
                     </div>

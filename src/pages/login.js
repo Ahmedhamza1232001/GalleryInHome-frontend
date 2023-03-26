@@ -54,7 +54,7 @@ const togglePass=(e)=>{
                     </div>
                     <div className="panel-body p-3">
                         <form onSubmit={handleSubmit(submition)}>
-                            <div className="form-group py-2">
+                            <div className="form-group">
                                 {<p className='error'>{errors.email?.message}</p>}
                                 <div className="input-field">
                                     <span className="far fa-user p-2"></span>
@@ -63,7 +63,7 @@ const togglePass=(e)=>{
                                  </div>
 
                             </div>
-                            <div className="form-group py-1 pb-2">
+                            <div className="form-group">
                                 {<p className='error'>{errors.password?.message}</p>}
 
                                 <div className="input-field">
@@ -75,11 +75,8 @@ const togglePass=(e)=>{
                                     </div>
                                 </div>
                             </div>
-                            <div className="form-inline">
-                                <input type="checkbox" name="remember" id="remember"/>
-                                <label htmlFor="remember" className="text-muted">Remember me</label>
-                            </div>
                             <button className="btn btn-primary btn-block mt-3" disabled={!isValid} >Login</button>
+                            <Link to='/' className="btn back-home btn-block mt-3" >Back Home</Link>
                             <div className="text-center pt-4 text-muted">Don't have an account? 
                                 <Link to="/signup" className='ToSignUp'>Sign up</Link>
                              </div>

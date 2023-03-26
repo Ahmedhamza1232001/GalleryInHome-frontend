@@ -15,7 +15,7 @@ import Form from 'react-bootstrap/Form';
 
 
 const Category =() =>{
-        const [DisRow, setDisRow] = useState(true)
+        const [DisRow, setDisRow] = useState(false)
         const [data ] = useState(CardData);
 
 
