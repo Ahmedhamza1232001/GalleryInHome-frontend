@@ -62,7 +62,7 @@ function App() {
           <Routes >
             <Route element={<SidebarLayout/>}>
               <Route path="/" element={<Home/>} />
-                <Route path='/product' element={<Product/>}></Route>
+                <Route path='/product/:id' element={<Product/>}></Route>
                 <Route path='/cart' element={<Cart/>}></Route>
                 <Route path='/Category' element={<Category/>}></Route>
                 <Route path='/favorite' element={<Favorite/>}></Route>

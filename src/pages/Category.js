@@ -10,15 +10,21 @@ import {FaThLarge , FaBars} from "react-icons/fa";
 // import Dropdown from 'react-bootstrap/Dropdown';
 import {BsCart3 , BsStarFill} from "react-icons/bs";
 import {AiOutlineHeart} from "react-icons/ai" ;
-
 import Form from 'react-bootstrap/Form';
+import {useGlobalContext} from "../context"
+
 
 
 const Category =() =>{
         const [DisRow, setDisRow] = useState(false)
         const [data ] = useState(CardData);
+        const {products} = useGlobalContext()
 
-
+        if(!products){
+            return(
+                <h3 style={{width:"auto",margin:"30px auto" }}>NO DATA EXIST </h3>
+                )
+        }
         return(
             <>
             <div className="category-main">
@@ -127,19 +133,19 @@ const Category =() =>{
 
                                 {/* cards */}
                             <Row >
-                                {data.map((items) =>{
-                                    const {id ,price, image,desc,rating} = items;
+                                {products.map((items) =>{
+                                    const {id ,price, images,description,rating} = items;
                                     return(
                                         <>
                                         <div className={`col-12 col-sm-6 col-md-12 ${DisRow?"col-xl-12":"col-xl-6"}`} key={id}>
                                             <div className="card">
-                                                <img src= {image} 
-                                                className="card-img-top" alt="..." />
+                                                <img src= {images[0].name} 
+                                                className="card-img-top" alt={id} />
                                                 <div className="card-body d-flex">
                                                     <div>
                                                         <h4 className="card-price">{price} EGP</h4>
                                                         <p className="card-description">
-                                                            {desc}
+                                                            {description}
                                                         </p>
                                                     </div>
                                                     <div className="icon">
