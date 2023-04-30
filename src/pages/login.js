@@ -13,10 +13,29 @@ function LogIn() {
         mode:"onChange",
     });
     const [passShow, setPassShow] = useState(false)
-    const submition= (data)=>{
-        // e.preventDefault()
-        console.log(typeof(data.email));    
-    }
+    const submition = (data) => {
+        const url = "http://localhost:5267/Auth/login"
+        fetchUsers(url, data);
+    };
+
+    const fetchUsers = (url,data) => {
+        fetch(url, {
+            method: "POST",
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    sessionStorage.setItem("jwtTok", res.data)
+                    window.location.href = "/"
+                }
+                else {
+                    console.log(res.message)
+                }
+            })
+            .catch(err => console.log(err.message))
+    } 
 
 // function to show and hide password
 const togglePass=(e)=>{

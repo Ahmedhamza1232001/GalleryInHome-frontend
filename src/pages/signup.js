@@ -14,9 +14,20 @@ function SignUp() {
   });
 
   const submition= (data)=>{
-    // e.preventDefault()
-    console.log(data);    
-}
+      const url = " a";
+      fetch(url, {
+        method: "POST",
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(res => {
+            console.log(res.data)
+            window.location.href = "/"
+        })
+        .catch(err => console.log(err.message))
+
+  }
 
 
   return (
