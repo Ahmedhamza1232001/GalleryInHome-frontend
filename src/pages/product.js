@@ -25,9 +25,12 @@ class Dashboard extends Component {
   hideModal = () => {
     this.setState({ show: false });
   };
-
-
+  
   render() {
+    let ARurl = "http://127.0.0.1:5500/index.html";
+    const objId = "SheenChair";
+
+    
     return (
       <div className='single-product-area py-100'>   
         <div className="container-fluid">
@@ -98,7 +101,11 @@ class Dashboard extends Component {
                 </div>
                 <div className='cartClearfix'>
                   <Link to="/cart" className='cart-link'>Add to cart</Link>
-                </div>
+              </div>
+              <div className='arBtnGroup'>
+                {/* <button className='arBtn' onClick={() => window.location.href = ARurl + `?id=${objId}`}>Show AR</button> */}
+                <a href={ARurl + `?id=${objId}`}  className='arBtn' target="_blank" rel="noopener noreferrer">Show AR</a>
+              </div>
                 <div className='show3dButton'>         
                   <button className='threedLink' type='button' onClick={this.showModal}>Show 3D</button>
                   <Modal show={this.state.show} handleClose={this.hideModal}>
