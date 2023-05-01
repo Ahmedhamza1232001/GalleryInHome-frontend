@@ -132,7 +132,7 @@ const Category = () => {
                                     const {id ,price, image,desc,rating} = items;
                                     return(
                                         <>
-                                        <div className={`col-12 col-sm-6 col-md-12 ${DisRow?"col-xl-12":"col-xl-6"}`} key={id}>
+                                        <div className={`col-12 col-sm-6 col-md-12 ${DisRow?"col-xl-12 col-sm-12":"col-xl-6"}`} key={id}>
                                             <div className="card">
                                                 <img src= {image} 
                                                 className="card-img-top" alt="..." />
