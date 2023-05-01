@@ -3,13 +3,11 @@ import {useState} from "react";
 import { Row , Col } from "react-bootstrap";
 import "./category.css";
 import {SidebarData} from './sidebarData';
-import CardData from './cardData';
 import {FaThLarge , FaBars} from "react-icons/fa";
 // import Button from 'react-bootstrap/Button';
 // import ButtonGroup from 'react-bootstrap/ButtonGroup';
 // import Dropdown from 'react-bootstrap/Dropdown';
-import {BsCart3 , BsStarFill} from "react-icons/bs";
-import {AiOutlineHeart} from "react-icons/ai" ;
+import {BsStarFill} from "react-icons/bs";
 import Form from 'react-bootstrap/Form';
 import {useGlobalContext} from "../context"
 
@@ -17,8 +15,8 @@ import {useGlobalContext} from "../context"
 
 const Category =() =>{
         const [DisRow, setDisRow] = useState(false)
-        const [data ] = useState(CardData);
-        const {products} = useGlobalContext()
+        const {products,cartIcon} = useGlobalContext()
+        
 
         if(!products){
             return(
@@ -137,7 +135,7 @@ const Category =() =>{
                                     const {id ,price, images,description,rating} = items;
                                     return(
                                         <>
-                                        <div className={`col-12 col-sm-6 col-md-12 ${DisRow?"col-xl-12":"col-xl-6"}`} key={id}>
+                                        <div className={`col-12 col-sm-6 col-md-12 ${DisRow?"col-xl-12 col-sm-12":"col-xl-6"}`} key={id}>
                                             <div className="card">
                                                 <img src= {images[0].name} 
                                                 className="card-img-top" alt={id} />
@@ -156,8 +154,10 @@ const Category =() =>{
                                                     </div>
                                                         
                                                         <div className="d-flex" style={{    justifyContent:"center",marginTop:"8px",gap:"5px"}}>
-                                                            <AiOutlineHeart size="25px" color="var(--clr-orange-6)"/>
-                                                            <BsCart3 size="25px" color="gray"/>
+                                                                <i class="fa fa-cart-plus" aria-hidden="true" style={{ fontSize: "23px", color: "gray", paddingRight: "5px" }} onClick={(e) => cartIcon(e)}></i>
+                                                                <i class="far fa-heart" aria-hidden="true" style={{ fontSize: "25px", color: "red", }} onClick={(e) => {
+                                                                    e.target.classList.toggle("fa")
+                                                                }}></i>
                                                         </div>
                                                     </div>
                                                 </div>

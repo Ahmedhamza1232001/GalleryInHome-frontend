@@ -32,7 +32,7 @@
 .fav-card img{
     width: 100%;
 }
-.favCard-body .icons svg{
+.favCard-body .icons i{
     cursor: pointer;
 }
 
