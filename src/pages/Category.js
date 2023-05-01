@@ -8,13 +8,14 @@ import {FaThLarge , FaBars} from "react-icons/fa";
 // import Button from 'react-bootstrap/Button';
 // import ButtonGroup from 'react-bootstrap/ButtonGroup';
 // import Dropdown from 'react-bootstrap/Dropdown';
-import {BsCart3 , BsStarFill} from "react-icons/bs";
-import {AiOutlineHeart} from "react-icons/ai" ;
-
+import {BsStarFill} from "react-icons/bs";
+import { useGlobalContext } from "../context";
 import Form from 'react-bootstrap/Form';
 
 
-const Category =() =>{
+const Category = () => {
+    const {cartIcon} = useGlobalContext()
+
         const [DisRow, setDisRow] = useState(false)
         const [data ] = useState(CardData);
 
@@ -149,9 +150,11 @@ const Category =() =>{
                                                          }) }       
                                                     </div>
                                                         
-                                                        <div className="d-flex" style={{    justifyContent:"center",marginTop:"8px",gap:"5px"}}>
-                                                            <AiOutlineHeart size="25px" color="var(--clr-orange-6)"/>
-                                                            <BsCart3 size="25px" color="gray"/>
+                                                    <div className="d-flex" style={{    justifyContent:"center",marginTop:"8px",gap:"5px"}}>
+                                                        <i class="fa fa-cart-plus"  aria-hidden="true" style={{fontSize:"23px",color:"gray",paddingRight:"5px" }} onClick={(e)=>cartIcon(e)}></i>
+                                                                <i class="far fa-heart" aria-hidden="true" style={{ fontSize: "25px", color: "red", }} onClick={(e) => {
+                                                                    e.target.classList.toggle("fa")
+                                                                }}></i>
                                                         </div>
                                                     </div>
                                                 </div>

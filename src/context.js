@@ -17,9 +17,15 @@ function AppProvider({children}) {
     }
     const closeSideBar =()=>{
       setISidebarOpen(false)
-    }
+  }
+  const cartIcon = (e) => {
+    e.target.classList.toggle("fa-shopping-cart")
+    e.target.classList.toggle("selceted")
+
+}
+
   return (
-    <AppContext.Provider value={{openSearch,closeSearch,IssearchOpen,IsSidebarOpen,openSideBar,closeSideBar}}>{children}</AppContext.Provider>
+    <AppContext.Provider value={{cartIcon,openSearch,closeSearch,IssearchOpen,IsSidebarOpen,openSideBar,closeSideBar}}>{children}</AppContext.Provider>
   )
 }
 export const useGlobalContext = () => useContext(AppContext)

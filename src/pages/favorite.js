@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./favorite.css";
-// import {useState} from "react";
 import CardData from './cardData';
-import {BsCart3 , BsStarFill} from "react-icons/bs";
-import {AiFillHeart} from "react-icons/ai"
-// import img1 from 'images/img1.jpg'
-
+import {BsStarFill} from "react-icons/bs";
+import { useGlobalContext } from "../context";
 const Favorite = () => {
-  
+    const favIcon = (e) => {
+        e.target.classList.toggle("fa")        
+    }
+    const {cartIcon} = useGlobalContext()
     return (
     <div className="favorite-main">
         <div className="container-fluid">
@@ -37,8 +37,9 @@ const Favorite = () => {
                                                 }) }       
                                             </div>
                                             <div className="icons">
-                                                <BsCart3 color="gray" size="30px" style={{paddingRight:"5px"}}/>
-                                                <AiFillHeart color="var(--clr-orange-6)" size="30px" />
+                                                <i class="fa fa-cart-plus" aria-hidden="true" style={{ fontSize: "23px", color: "gray", paddingRight: "5px" }} onClick={(e) =>cartIcon(e)}></i>
+                                                <i class="fa fa-heart far" aria-hidden="true" style={{ fontSize: "25px", color: "red", paddingTop: "5px" }} onClick={(e) => favIcon(e)}></i>
+                                                
                                             </div>
                                         </div>
                                     </div>
