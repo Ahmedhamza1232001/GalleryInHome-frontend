@@ -156,7 +156,7 @@
 }
 
 .card .card-body .form-body .row .col-lg-8 .border .mb-3 
-.imageuploadify .imageuploadify-images-list button.btn-default {
+.imageuploadify .imageuploadify-images-list label.btn-default {
     display: block;
     border-color: #007bff;
     border-radius: 1em;
@@ -169,7 +169,7 @@
 }
 
 .card .card-body .form-body .row .col-lg-8 .border .mb-3 
-.imageuploadify .imageuploadify-images-list button.btn-default:hover{
+.imageuploadify .imageuploadify-images-list label.btn-default:hover{
     color: white;
     background-color: rgb(58, 160, 255);
 }

@@ -5,6 +5,7 @@ import { TiCloudStorage } from 'react-icons/ti';
 import Button from 'react-bootstrap/Button';
 import { AiOutlineCaretDown } from "react-icons/ai";
 
+
 const NewProduct =() =>{
 
     return(
@@ -35,7 +36,9 @@ const NewProduct =() =>{
                                         <div className='imageuploadify-images-list text-center'>
                                             <i><TiCloudStorage/></i>
                                             <span className='imageupload-message'>Drag & Drop Your File(S) Here To Upload</span>
-                                            <Button className='btn btn-default'>or select file to upload</Button>
+                                            <label className='btn btn-default'>or select file to upload
+                                            <input type='file' style={{display:"none"}}/>
+                                            </label>
                                         </div>
                                     </div>
                                 </Form.Group>
