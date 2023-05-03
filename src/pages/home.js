@@ -5,8 +5,9 @@ import "./home.css"
 import {useGlobalContext} from "../context"
 
 function Home() {
-  const {products} = useGlobalContext()
+  const { products } = useGlobalContext()
   var data = products&&products.slice(0,9)
+  console.log(data)
 
 
   if(!products)return(
@@ -20,10 +21,10 @@ function Home() {
             {data?.map(product=>  
               <article className="single-product" key={product.id}>
                 <Link to={`/product/${product.id}`}>
-                  <img src={product.images[0].name} alt={product.name} />
+                  <img src={product.images[0]} alt={product.name} />
                   <div className="product-content">
                     <p>from{product.price} EGP</p>
-                    <h4>{product.description}</h4>
+                    <h4>{product.name}</h4>
                   </div>
                 </Link>
               </article>

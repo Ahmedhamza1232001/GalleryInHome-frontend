@@ -2,36 +2,36 @@ const CardData = [
     {
         id:1,
         price:'180',
-        image:'images/products/1.jpeg',
-        desc:"Queen Tall Chest Bedroom",
+        images:['images/products/1.jpeg'],
+        name:"Queen Tall Chest Bedroom",
         rating:3
     },
     {
         id:2,
         price:'12',
-        image:'images/products/2.jpeg',
-        desc:"modern chair",
+        images:['images/products/2.jpeg'],
+        name:"modern chair",
         rating:5
     },
     {
         id:3,
         price:'90',
-        image:'images/products/3.jpeg',
-        desc: "Home desk",
+        images:['images/products/3.jpeg'],
+        name: "Home desk",
         rating:4
     },
     {
         id:4,
         price:'10',
-        image:'images/products/4.jpeg',
-        desc: "Fabric Corner Suite with Sofa Bed",
+        images:['images/products/4.jpeg'],
+        name: "Fabric Corner Suite with Sofa Bed",
         rating:3
     },
     {
         id:5,
         price:'200',
-        image:'images/products/5.jpeg',
-        desc: "Fabric Click Clack Sofa Bed",
+        images:['images/products/5.jpeg'],
+        name: "Fabric Click Clack Sofa Bed",
         rating:5
     }
     

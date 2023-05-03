@@ -20,11 +20,11 @@ const Favorite = () => {
             </div>
             <div className="row">
                 {CardData.map(elm=>{
-                    const {id,price,image,desc,rating} = elm
+                    const {id,price,images,desc,rating} = elm
                     return(
                         <div key={id} className="col-12 col-sm-6 col-md-12 col-xl-6">
                             <div className="fav-card">
-                                <img src={image} alt={`img-${id}`}/>
+                                <img src={images[0]} alt={`img-${id}`}/>
                                 <div className="favCard-body row">
                                     <div className="col-8">
                                         <h4 className="card-price">{price} EGP</h4>

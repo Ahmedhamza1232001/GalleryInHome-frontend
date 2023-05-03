@@ -1,14 +1,14 @@
-import React from "react";
-import {useState} from "react";
-import { Row , Col } from "react-bootstrap";
+import React,{useState} from "react";
+import {Link} from "react-router-dom"
 import "./category.css";
-import {SidebarData} from './sidebarData';
-import {FaThLarge , FaBars} from "react-icons/fa";
+import { Row , Col } from "react-bootstrap";
+import { FaThLarge, FaBars } from "react-icons/fa";
+import {BsStarFill} from "react-icons/bs";
+import Form from 'react-bootstrap/Form';
 // import Button from 'react-bootstrap/Button';
 // import ButtonGroup from 'react-bootstrap/ButtonGroup';
 // import Dropdown from 'react-bootstrap/Dropdown';
-import {BsStarFill} from "react-icons/bs";
-import Form from 'react-bootstrap/Form';
+import {SidebarData} from './sidebarData';
 import {useGlobalContext} from "../context"
 
 
@@ -132,27 +132,28 @@ const Category =() =>{
                                 {/* cards */}
                             <Row >
                                 {products.map((items) =>{
-                                    const {id ,price, images,description,rating} = items;
+                                    const {id ,price, images,description,rating,name} = items;
                                     return(
                                         <>
                                         <div className={`col-12 col-sm-6 col-md-12 ${DisRow?"col-xl-12 col-sm-12":"col-xl-6"}`} key={id}>
+                                           
                                             <div className="card">
-                                                <img src= {images[0].name} 
-                                                className="card-img-top" alt={id} />
+                                                <Link to={`/product/${id}`}>     
+                                                    <img src= {images[0]} className="card-img-top" alt={id} />
+                                                </Link>
                                                 <div className="card-body d-flex">
                                                     <div>
                                                         <h4 className="card-price">{price} EGP</h4>
                                                         <p className="card-description">
-                                                            {description}
+                                                            {name}
                                                         </p>
                                                     </div>
                                                     <div className="icon">
-                                                    <div className="stars">
-                                                        {[...Array(rating)].map((star,i)=>{
-                                                            return <BsStarFill key={i} color="var(--clr-primary-1)"/>
-                                                         }) }       
-                                                    </div>
-                                                        
+                                                        <div className="stars">
+                                                            {[...Array(rating)].map((star,i)=>{
+                                                                return <BsStarFill key={i} color="var(--clr-primary-1)"/>
+                                                            }) }       
+                                                        </div>        
                                                         <div className="d-flex" style={{    justifyContent:"center",marginTop:"8px",gap:"5px"}}>
                                                                 <i class="fa fa-cart-plus" aria-hidden="true" style={{ fontSize: "23px", color: "gray", paddingRight: "5px" }} onClick={(e) => cartIcon(e)}></i>
                                                                 <i class="far fa-heart" aria-hidden="true" style={{ fontSize: "25px", color: "red", }} onClick={(e) => {
