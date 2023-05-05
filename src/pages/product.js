@@ -50,19 +50,18 @@ class Dashboard extends Component {
           this.setState({data:{  id:1,
         price:'180',
         imgs: [
-              'images/product/1.webp',
-              'images/products/2.webp',
-              'images/products/3.webp',
+              '../images/product/1.webp',
+              '../images/product/2.webp',
+              '../images/product/3.webp',
             ],
         name: "Queen Tall Chest Bedroom",
         desc: "a fine comfort caught for ypur back pains",
-        model:"images/LEATHERSOFA-2019-obj.obj",
+        model:"../images/3d/LEATHERSOFA-2019-obj.obj",
         rating:3}})
         });
   }
   render() {
     let ARurl = "http://127.0.0.1:5500/index.html";
-    console.log(this.state.data)
     let elem = this.state.data
     if (!this.state.data) {
       return (
