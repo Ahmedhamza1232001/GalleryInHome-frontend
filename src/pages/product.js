@@ -40,16 +40,30 @@ class Dashboard extends Component {
       }
     }
     var id = getId();
+    console.log(id)
     const url = ""
     fetch(url+id)
         .then((response) => response.json())
         .then(res => {
           this.setState({ data: res })
+        }).catch(() => {
+          this.setState({data:{  id:1,
+        price:'180',
+        imgs: [
+              'images/product/1.webp',
+              'images/products/2.webp',
+              'images/products/3.webp',
+            ],
+        name: "Queen Tall Chest Bedroom",
+        desc: "a fine comfort caught for ypur back pains",
+        model:"images/LEATHERSOFA-2019-obj.obj",
+        rating:3}})
         });
   }
   render() {
     let ARurl = "http://127.0.0.1:5500/index.html";
     console.log(this.state.data)
+    let elem = this.state.data
     if (!this.state.data) {
       return (
         <h3 style={{width:"auto",margin:"30px auto",textTransform:"capitalize" }}>product Data doesn't exist </h3>
@@ -59,10 +73,7 @@ class Dashboard extends Component {
     return (
       <div className='single-product-area py-100'>   
         <div className="container-fluid">
-  {this.state.data?.map(elem => {
-    return (
-      <>
-          <div className='row'>
+        <div className='row'>
             <div className="col-12">
               <ol className='label'>
                 <li className='productPath'>
@@ -112,7 +123,7 @@ class Dashboard extends Component {
                     <div className='ratings'>
                       {[...Array(elem.rating)].map((star,i)=>{
                         return <BsStarFill key={i} color="var(--clr-primary-1)"/>
-                      })};       
+                      })}       
                     </div>
                   </div>
                   <p className='avaibility'><span className='circle'><FaCircle/></span>In Stock</p>
@@ -163,9 +174,6 @@ class Dashboard extends Component {
                 </div>
             </div>              
           </div >
-          </>
-          )})}
-           
       </div>
     </div>
     
