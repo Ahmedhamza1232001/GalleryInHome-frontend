@@ -13,7 +13,8 @@ function SignUp() {
     mode:"onChange",
   });
 
-  const submition= (data)=>{
+    const submition = (data) => {
+        console.log(data)
       const url = " a";
       fetch(url, {
         method: "POST",
@@ -45,8 +46,8 @@ function SignUp() {
                                 {<p className='error'>{errors.username?.message}</p>}
                                 <div className="input-field">
                                     <span className="far fa-user p-2"></span>
-                                    <input type="text" name='username' placeholder="User Name"
-                                    {...register("username",{required:"User Name is requied*",pattern:{value:/^[A-Za-z]+$/i ,message:"Enter Valid Name"}})}/>
+                                    <input type="text" name='userName' placeholder="User Name"
+                                    {...register("userName",{required:"User Name is requied*",pattern:{value:/^[A-Za-z]+$/i ,message:"Enter Valid Name"}})}/>
                                 </div>
                             </div>
                             <div className="form-group">

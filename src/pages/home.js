@@ -7,7 +7,6 @@ import {useGlobalContext} from "../context"
 function Home() {
   const { products } = useGlobalContext()
   var data = products&&products.slice(0,9)
-  console.log(data)
 
 
   if(!products)return(
