@@ -20,7 +20,7 @@ const Favorite = () => {
             </div>
             <div className="row">
                 {CardData.map(elm=>{
-                    const {id,price,images,desc,rating} = elm
+                    const {id,price,images,name,rating} = elm
                     return(
                         <div key={id} className="col-12 col-sm-6 col-md-12 col-xl-6">
                             <div className="fav-card">
@@ -28,7 +28,7 @@ const Favorite = () => {
                                 <div className="favCard-body row">
                                     <div className="col-8">
                                         <h4 className="card-price">{price} EGP</h4>
-                                        <p>{desc}</p>
+                                        <p>{name}</p>
                                     </div>
                                     <div className="col-4">
                                         <div className="icons-cont">

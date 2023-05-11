@@ -85,7 +85,7 @@ class Dashboard extends Component {
                   <Link to="">Chairs</Link>
                 </li>
                 <li className='productPathSelected'>
-                  <p>Maroon modern chair</p>
+                  <p>{elem.name}</p>
                 </li>
               </ol>
             </div>
