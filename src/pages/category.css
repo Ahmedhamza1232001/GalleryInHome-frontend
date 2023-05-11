@@ -122,6 +122,10 @@
 .product-area i{ 
   cursor: pointer;
 }
+.category-main .product-area img{
+  height: 70vh;
+
+}
 /* media query */
 @media only screen and (min-width: 992px) and (max-width: 1199px){
    .total-products{
