@@ -159,6 +159,9 @@
   top: 20px;
   position: relative;
 }
+.single-product-area .arBtnGroup{
+  display: none;
+}
 .arBtnGroup .arBtn{
   margin-top: 20px;
 }
@@ -186,4 +189,7 @@
     max-width: 100%;
     padding-top: 50px;
   }
+ .single-product-area .arBtnGroup{
+  display: block;
+ }
 }
