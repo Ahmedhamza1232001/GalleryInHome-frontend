@@ -1,24 +1,30 @@
 import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import "./login.css"
 // images
 import facbook from '../images/facebook.jpeg'
 import twitter from '../images/twitter.png'
 import google from '../images/google.png'
-
+// Toastify  
 
 function LogIn() {
-    const { register, handleSubmit,  formState: { errors,isValid }   } = useForm({
+    const { register, handleSubmit,  formState: { errors,isValid } ,reset   } = useForm({
         mode:"onChange",
     });
     const [passShow, setPassShow] = useState(false)
     const submition = (data) => {
         const url = "http://localhost:5267/Auth/login"
         fetchUsers(url, data);
-    };
+        reset();
 
-    const fetchUsers = (url,data) => {
+    };
+    
+    const fetchUsers = (url, data) => {
         fetch(url, {
             method: "POST",
             headers: { 'content-type': 'application/json' },
@@ -28,13 +34,36 @@ function LogIn() {
             .then(res => {
                 if (res.success) {
                     sessionStorage.setItem("jwtTok", res.data)
-                    window.location.href = "/"
+                    toast.success("successfully login !", {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
+                    setTimeout(()=>window.location.href = "/",500) 
+
+
                 }
                 else {
-                    console.log(res.message)
                 }
             })
-            .catch(err => console.log(err.message))
+            .catch(err => {
+                toast.error("failed to login !", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                console.log(err.message)
+            })
     } 
 
 // function to show and hide password
@@ -61,7 +90,7 @@ const togglePass=(e)=>{
 
     }
 }   
-
+    
   return (
     <main className='registration-wrapper'>
     <div className="login-wrapper container">
@@ -118,7 +147,9 @@ const togglePass=(e)=>{
             </div>
         </div>
     </div>
-</main>
+    <ToastContainer />
+    </main>
+
   )
 }
 

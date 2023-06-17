@@ -6,16 +6,18 @@ import './signup.css'
 import facbook from '../images/facebook.jpeg'
 import twitter from '../images/twitter.png'
 import google from '../images/google.png'
+// toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function SignUp() {
-  const { register, handleSubmit,  formState: { errors,isValid }   } = useForm({
+  const { register, handleSubmit,  formState: { errors,isValid }  ,reset } = useForm({
     mode:"onChange",
   });
 
     const submition = (data) => {
-        console.log(data)
-      const url = " a";
+      const url = "a";
       fetch(url, {
         method: "POST",
         headers: { 'content-type': 'application/json' },
@@ -23,11 +25,33 @@ function SignUp() {
     })
         .then(res => res.json())
         .then(res => {
-            console.log(res.data)
-            window.location.href = "/"
+            toast.success("successfully login !", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            setTimeout(()=>window.location.href = "/",500) 
         })
-        .catch(err => console.log(err.message))
+          .catch(err => {
+            toast.error("Failed to login !", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+              console.log(err.message)   
 
+          })
+        reset()
   }
 
 
@@ -92,6 +116,7 @@ function SignUp() {
             </div>
         </div>
     </div>
+    <ToastContainer />
 
 </main>
   )
