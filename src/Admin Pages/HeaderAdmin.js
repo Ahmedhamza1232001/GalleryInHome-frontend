@@ -21,7 +21,7 @@ function Header() {
         </div>
         {/*logo image */}
         <div className="logo">
-            <Link to="/"><img src={logo} alt="logo" width="250px" height="250px"/></Link>
+            <Link to="/adminDashboard"><img src={logo} alt="logo" width="250px" height="250px"/></Link>
         </div>
         {/* navigation header */}
         <div className="header-nav">
