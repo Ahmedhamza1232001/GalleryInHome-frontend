@@ -6,7 +6,6 @@ import { BsStarFill} from "react-icons/bs";
 import { FaCircle } from "react-icons/fa";
 import Modal from './Modal3d.js';
 import { OBJModel, DirectionLight } from "react-3d-viewer";
-import axios from 'axios';
 
 
 
@@ -58,10 +57,11 @@ class Dashboard extends Component {
                   ],
               name: "Queen Tall Chest Bedroom",
               desc: "A fine comfort caught for ypur back pains",
-              model:"../images/3d/LEATHERSOFA-2019-obj.obj",
+              model:"/images/3d/chair_low.obj",
               rating:3}})
             });
   }
+  // 
   render() {
     let elem = this.state.data
     let ARurl = "http://127.0.0.1:5500/";
