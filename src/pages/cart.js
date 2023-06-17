@@ -10,7 +10,6 @@ const Cart =() => {
     const { products } = useGlobalContext()
     var data = products && products.slice(0, 2)
     const [CartData, setCartData] = useState(data)
-    React.memo(CartData)
 
     const Increas = (productId) => {
 

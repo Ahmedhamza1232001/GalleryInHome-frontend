@@ -5,18 +5,18 @@ import { IoWalletOutline } from "react-icons/io5";
 import { AiOutlineBulb } from "react-icons/ai";
 import { BiChat } from "react-icons/bi";
 import { FaStar } from "react-icons/fa";
-import vase from '../images/vase.webp'
-import chair from '../images/chair.webp'
-import table from '../images/table.webp'
-import whiteChair from '../images/oo.jpg'
-import chair2 from '../images/4.jpeg'
-import chair3 from '../images/7.jpg'
+
 import Card from 'react-bootstrap/Card';
 import SimpleBar from 'simplebar-react';
+import {useGlobalContext} from "../context"
+import { useState } from 'react';
 
 
 const AdminDashboard =() =>{
 
+    const { products } = useGlobalContext()
+    const [bestSales, setBestSales] = useState(products);
+    const [Recent, setRecent] = useState(products);
     return(
         <div className='dashboard-page'>
             <div className='page-content'>
@@ -107,82 +107,25 @@ const AdminDashboard =() =>{
                             </Card.Body>
                             <SimpleBar style={{ maxHeight: 500}}>
                             <Card.Body className='best-selling-products p-3 mb-3 ps ps--activity-y'>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={vase} alt="logo" className='p-1'/>
+                            {bestSales.map(product => {
+                                const { images, id, price, name } = product;
+                                return (
+                                    <>
+                                    <div key ={id} className='d-flex align-items-center'>
+                                        <div className='product-img'>
+                                            <img src={images} alt="logo" className='p-1'/>
+                                        </div>
+                                        <div className='ps-3'>
+                                            <h6 className='mb-0 '>{name}</h6>
+                                            <p className='mb-0 text-secondary'>{price} EGP/Each 56 Orders</p>
+                                        </div>
+                                        <p className='ms-auto mb=0 text-secondary'>{price} EGP</p>
                                     </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Small Vase</h6>
-                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>24.52 EGP</p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={chair} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>White Chair</h6>
-                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>52.52 EGP</p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={table} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>White Classic Table</h6>
-                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>94.52 EGP</p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={whiteChair} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Sofra Chair</h6>
-                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>421.52 EGP</p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={chair2} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Beige Modern Chair</h6>
-                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>342.52 EGP</p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={chair3} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Modern Leather Sofa</h6>
-                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>521.52 EGP</p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={vase} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Small Vase</h6>
-                                        <p className='mb-0 text-secondary'>29 EGP/Each 56 Orders</p>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>24.52 EGP</p>
-                                </div>
+                                    <hr></hr>
+                                </>
+                                )
+                            })}
+
                             </Card.Body>
                             </SimpleBar>
                         </Card>
@@ -198,96 +141,27 @@ const AdminDashboard =() =>{
                             </Card.Body>
                             <SimpleBar style={{ maxHeight: 500}}>
                             <Card.Body className='recent-reviews p-3 mb-3 ps ps--activity-y'>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={chair2} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Beige Modern Chair</h6>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>
-                                        <span className='text-warning mr-1'><FaStar/></span>
-                                        5.00
-                                    </p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={chair3} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Modern Leather Sofa</h6>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>
-                                        <span className='text-warning mr-1'><FaStar/></span>
-                                        5.00
-                                    </p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={whiteChair} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Sofra Chair</h6>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>
-                                        <span className='text-warning mr-1'><FaStar/></span>
-                                        5.00
-                                    </p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={vase} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Small Vase</h6>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>
-                                        <span className='text-warning mr-1'><FaStar/></span>
-                                        5.00
-                                    </p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={table} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>White Classic Table</h6>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>
-                                        <span className='text-warning mr-1'><FaStar/></span>
-                                        5.00
-                                    </p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={chair} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>White Chair</h6>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>
-                                        <span className='text-warning mr-1'><FaStar/></span>
-                                        5.00
-                                    </p>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-center'>
-                                    <div className='product-img'>
-                                        <img src={chair2} alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-0 '>Beige Modern Chair</h6>
-                                    </div>
-                                    <p className='ms-auto mb=0 text-secondary'>
-                                        <span className='text-warning mr-1'><FaStar/></span>
-                                        5.00
-                                    </p>
-                                </div>
+                                {Recent.map(product => {
+                                    const { images, id, rating, name } = product;
+                                    return (
+                                        <>
+                                        <div className='d-flex align-items-center'>
+                                            <div className='product-img'>
+                                                <img src={images} alt="logo" className='p-1'/>
+                                            </div>
+                                            <div className='ps-3'>
+                                                    <h6 className='mb-0 '>{name}</h6>
+                                            </div>
+                                            <p className='ms-auto mb=0 text-secondary'>
+                                                <span className='text-warning mr-1'><FaStar/></span>
+                                                {rating}.00
+                                            </p>
+                                        </div>
+                                        <hr></hr>
+                                        
+                                    </>
+                                    )
+                                })}
                             </Card.Body>
                             </SimpleBar>
                         </Card>
