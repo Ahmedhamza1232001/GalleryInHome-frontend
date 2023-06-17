@@ -1,42 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './cart.css';
 import Button from 'react-bootstrap/Button'
 import {Link} from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import {useState} from 'react'
-import chair from "../images/chair.webp"
-import vase from "../images/vase.webp"
-import table from "../images/table.webp"
+import {useGlobalContext} from "../context"
 
 const Cart =() => {
-    const[count1,setCount1]=useState(1);
-    const inc1=()=>{
-        setCount1(count1+1);
+    const { products } = useGlobalContext()
+    var data = products && products.slice(0, 2)
+    const [CartData, setCartData] = useState(data)
+    React.memo(CartData)
+
+    const Increas = (productId) => {
+
+        const updatedCartItems = CartData.map(item => {
+            if (item.id === productId) {
+            return {
+                ...item,
+                qnt: item.qnt + 1
+            };
+            } else {
+            return item;
+            }
+        });
+    
+        setCartData(updatedCartItems);
       }
-      const dec1=()=>{
-        if(count1>1)
-        setCount1(count1-1);
-      }
-
-    const[count2,setCount2]=useState(1);
-    const inc2=()=>{
-        setCount2(count2+1);
-     }
-    const dec2=()=>{
-        if(count2>1)
-        setCount2(count2-1);
-     }
-
-    const[count3,setCount3]=useState(1);
-    const inc3=()=>{
-        setCount3(count3+1);
-     }
-    const dec3=()=>{
-        if(count3>1)
-        setCount3(count3-1);
-     }
-
-    return(
+        
+console.log(CartData);
+    return (
         <div className='cart-table-area section-padding-100'>
             <div className='container-fluid'>
                 <div className='row'>
@@ -55,69 +48,33 @@ const Cart =() => {
                                     </tr>                                   
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td className="cart_product_image">
-                                            <img src={chair} alt="chair" />
-                                        </td>
-                                        <td className="cart_product_desc">
-                                            <h5>White Modern Chair</h5>
-                                        </td>
-                                        <td className="cart_product_price">
-                                            <span className="pricee">130 EGP</span>
-                                        </td>
-                                        <td className="cart_product_qty">
-                                            <div className="qty">
-                                                <p>Qty</p>
-                                                <div className="quantity">
-                                                    <button onClick={dec1} className="qty-symbol" >-</button>
-                                                    {count1}
-                                                    <button onClick={inc1} className="qty-symbol">+</button>
-                                                </div>  
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="cart_product_image">
-                                            <img src={vase} alt="vase" />
-                                        </td>
-                                        <td className="cart_product_desc">
-                                            <h5>Minimal Plant Pot</h5>
-                                        </td>
-                                        <td className="cart_product_price">
-                                            <span className="pricee">10 EGP</span>
-                                        </td>
-                                        <td className="cart_product_qty">
-                                            <div className="qty">
-                                                <p>Qty</p>
-                                                <div className="quantity">
-                                                    <button onClick={dec2} className="qty-symbol" >-</button>
-                                                    {count2}
-                                                    <button onClick={inc2} className="qty-symbol">+</button>
-                                                </div>  
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="cart_product_image">
-                                            <img src={table} alt="table" />
-                                        </td>
-                                        <td className="cart_product_desc">
-                                            <h5>White Modern Table</h5>
-                                        </td>
-                                        <td className="cart_product_price">
-                                            <span className="pricee">200 EGP</span>
-                                        </td>
-                                        <td className="cart_product_qty">
-                                            <div className="qty">
-                                                <p>Qty</p>
-                                                <div className="quantity">
-                                                    <button onClick={dec3} className="qty-symbol" >-</button>
-                                                    {count3}
-                                                    <button onClick={inc3} className="qty-symbol">+</button>
-                                                </div>  
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    {data.map(product => {
+                                        const { id, images, name, price ,qnt} = product
+                                        let count =1;
+                                        return (                                            
+                                        <tr key={id}>
+                                            <td className="cart_product_image">
+                                                <img src={images[0]} alt="chair" />
+                                            </td>
+                                            <td className="cart_product_desc">
+                                                <h5>{name}</h5>
+                                            </td>
+                                            <td className="cart_product_price">
+                                                <span className="pricee">{price} EGP</span>
+                                            </td>
+                                            <td className="cart_product_qty">
+                                                <div className="qty">
+                                                    <p>Qty</p>
+                                                    <div className="quantity">
+                                                        <button onClick={()=>count--} className="qty-symbol" >-</button>
+                                                        {qnt}
+                                                        <button onClick={()=>Increas(id)} className="qty-symbol">+</button>
+                                                    </div>  
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        )
+                                    })}
                                 </tbody>
                             </Table>
                         </div>

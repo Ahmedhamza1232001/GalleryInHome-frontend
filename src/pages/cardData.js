@@ -4,14 +4,16 @@ const CardData = [
         price:'180',
         images:['images/products/1.jpeg'],
         name:"Queen Tall Chest Bedroom",
-        rating:3
+        rating: 3,
+        qnt:1
     },
     {
         id:2,
         price:'12',
         images:['images/products/2.jpeg'],
         name:"modern chair",
-        rating:5
+        rating: 5,
+        qnt:1
     },
     {
         id:3,

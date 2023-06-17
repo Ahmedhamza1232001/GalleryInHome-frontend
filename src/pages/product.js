@@ -52,12 +52,12 @@ class Dashboard extends Component {
               id: 1,
               price:'180',
               imgs: [
-                    '../images/product/1.webp',
-                    '../images/product/2.webp',
-                    '../images/product/3.webp',
+                    '/images/product/1.webp',
+                    '/images/product/2.webp',
+                    '/images/product/3.webp',
                   ],
               name: "Queen Tall Chest Bedroom",
-              desc: "a fine comfort caught for ypur back pains",
+              desc: "A fine comfort caught for ypur back pains",
               model:"../images/3d/LEATHERSOFA-2019-obj.obj",
               rating:3}})
             });
@@ -65,7 +65,7 @@ class Dashboard extends Component {
   render() {
     let elem = this.state.data
     let ARurl = "";
-    // AR post function
+    /////// AR post function
     // const arPost = () => {
     //   axios.post(ARurl, { data:elem.id })
     //   .then(res => {
