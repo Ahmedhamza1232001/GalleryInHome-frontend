@@ -22,7 +22,7 @@ function Home() {
                 <Link to={`/product/${product.id}`}>
                   <img src={product.images[0]} alt={product.name} />
                   <div className="product-content">
-                    <p>from{product.price} EGP</p>
+                    <p>{product.price} EGP</p>
                     <h4>{product.name}</h4>
                   </div>
                 </Link>

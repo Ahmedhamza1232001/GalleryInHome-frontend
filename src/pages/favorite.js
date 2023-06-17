@@ -1,4 +1,5 @@
-import React,{} from "react";
+import React, { } from "react";
+import { Link } from "react-router-dom";
 import "./favorite.css";
 // import {useState} from "react";
 import CardData from './cardData';
@@ -24,7 +25,7 @@ const Favorite = () => {
                     return(
                         <div key={id} className="col-12 col-sm-6 col-md-12 col-xl-6">
                             <div className="fav-card">
-                                <img src={images[0]} alt={`img-${id}`}/>
+                                <Link to={`/product/${id}`}><img src={images[0]} alt={`img-${id}`}/></Link>
                                 <div className="favCard-body row">
                                     <div className="col-8">
                                         <h4 className="card-price">{price} EGP</h4>

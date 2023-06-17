@@ -16,8 +16,7 @@
 .main-content .products-catagories-area .single-product{
     position: relative;
     z-index: 1;
-    height: 70vh;
-
+    aspect-ratio: 5/6;
 }
 .main-content .products-catagories-area .single-product a{
     display: block;

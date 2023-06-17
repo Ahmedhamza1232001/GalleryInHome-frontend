@@ -47,18 +47,20 @@ class Dashboard extends Component {
         .then(res => {
           this.setState({ data: res })
         }).catch(() => {
-          this.setState({data:{  id:1,
-        price:'180',
-        imgs: [
-              '../images/product/1.webp',
-              '../images/product/2.webp',
-              '../images/product/3.webp',
-            ],
-        name: "Queen Tall Chest Bedroom",
-        desc: "a fine comfort caught for ypur back pains",
-        model:"../images/3d/LEATHERSOFA-2019-obj.obj",
-        rating:3}})
-        });
+          this.setState({
+            data: {
+              id: 1,
+              price:'180',
+              imgs: [
+                    '../images/product/1.webp',
+                    '../images/product/2.webp',
+                    '../images/product/3.webp',
+                  ],
+              name: "Queen Tall Chest Bedroom",
+              desc: "a fine comfort caught for ypur back pains",
+              model:"../images/3d/LEATHERSOFA-2019-obj.obj",
+              rating:3}})
+            });
   }
   render() {
     let ARurl = "http://127.0.0.1:5500/index.html";
