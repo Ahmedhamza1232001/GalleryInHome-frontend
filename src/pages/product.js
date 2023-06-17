@@ -1,11 +1,12 @@
 import './product.css';
 import React, { Component } from 'react';
-import { FaStar } from "react-icons/fa";
-import { FaCircle } from "react-icons/fa";
 import {Link,useParams} from "react-router-dom";
+import { FaStar } from "react-icons/fa";
+import { BsStarFill} from "react-icons/bs";
+import { FaCircle } from "react-icons/fa";
 import Modal from './Modal3d.js';
 import { OBJModel, DirectionLight } from "react-3d-viewer";
-import { BsStarFill} from "react-icons/bs";
+import axios from 'axios';
 
 
 
@@ -40,7 +41,6 @@ class Dashboard extends Component {
       }
     }
     var id = getId();
-    console.log(id)
     const url = ""
     fetch(url+id)
         .then((response) => response.json())
@@ -63,8 +63,15 @@ class Dashboard extends Component {
             });
   }
   render() {
-    let ARurl = "http://127.0.0.1:5500/index.html";
     let elem = this.state.data
+    let ARurl = "";
+    // AR post function
+    // const arPost = () => {
+    //   axios.post(ARurl, { data:elem.id })
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
+    // }
     if (!this.state.data) {
       return (
         <h3 style={{width:"auto",margin:"30px auto",textTransform:"capitalize" }}>product Data doesn't exist </h3>
