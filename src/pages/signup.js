@@ -11,49 +11,32 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
 function SignUp() {
-  const { register, handleSubmit,  formState: { errors,isValid }  ,reset } = useForm({
-    mode:"onChange",
-  });
-
+    const {
+      register,
+      handleSubmit,
+      formState: { errors, isValid },
+    } = useForm({
+      mode: 'onChange',
+    });
+  
     const submition = (data) => {
-      const url = "a";
+      console.log(data);
+      const url = 'https://galleryinhome.azurewebsites.net/Auth/register'; // replace with your backend API endpoint for user registration
       fetch(url, {
-        method: "POST",
+        method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-        .then(res => res.json())
-        .then(res => {
-            toast.success("successfully login !", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
-            setTimeout(()=>window.location.href = "/",500) 
+        body: JSON.stringify(data),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res.data);
+          window.location.href = '/';
         })
-          .catch(err => {
-            toast.error("Failed to login !", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
-              console.log(err.message)   
-
-          })
-        reset()
-  }
-
+        .catch((err) => console.log(err.message));
+    };
+  
 
   return (
     <main className='registration-wrapper'>
