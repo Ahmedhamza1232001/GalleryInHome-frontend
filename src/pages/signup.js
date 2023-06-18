@@ -15,7 +15,8 @@ import 'react-toastify/dist/ReactToastify.css';
 function SignUp() {
     const {
       register,
-      handleSubmit,
+        handleSubmit,
+        reset,
       formState: { errors, isValid },
     } = useForm({
       mode: 'onChange',
@@ -30,9 +31,32 @@ function SignUp() {
         body: JSON.stringify(data),
       })
         .then((res) => res.json())
-        .then((res) => {
-          console.log(res.data);
-          window.location.href = '/';
+          .then((res) => {
+              if (res.success) {                
+                  toast.success("successfully registered !", {
+                      position: "top-right",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "colored",
+                  });
+                  setTimeout(()=>window.location.href = "/",500) 
+              }
+              else {
+                toast.error("Failed to register !", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+              }
         })
         .catch((err) => console.log(err.message));
     };

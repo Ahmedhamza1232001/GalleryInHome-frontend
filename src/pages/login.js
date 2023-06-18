@@ -13,7 +13,7 @@ import google from '../images/google.png'
 // Toastify  
 
 function LogIn() {
-    const { register, handleSubmit,  formState: { errors,isValid }   } = useForm({
+    const { register, handleSubmit,  formState: { errors,isValid } ,reset  } = useForm({
         mode:"onChange",
     });
     const [passShow, setPassShow] = useState(false)
@@ -33,7 +33,7 @@ function LogIn() {
             .then(res => {
                 if (res.success) {
                     sessionStorage.setItem("jwtTok", res.data)
-                    toast.success("successfully login !", {
+                    toast.success("Login successfully  !", {
                         position: "top-right",
                         autoClose: 5000,
                         hideProgressBar: false,
@@ -44,25 +44,25 @@ function LogIn() {
                         theme: "colored",
                     });
                     setTimeout(()=>window.location.href = "/",500) 
-
-
                 }
                 else {
+                    toast.error("failed to login !", {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 }
             })
             .catch(err => {
-                toast.error("failed to login !", {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
                 console.log(err.message)
             })
+        reset()
+
     } 
 
 // function to show and hide password
