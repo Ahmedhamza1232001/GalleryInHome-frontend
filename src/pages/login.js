@@ -13,16 +13,15 @@ import google from '../images/google.png'
 // Toastify  
 
 function LogIn() {
-    const { register, handleSubmit,  formState: { errors,isValid } ,reset   } = useForm({
+    const { register, handleSubmit,  formState: { errors,isValid }   } = useForm({
         mode:"onChange",
     });
     const [passShow, setPassShow] = useState(false)
     const submition = (data) => {
-        const url = "http://localhost:5267/Auth/login"
+        const url = "https://galleryinhome.azurewebsites.net/Auth/login"
         fetchUsers(url, data);
-        reset();
-
     };
+
     
     const fetchUsers = (url, data) => {
         fetch(url, {
