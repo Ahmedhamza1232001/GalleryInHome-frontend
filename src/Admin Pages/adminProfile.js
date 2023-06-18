@@ -38,7 +38,7 @@ const AdminProfile =() => {
                             <div className="aiz-user-sidenav rounded c-scrollbar-light pb-5 pb-xl-0">
                                 <div className="pic p-4 text-xl-center mb-4 border-bottom text-white">
                                     <span className="avatar avatar-md mb-3">
-                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" 
+                                        <img src="images/userImg.png" 
                                         className="imagee" alt = "..."/>
                                     </span>
                                     <h4 className="h5 fs-16 mb-1 fw-600"> Rabab Hamdy </h4>

@@ -53,7 +53,9 @@
 
 .cart-table tbody tr td img{
     height: auto;
-    max-width: 100%;
+    min-width: 65px;
+    min-height: 90px;
+    width: 100%;
     vertical-align: middle;
     border-style: none;
 }

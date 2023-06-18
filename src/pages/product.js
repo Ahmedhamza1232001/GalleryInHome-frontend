@@ -6,7 +6,7 @@ import { BsStarFill} from "react-icons/bs";
 import { FaCircle } from "react-icons/fa";
 import Modal from './Modal3d.js';
 import { OBJModel, DirectionLight } from "react-3d-viewer";
-
+import productData from "./productData";
 
 
 
@@ -47,22 +47,12 @@ class Dashboard extends Component {
           this.setState({ data: res })
         }).catch(() => {
           this.setState({
-            data: {
-              id: 1,
-              price:'180',
-              imgs: [
-                    '/images/product/1.webp',
-                    '/images/product/2.webp',
-                    '/images/product/3.webp',
-                  ],
-              name: "Queen Tall Chest Bedroom",
-              desc: "A fine comfort caught for ypur back pains",
-              model:"/images/3d/chair_low.obj",
-              rating:3}})
+            data:productData })
             });
   }
   // 
   render() {
+    console.log(this.state.data)
     let elem = this.state.data
     let ARurl = "http://127.0.0.1:5500/";
     /////// AR post function

@@ -105,7 +105,7 @@ const Feedback = () => {
                 <div className='row'>
                     <div className='col-md-12 '>
                         <div className='addfeedback'>
-                            <FloatingLabel controlId="floatingTextarea2" >
+                            <FloatingLabel controlId="floatingTextarea2" style={{width:"100%"}}>
                                 <Form
                                 className='feedback-control'
                                 as="textarea"

@@ -91,9 +91,9 @@ const CheckOut =() => {
                         <div className='cart-summary'>
                             <h5>Cart Total</h5>
                             <ul>
-                                <li><span>Subtotal:</span><span>140.00 EGP</span></li>
+                                <li><span>Subtotal:</span><span>0.00 EGP</span></li>
                                 <li><span>Delivery:</span><span>Free</span></li>
-                                <li><span>Total:</span><span>140.00 EGP</span></li>
+                                <li><span>Total:</span><span>0.00 EGP</span></li>
                             </ul>
 
                             {/* Payment Method */}
@@ -116,7 +116,7 @@ const CheckOut =() => {
                                         id={`inline-${type}-2`}
                                         checked
                                         />
-                                        <img className='paypalimage' src="../images/paypal.png.webp" alt="Paypal"/>   
+                                        <img className='paypalimage' src="images/paypal.png.webp" alt="Paypal"/>   
                                     </div>
                                 </div> ))}
                             </div>

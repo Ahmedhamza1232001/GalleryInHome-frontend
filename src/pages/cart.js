@@ -84,9 +84,9 @@ console.log(CartData);
                         <div className='cart-summary'>
                             <h5>Cart Total</h5>
                             <ul>
-                                <li><span>Subtotal:</span><span>140.00 EGP</span></li>
+                                <li><span>Subtotal:</span><span>0.00 EGP</span></li>
                                 <li><span>Delivery:</span><span>Free</span></li>
-                                <li><span>Total:</span><span>140.00 EGP</span></li>
+                                <li><span>Total:</span><span>0.00 EGP</span></li>
                             </ul>
                             <div className='cart-btn mt-100'>
                                 <Link to="/checkout" className='btn amado-btn w-100'>Checkout</Link>

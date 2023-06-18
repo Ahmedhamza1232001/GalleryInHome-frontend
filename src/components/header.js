@@ -14,13 +14,7 @@ import DarkMode from "../DarkMode.jsx";
 import { useState } from "react";
 import "../pages/reels.css"
 import Video from "../pages/video";
-import Vid11 from "../videos/vid11.mp4"
-import Vid22 from "../videos/vid22.mp4"
-import Vid33 from "../videos/vid33.mp4"
-import Vid1 from "../videos/vid1.mp4"
-import Vid2 from "../videos/vid2.mp4"
-import Vid4 from "../videos/vid4.mp4"
-import Vid5 from "../videos/vid5.mp4"
+
 
 
 const Header= () =>{
@@ -31,25 +25,25 @@ const Header= () =>{
     const handleShow = () => setShow(true);
     const data = [
         {
-            url: Vid1,
+            url: "videos/vid1.mp4",
         },
         {
-            url: Vid22,
+            url: "videos/vid22.mp4",
         },
         {
-            url: Vid2,
+            url: "videos/vid2.mp4",
         },
         {
-            url: Vid4,
+            url: "videos/vid4.mp4",
         },
         {
-            url: Vid5,
+            url: "videos/vid5.mp4",
         },
         {
-            url: Vid33,
+            url: "videos/vid33.mp4",
         },
         {
-            url: Vid11,
+            url: "videos/vid11.mp4",
         },
         ];
 
