@@ -10,23 +10,26 @@ import { useGlobalContext } from '../context';
 
 const Category = () => {
   const [DisRow, setDisRow] = useState(false);
-  const { cartIcon } = useGlobalContext();
-  const [products, setProducts] = useState([]);
+  const { cartIcon, products, loading ,addTofav} = useGlobalContext();
+  
+  // const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('https://galleryinhome.azurewebsites.net/api/Client/GetAll');
-      const data = await response.json();
-      setProducts(data.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  // const fetchProducts = async () => {
+  //   try {
+  //     const response = await fetch('https://galleryinhome.azurewebsites.net/api/Client/GetAll');
+  //     const data = await response.json();
+  //     setProducts(data.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  if (loading) {
+    return <h3 style={{ width: 'auto', margin: '30px auto' }}>Loading...</h3>;
+  }
   if (products.length === 0) {
     return <h3 style={{ width: 'auto', margin: '30px auto' }}>NO DATA EXIST</h3>;
   }
@@ -139,14 +142,14 @@ const Category = () => {
                                 className="fa fa-cart-plus"
                                 aria-hidden="true"
                                 style={{ fontSize: '23px', color: 'gray', paddingRight: '5px' }}
-                                onClick={(e) => cartIcon(e)}
+                                onClick={(e) => cartIcon(e,id)}
                               ></i>
                               <i
                                 className="far fa-heart"
                                 aria-hidden="true"
                                 style={{ fontSize: '25px', color: 'red' }}
                                 onClick={(e) => {
-                                  e.target.classList.toggle('fa');
+                                  addTofav(e,id)
                                 }}
                               ></i>
                             </div>

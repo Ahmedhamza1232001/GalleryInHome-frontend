@@ -1,31 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
+import { useGlobalContext } from '../context';
 
 function Home() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://galleryinhome.azurewebsites.net/api/Client/GetAll');
-        const data = await response.json();
-        if (data.success) {
-          setProducts(data.data);
-        } else {
-          console.log('API request failed');
-        }
-      } catch (error) {
-        console.log('Error fetching data from the API', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+const {products , loading} = useGlobalContext()
   if (loading) {
     return <h3 style={{ width: 'auto', margin: '30px auto' }}>Loading...</h3>;
   }

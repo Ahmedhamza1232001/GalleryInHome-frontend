@@ -5,29 +5,20 @@ import {Link} from "react-router-dom";
 import Table from 'react-bootstrap/Table';
 import {useState} from 'react'
 import {useGlobalContext} from "../context"
+import CardData from "./cardData";
 
-const Cart =() => {
-    const { products } = useGlobalContext()
-    var data = products && products.slice(0, 2)
-    const [CartData, setCartData] = useState(data)
-
-    const Increas = (productId) => {
-
-        const updatedCartItems = CartData.map(item => {
-            if (item.id === productId) {
-            return {
-                ...item,
-                qnt: item.qnt + 1
-            };
-            } else {
-            return item;
-            }
-        });
+const Cart =() => { 
+    var data = localStorage.getItem('cartData') ? JSON.parse(localStorage.getItem('cartData')) : [];
+    data.map(elem => elem.qnt = 1)
+    localStorage.setItem('cartData', JSON.stringify(data));
+    const [cartData, setCartData] = useState(data)
     
-        setCartData(updatedCartItems);
-      }
-        
-console.log(CartData);
+    // function inc(id) {
+    //     let product = data.find(elm => elm.id === id)
+    //     product.qnt++
+    //     localStorage.setItem('cartData',JSON.stringify(data))
+    // }
+
     return (
         <div className='cart-table-area section-padding-100'>
             <div className='container-fluid'>
@@ -47,13 +38,13 @@ console.log(CartData);
                                     </tr>                                   
                                 </thead>
                                 <tbody>
-                                    {data.map(product => {
+                                    {cartData.map(product => {
                                         const { id, images, name, price ,qnt} = product
                                         let count =1;
                                         return (                                            
                                         <tr key={id}>
                                             <td className="cart_product_image">
-                                                <img src={images[0]} alt="chair" />
+                                                <img src={images[0].name} alt={id} />
                                             </td>
                                             <td className="cart_product_desc">
                                                 <h5>{name}</h5>
@@ -67,7 +58,7 @@ console.log(CartData);
                                                     <div className="quantity">
                                                         <button onClick={()=>count--} className="qty-symbol" >-</button>
                                                         {qnt}
-                                                        <button onClick={()=>Increas(id)} className="qty-symbol">+</button>
+                                                        <button onClick={()=>console.log("inc")} className="qty-symbol">+</button>
                                                     </div>  
                                                 </div>
                                             </td>

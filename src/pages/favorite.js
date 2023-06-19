@@ -7,10 +7,7 @@ import { BsStarFill} from "react-icons/bs";
 import { useGlobalContext } from "../context";
 
 const Favorite = () => {
-    const favIcon = (e) => {
-        e.target.classList.toggle("fa")        
-    }
-    const {cartIcon} = useGlobalContext()
+    const {addToCart,addToFav} = useGlobalContext()
     return (
     <div className="favorite-main">
         <div className="container-fluid">
@@ -40,8 +37,8 @@ const Favorite = () => {
                                                 }) }       
                                             </div>
                                             <div className="icons">
-                                                <i class="fa fa-cart-plus" aria-hidden="true" style={{ fontSize: "23px", color: "gray", paddingRight: "5px" }} onClick={(e) =>cartIcon(e)}></i>
-                                                <i class="fa fa-heart far" aria-hidden="true" style={{ fontSize: "25px", color: "red", paddingTop: "5px" }} onClick={(e) => favIcon(e)}></i>
+                                                <i class="fa fa-cart-plus" aria-hidden="true" style={{ fontSize: "23px", color: "gray", paddingRight: "5px" }} onClick={(e) =>addToCart(e,id)}></i>
+                                                <i class="fa fa-heart far select" aria-hidden="true" style={{ fontSize: "25px", color: "red", paddingTop: "5px" }} onClick={(e) => addToFav(e,id)}></i>
                                             </div>
                                         </div>
                                     </div>
