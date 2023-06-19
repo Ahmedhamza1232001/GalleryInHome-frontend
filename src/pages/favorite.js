@@ -1,4 +1,4 @@
-import React, { } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./favorite.css";
 // import {useState} from "react";
@@ -7,7 +7,12 @@ import { BsStarFill} from "react-icons/bs";
 import { useGlobalContext } from "../context";
 
 const Favorite = () => {
-    const {addToCart,addToFav} = useGlobalContext()
+    const { addToCart, addToFav } = useGlobalContext()
+    var data = localStorage.getItem('favData') ? JSON.parse(localStorage.getItem('favData')) : [];
+    localStorage.setItem('favData', JSON.stringify(data));
+    const [favData, setFavData] = useState(data)
+    console.log(favData)
+
     return (
     <div className="favorite-main">
         <div className="container-fluid">
@@ -17,12 +22,12 @@ const Favorite = () => {
                 </div>
             </div>
             <div className="row">
-                {CardData.map(elm=>{
+                {favData.map(elm=>{
                     const {id,price,images,name,rating} = elm
                     return(
                         <div key={id} className="col-12 col-sm-6 col-md-12 col-xl-6">
                             <div className="fav-card">
-                                <Link to={`/product/${id}`}><img src={images[0]} alt={`img-${id}`}/></Link>
+                                <Link to={`/product/${id}`}><img src={images[0].name} alt={`img-${id}`}/></Link>
                                 <div className="favCard-body row">
                                     <div className="col-8">
                                         <h4 className="card-price">{price} EGP</h4>

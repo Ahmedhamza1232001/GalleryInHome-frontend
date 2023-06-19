@@ -10,7 +10,7 @@ import { useGlobalContext } from '../context';
 
 const Category = () => {
   const [DisRow, setDisRow] = useState(false);
-  const { cartIcon, products, loading ,addTofav} = useGlobalContext();
+  const { addToCart, products, loading ,addToFav} = useGlobalContext();
   
   // const [products, setProducts] = useState([]);
 
@@ -142,14 +142,14 @@ const Category = () => {
                                 className="fa fa-cart-plus"
                                 aria-hidden="true"
                                 style={{ fontSize: '23px', color: 'gray', paddingRight: '5px' }}
-                                onClick={(e) => cartIcon(e,id)}
+                                onClick={(e) => addToCart(e,id)}
                               ></i>
                               <i
                                 className="far fa-heart"
                                 aria-hidden="true"
                                 style={{ fontSize: '25px', color: 'red' }}
                                 onClick={(e) => {
-                                  addTofav(e,id)
+                                  addToFav(e,id)
                                 }}
                               ></i>
                             </div>
