@@ -11,6 +11,12 @@ import Button from 'react-bootstrap/Button';
 import {Link} from "react-router-dom";
 
 const AdminSettings =() => {
+
+          // Retrieve user data from session storage
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
+  const name = userData ? userData.userName : "";
+  const email = userData ? userData.email : "";
+
         const ProfileData =[
         {
             icoon: <BsHouseDoor className='mr-2' /> ,
@@ -40,8 +46,8 @@ const AdminSettings =() => {
                                         <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" 
                                         className="imagee" alt = "..."/>
                                     </span>
-                                    <h4 className="h5 fs-16 mb-1 fw-600"> Rabab Hamdy </h4>
-                                    <div className="text-truncate opacity-60">rabab_hamdyy@gmail.com</div>
+                                    <h4 className="h5 fs-16 mb-1 fw-600">{name}</h4>
+                    <div className="text-truncate opacity-60">{email}</div>
                                 </div>
                                 <div className="profileList mb-3">
                                 <ul className="aiz-size-nav-list px-2 metismenu ">
@@ -80,38 +86,25 @@ const AdminSettings =() => {
                                     <Form action='#' method='post'>
                                         <Row>
                                             <div className='col-md-6 mb-3'>
-                                                <Form.Label>First Name :</Form.Label>
-                                                <Form.Control  className='form-control' size="lg" type="text"  placeholder="Rabab" />
+                                                <Form.Label> Name :</Form.Label>
+                                                <Form.Control  className='form-control' size="lg" type="text"  placeholder={name} />
                                             </div>
-                                            <div className='col-md-6 mb-3'>
-                                                <Form.Label>Last Name :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="text"  placeholder="Hamdy" />
-                                            </div>
+                     
                                         </Row>
                                         <Row>
                                             <div className='col-12 mb-3'>
                                                 <Form.Label>Email :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="email"  placeholder="rabab_hamdyy@gmail.com" />
+                                                <Form.Control className='form-control' size="lg" type="email"  placeholder={email} />
                                             </div>
                                         </Row>
                                         <Row>
                                             <div className='col-12 mb-3'>
                                                 <Form.Label>Password :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="password"  placeholder="R123@" />
+                                                <Form.Control className='form-control' size="lg" type="password"  placeholder="Enter New Password" />
                                             </div>
                                         </Row>
-                                        <Row>
-                                            <div className='col-12 mb-3'>
-                                                <Form.Label>Phone No :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="number" min={0} placeholder="01091827364" />
-                                            </div>
-                                        </Row>
-                                        <Row>
-                                            <div className='col-12 mb-3'>
-                                            <Form.Label>Address :</Form.Label>
-                                            <Form.Control className='form-control' size="lg" type="text"  placeholder="Cairo, Damietta" />
-                                            </div>
-                                        </Row>
+                    
+                     
                                         <Row>
                                             <div className='subs-btn'>
                                                 <Link to="/adminProfile" className='btn sub-btn w-100 '>Submit</Link>

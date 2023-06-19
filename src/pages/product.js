@@ -40,7 +40,7 @@ class Dashboard extends Component {
       }
     }
     var id = getId();
-    const url = ""
+    const url = "https://galleryinhome.azurewebsites.net/api/Client/GetAll"
     fetch(url+id)
         .then((response) => response.json())
         .then(res => {
