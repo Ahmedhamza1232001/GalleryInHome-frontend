@@ -52,7 +52,18 @@ class Dashboard extends Component {
   }
   // 
   render() {
-    console.log(this.state.data)
+    let cart = localStorage.getItem('cartData') ? JSON.parse(localStorage.getItem('cartData')): [];
+    localStorage.setItem('cartData', JSON.stringify(cart));
+    console.log(cart)
+    function add_to_cart(elem) {
+      let check = cart.some(item => item.id === elem.id);
+      if (!check) {
+        cart.push(elem)
+      }
+      localStorage.setItem('cartData', JSON.stringify(cart));
+      console.log("cart:",cart)
+    }
+
     let elem = this.state.data
     let ARurl = "http://127.0.0.1:5500/";
     /////// AR post function
@@ -130,7 +141,7 @@ class Dashboard extends Component {
                   <p>{elem.desc}.</p>
                 </div>
                 <div className='cartClearfix'>
-                  <button className='cart-link'>Add to cart</button>
+                  <button className='cart-link' onClick={()=>add_to_cart(this.state.data)}>Add to cart</button>
                 </div>
                 <div className='arBtnGroup'>
                   {/* <button className='arBtn' onClick={() => window.location.href = ARurl + `?id=${objId}`}>Show AR</button> */}
