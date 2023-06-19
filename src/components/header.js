@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./header.css";
 // icons
 import { BsSearch, BsCart4, BsStars } from "react-icons/bs";
@@ -18,6 +18,7 @@ import Video from "../pages/video";
 const Header = () => {
   const { IsSidebarOpen, openSearch, closeSideBar } = useGlobalContext();
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -50,6 +51,16 @@ const Header = () => {
     ? JSON.parse(sessionStorage.getItem("userData")).role
     : "";
 
+    const handleLogout = () => {
+      // Remove token and session data
+      sessionStorage.removeItem("token");
+      sessionStorage.removeItem("userData");
+    
+      // Redirect to the login page
+      navigate("/login");
+    };
+    
+
   return (
     <div className={`${IsSidebarOpen ? "header-area on" : "header-area"}`}>
       {/* close btn */}
@@ -74,7 +85,7 @@ const Header = () => {
           {userRole === "Client" ? (
             <li><NavLink to="/cart">Cart</NavLink></li>
           ) : null}
-          
+
           {userRole === "Client" ? (
             <li><NavLink to="/checkout">Checkout</NavLink></li>
           ) : null}
@@ -84,8 +95,6 @@ const Header = () => {
           {userRole === "Admin" || userRole === "StakeHolder" ? (
             <li><NavLink to="/adminDashboard">Admin</NavLink></li>
           ) : null}
-
-
         </ul>
       </div>
 
@@ -100,21 +109,12 @@ const Header = () => {
           <Modal.Body>
             <div className="reel">
               <center>
-
-                {/*  */}
-
                 <div className="video-container" id="video-container">
-                  {/*  */}
-
                   {data.map((list, i) => (
                     <Video
-
                       url={list.url}
-
                     />
                   ))}
-
-                  {/*  */}
                 </div>
               </center>
             </div>
@@ -127,20 +127,17 @@ const Header = () => {
         </Modal>
       </div>
 
-      {userRole === "Admin" || userRole === "StakeHolder"|| userRole === "Client" ? (
-      <div className="login-cont">
-      <Link to="/login" className='btn login-btn'>Logout</Link>
-    </div>
-    
-    ) :
-    <div className="login-cont">
-    <Link to="/login" className='btn login-btn'>Login</Link>
-  </div>
-}
-
-
-
-
+      {userRole === "Admin" || userRole === "StakeHolder" || userRole === "Client" ? (
+        <div className="login-cont">
+          <Link to="/login" className='btn login-btn' onClick={handleLogout}>
+            Logout
+          </Link>
+        </div>
+      ) : (
+        <div className="login-cont">
+          <Link to="/login" className='btn login-btn'>Login</Link>
+        </div>
+      )}
 
       <DarkMode />
       {/* special pages */}

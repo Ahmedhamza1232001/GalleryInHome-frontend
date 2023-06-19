@@ -1,10 +1,14 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './checkout.css';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 
 const CheckOut =() => {
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const totalSum = queryParams.get('total');
     return(
         <div className='cart-table-area section-padding-100'>
             <div className='container-fluid'>
@@ -93,7 +97,9 @@ const CheckOut =() => {
                             <ul>
                                 <li><span>Subtotal:</span><span>0.00 EGP</span></li>
                                 <li><span>Delivery:</span><span>Free</span></li>
-                                <li><span>Total:</span><span>0.00 EGP</span></li>
+                                <li><span>Total:</span>
+                                <span>{totalSum} EGP</span>
+                                </li>
                             </ul>
 
                             {/* Payment Method */}

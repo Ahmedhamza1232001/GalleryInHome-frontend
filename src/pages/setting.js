@@ -96,12 +96,10 @@ const Settings =() => {
                   <div>
                     <Form action='#' method='post'>
                       <Row>
-                        <div className='col-md-6 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="text" placeholder="First Name" />
+                        <div className='col-md-12 mb-3'>
+                          <Form.Control className='form-control' size="lg" type="text" placeholder="User Name" />
                         </div>
-                        <div className='col-md-6 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="text" placeholder="Last Name" />
-                        </div>
+            
                       </Row>
                       <Row>
                         <div className='col-12 mb-3'>
@@ -110,24 +108,16 @@ const Settings =() => {
                       </Row>
                       <Row>
                         <div className='col-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="password" placeholder="password" />
+                          <Form.Control className='form-control' size="lg" type="password" placeholder="Old Password" />
                         </div>
                       </Row>
                       <Row>
                         <div className='col-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="password" placeholder="Confirm password" />
+                          <Form.Control className='form-control' size="lg" type="password" placeholder="New password" />
                         </div>
                       </Row>
-                      <Row>
-                        <div className='col-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="number" min={0} placeholder="Phone No" />
-                        </div>
-                      </Row>
-                      <Row>
-                        <div className='col-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="text" placeholder="Address" />
-                        </div>
-                      </Row>
+   
+          
                       <Row>
                         <div className='subs-btn'>
                           <Link to="/profile" className='btn sub-btn w-100 '>Submit</Link>
