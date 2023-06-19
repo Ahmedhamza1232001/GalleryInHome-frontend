@@ -40,11 +40,11 @@ class Dashboard extends Component {
       }
     }
     var id = getId();
-    const url = "https://galleryinhome.azurewebsites.net/api/Client/GetAll"
+    const url = "https://galleryinhome.azurewebsites.net/api/Client/all/"
     fetch(url+id)
         .then((response) => response.json())
         .then(res => {
-          this.setState({ data: res })
+          this.setState({ data: res.data })
         }).catch(() => {
           this.setState({
             data:productData })
@@ -94,13 +94,13 @@ class Dashboard extends Component {
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">  
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img src={elem.imgs[0]} class="d-block w-100" alt="img"></img>
+                    <img src={elem.images[0].name} class="d-block w-100" alt="img"></img>
                     </div>
                     <div class="carousel-item">
-                      <img src={elem.imgs[1]} class="d-block w-100" alt="img"></img>
+                    <img src={elem.images[0].name} class="d-block w-100" alt="img"></img>
                     </div>
                     <div class="carousel-item">
-                      <img src={elem.imgs[2]} class="d-block w-100" alt="img"></img>
+                    <img src={elem.images[0].name} class="d-block w-100" alt="img"></img>
                     </div>
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
