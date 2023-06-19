@@ -20,7 +20,7 @@ function LogIn() {
     // Check if the user is already authenticated
     const isAuthenticated = sessionStorage.getItem('userData');
     if (isAuthenticated) {
-      navigate('/profile'); // Redirect to the profile page or another appropriate page
+      navigate('/'); // Redirect to the profile page or another appropriate page
     }
   }, [navigate]);
 
@@ -50,7 +50,7 @@ function LogIn() {
             progress: undefined,
             theme: 'colored',
           });
-          setTimeout(() => window.location.href = '/profile', 500);
+          setTimeout(() => window.location.href = '/', 500);
         }
         else {
           toast.error('Failed to login!', {

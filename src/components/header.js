@@ -65,7 +65,7 @@ const Header = () => {
         <ul>
           <li><NavLink to="/" end>Home</NavLink></li>
 
-          {userRole === "Admin" || userRole === "StakeHolder"|| userRole === "Client" ? (
+          {userRole === "Client" ? (
             <li><NavLink to="/profile">Profile</NavLink></li>
           ) : null}
 

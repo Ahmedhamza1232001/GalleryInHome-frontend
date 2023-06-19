@@ -23,7 +23,7 @@ function SignUp() {
     // Check if the user is already authenticated
     const isAuthenticated = sessionStorage.getItem('userData');
     if (isAuthenticated) {
-      navigate('/profile'); // Redirect to the profile page or another appropriate page
+      navigate('/'); // Redirect to the profile page or another appropriate page
     }
   }, [navigate]);
 
