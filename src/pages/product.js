@@ -65,7 +65,7 @@ class Dashboard extends Component {
     }
 
     let elem = this.state.data
-    let ARurl = "http://127.0.0.1:5500/";
+    let ARurl = "https://galleryinhomear.azurewebsites.net/";
     /////// AR post function
     // const arPost = () => {
     //   axios.post(ARurl, { data:elem.id })

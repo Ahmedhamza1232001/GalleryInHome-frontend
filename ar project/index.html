@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #ar-button {
+            position:fixed;z-index: 1001;display:none;padding: 2vh;bottom: 2vh;right: 80%;margin-left: 30px;
+            background : rgba(0, 0, 0, 0.3);width: 95px;color:aliceblue; border-radius: 10px;opacity:.7;
+        }
+        #ar-button:hover{
+            opacity: .7;
+            cursor: pointer;
+            background :rgb(251, 184, 14);
+
+                }
+
+        #turn-around-y-pos{
+            position:fixed;z-index: 1001;display:none;
+            font-weight: bolder;
+            padding: 2vh;
+            right: 2vh;top: 50%;
+            transform: translateZ(-50%);
+            border-radius: 50px;
+            background : rgba(0, 0, 0, 0.3)
+        }
+        #turn-around-y-pos:hover{
+            background :rgb(251, 184, 14);
+            cursor: pointer;
+            opacity: .7;
+                }
+        #turn-around-y-neg{
+            font-weight: bolder;
+            position:fixed;
+            z-index: 1001;
+            display:none;
+            padding: 2vh;
+            left: 2vh;
+            top: 50%;
+            transform: translateZ(-50%);
+            border-radius: 50px;
+            background : rgba(0, 0, 0, 0.3)
+        }
+        #turn-around-y-neg:hover{
+            background :rgb(251, 184, 14);
+            cursor: pointer;
+            opacity: .7;
+
+        }
+        #ccolore{
+            font-weight: bolder;
+            position:fixed;
+            z-index: 1001;
+            display:none;
+            padding: 2vh;
+            margin:1vh;
+            right: 2vh;
+            top: 20%;
+            transform: translateZ(-50%);
+            border-radius: 50px;
+            background : rgba(0, 0, 0, 0.3)
+        }
+        #ccolore:hover{
+            background :rgb(251, 184, 14);
+            cursor: pointer;
+            opacity: .7;
+        }
+    </style>
+</head>
+<body style="background:rgb(253, 253, 253)">
+    
+    <div id="ar-area" style="display: block;">
+        <button id="turn-around-y-pos">
+            &gt;
+        </button>
+        <button id="turn-around-y-neg">
+            &lt;
+        </button>
+        <button id="ar-button">
+            put the model
+        </button>        
+        
+        <input id="ccolore" type="color" name="Color Picker">
+     
+        
+        
+    </div>
+
+
+    <script src="./main5.js" type="module"></script>
+
+</body>
+</html>
