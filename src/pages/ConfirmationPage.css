@@ -1,0 +1,39 @@
+.confirmation-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    padding: 40px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .confirmation-page h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  
+  .confirmation-page table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+  
+  .confirmation-page table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .confirmation-page table td.label {
+    font-weight: bold;
+  }
+  
+  .confirmation-page .total-sum {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  

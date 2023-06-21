@@ -54,7 +54,8 @@ const CheckOut = () => {
       formData.phoneNo
     )}&comment=${encodeURIComponent(
       formData.comment
-    )}`;
+    )}&totalSum=${encodeURIComponent(totalSum)}`;
+    
 
     localStorage.setItem('checkoutFormData', JSON.stringify(formData));
 
