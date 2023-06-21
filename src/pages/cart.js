@@ -11,20 +11,27 @@ import AdminDashboard from "../Admin Pages/adminDashboard";
 
 const Cart = () => {
   // get data from local storage using user token
-  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
+  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : "";
   var data = localStorage.getItem("cart" + tok)
-    ? JSON.parse(localStorage.getItem("cart"+tok))
-    : [];
-  data.map((elem) => (elem.qnt = 1));
-  localStorage.setItem("cart"+tok, JSON.stringify(data));
-  const [cartData, setCartData] = useState(data);
+  ? JSON.parse(localStorage.getItem("cart"+tok))
+  : [];
+data.map((elem) => (elem.qnt = 1));
 
+localStorage.setItem("cart"+tok, JSON.stringify(data));
+
+const [cartData, setCartData] = useState(data);
+const remove=(id) => {
+  let products = data.filter(elem => elem.id !== id);
+  localStorage.setItem("cart"+tok,JSON.stringify(products))
+  setCartData(products)
+  // console.log(cartData)
+}
   const calculateTotal = () => {
-    return cartItems.reduce((total, product) => total + product.price, 0);
+    return data.reduce((total, product) => total + product.price, 0);
   };
   
   const calculateTotalQuantity = () => {
-    return cartItems.reduce((total, product) => total + product.qnt, 0);
+    return data.reduce((total, product) => total + product.qnt, 0);
   };
 
   const totalQuantity = calculateTotalQuantity();
@@ -98,7 +105,6 @@ const Cart = () => {
             </div>
           </div>
           <div className="col-12 col-lg-4">
-            
             {/* Cart total information */}
             <div className="cart-summary">
               <h5>Cart Total</h5>
@@ -123,19 +129,12 @@ const Cart = () => {
                 >
                   Checkout
                 </Link>
-                <Link to={`../Admin Pages/adminDashboard?cartItemsLength=${cartItems.length}`}>
-  <AdminDashboard />
-</Link>
               </div>
-
-
             </div>
           </div>
         </div>
-        
       </div>
     </div>
-    
   );
 };
 
