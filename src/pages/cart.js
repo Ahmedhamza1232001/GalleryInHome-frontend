@@ -8,11 +8,13 @@ import { useGlobalContext } from "../context";
 import CardData from "./cardData";
 
 const Cart = () => {
-  var data = localStorage.getItem("cartData")
-    ? JSON.parse(localStorage.getItem("cartData"))
+  // get data from local storage using user token
+  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
+  var data = localStorage.getItem("cart" + tok)
+    ? JSON.parse(localStorage.getItem("cart"+tok))
     : [];
   data.map((elem) => (elem.qnt = 1));
-  localStorage.setItem("cartData", JSON.stringify(data));
+  localStorage.setItem("cart"+tok, JSON.stringify(data));
   const [cartData, setCartData] = useState(data);
 
   const calculateTotal = () => {

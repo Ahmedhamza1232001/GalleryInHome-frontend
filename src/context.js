@@ -1,5 +1,5 @@
 import React,{useState,useContext,useEffect} from 'react'
-import CardData from "./pages/cardData"
+// import CardData from "./pages/cardData"
 const AppContext = React.createContext()
 
 function AppProvider({children}) {
@@ -41,9 +41,11 @@ function AppProvider({children}) {
     const closeSideBar =()=>{
       setISidebarOpen(false)
   }
+  // user token
+  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
   // make an object at the local storage for cart items 
-  let cart = localStorage.getItem('cartData') ? JSON.parse(localStorage.getItem('cartData')): [];
-  localStorage.setItem('cartData', JSON.stringify(cart));
+  let cart = localStorage.getItem("cart"+tok) ? JSON.parse(localStorage.getItem("cart"+tok)): [];
+  localStorage.setItem("cart"+tok, JSON.stringify(cart));
   const addToCart = (e, id) => {
     // toggle classes
     e.target.classList.toggle("fa-shopping-cart")
@@ -51,18 +53,21 @@ function AppProvider({children}) {
     // add the product to the localstorage
     let product = products.find(product => product.id === id)
     if (e.target.classList.contains("selceted")) {
+      let check = cart.some(item => item.id === id);
+      if (!check) {
         cart.push(product)
-        localStorage.setItem("cartData",JSON.stringify(cart))
+        localStorage.setItem("cart"+tok,JSON.stringify(cart))
+      }
     }
     else {
       cart = cart.filter(p => p.id !== id)
-      localStorage.setItem("cartData",JSON.stringify(cart))
+      localStorage.setItem("cart"+tok,JSON.stringify(cart))
     }
   }
   
   // add favorite products to local storage
-  let favorite = localStorage.getItem('favData') ? JSON.parse(localStorage.getItem('favData')): [];
-  localStorage.setItem('favData', JSON.stringify(favorite));
+  let favorite = localStorage.getItem("fav"+tok) ? JSON.parse(localStorage.getItem("fav"+tok)): [];
+  localStorage.setItem("fav"+tok, JSON.stringify(favorite));
  
   const addToFav = (e, id) => {
     e.target.classList.toggle('fa');
@@ -72,11 +77,11 @@ function AppProvider({children}) {
     let product = products.find(product => product.id === id)
     if (e.target.classList.contains("select")) {
         favorite.push(product)
-        localStorage.setItem("favData",JSON.stringify(favorite))
+        localStorage.setItem("fav"+tok,JSON.stringify(favorite))
     }
     else {
       favorite = favorite.filter(p => p.id !== id)
-      localStorage.setItem("favData",JSON.stringify(favorite))
+      localStorage.setItem("fav"+tok,JSON.stringify(favorite))
     }
   
   }
