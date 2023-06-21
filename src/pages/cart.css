@@ -99,6 +99,14 @@
     color: var(--font-color);
     font-size: 15px;
 }
+.qty .remove{
+    border: none;
+    background: none;
+    color: #FF9800;
+}
+.qty .remove:hover{
+    color: #b18849 ;
+}
 
 .cart_product_qty .quantity .qty-symbol{
     border: none;

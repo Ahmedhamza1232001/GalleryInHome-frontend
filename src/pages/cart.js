@@ -16,6 +16,12 @@ const Cart = () => {
   data.map((elem) => (elem.qnt = 1));
   localStorage.setItem("cart"+tok, JSON.stringify(data));
   const [cartData, setCartData] = useState(data);
+  const remove=(id) => {
+    let products = data.filter(elem => elem.id !== id);
+    localStorage.setItem("cart"+tok,JSON.stringify(products))
+    setCartData(products)
+    // console.log(cartData)
+  }
 
   const calculateTotal = () => {
     return cartData.reduce((total, product) => total + product.price, 0);
@@ -74,6 +80,7 @@ const Cart = () => {
                                 +
                               </button>
                             </div>
+                            <button className="remove" onClick={()=>remove(id)}>remove</button>
                           </div>
                         </td>
                       </tr>
