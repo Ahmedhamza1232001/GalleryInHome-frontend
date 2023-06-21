@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FeedbackDetails from './FeedbackDetails.js'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -10,10 +10,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 
 const Feedback = () => {
-    
-
-    // Name & Image & Feedback of each user
-    const feedbacks = [
+    let feedbacksData = [
         {
             name: 'Rabab Hamdy',
             description: '" the team working very good , achieve my service and my dreams about my business solution from branding to developing my platforms as i want to achieve "',
@@ -31,7 +28,22 @@ const Feedback = () => {
         },
 
     ]
-    
+    const [feedbacks, setFeedbacks] = useState(feedbacksData)
+    const [description, setDescription] = useState("");
+    const addFeedBack = (e) => {
+        e.preventDefault();
+        const userData = JSON.parse(sessionStorage.getItem("userData"));
+        const name = userData ? userData.userName : "";
+  
+        let newObj = {
+            name,
+            description,
+            img: 'https://i.ibb.co/fvF7qbf/5.jpg'
+        };
+        setFeedbacks((feedbacks) => [...feedbacksData, newObj]);
+        setDescription("");
+        console.log(feedbacks);   
+}    
     //Owl Carousel Settings
 
     const options = {
@@ -78,7 +90,7 @@ const Feedback = () => {
                 {/* second row "Cards of Previous Feedbacks" */}
                 <div className="row">
                     <div className="col-md-12">
-                        <OwlCarousel id="customer-testimonoals" className="owl-carousel owl-theme" {...options}>
+                        <OwlCarousel ousel id="customer-testimonoals" className="owl-carousel owl-theme" {...options}>
                             {
                                 feedbacks.length === 0 ?
                                     <div class="item">
@@ -89,7 +101,7 @@ const Feedback = () => {
                                             </div>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
                                         </div>
-                                    </div> :
+                                    </div>:
                                     feedbacks.map(FeedBackDetail => {
                                         return (
                                             <FeedbackDetails FeedBackDetail={FeedBackDetail} key={FeedBackDetail._key} />
@@ -107,15 +119,18 @@ const Feedback = () => {
                         <div className='addfeedback'>
                             <FloatingLabel controlId="floatingTextarea2" style={{width:"100%"}}>
                                 <Form
+                            
                                 className='feedback-control'
                                 as="textarea"
                                 placeholder="We would love to know what you think of our service 
                                 '' Leave your feedback ''"
-                                style={{ height: '200px'}}
+                                    style={{ height: '200px' }}
+                                    value={description}
+                                    onChange={(e)=>setDescription(e.target.value)}
                                 />
                             </FloatingLabel>
                             <div className='cart-btn'>
-                                <Button className='btn ' as="input" type="submit" value="Send" />
+                                <Button className='btn 'disabled={!description}  as="input" type="submit" value="Send" onClick={addFeedBack}/>
                             </div>
                         </div>
                     </div>
