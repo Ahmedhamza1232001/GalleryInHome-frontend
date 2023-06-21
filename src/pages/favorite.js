@@ -8,8 +8,11 @@ import { useGlobalContext } from "../context";
 
 const Favorite = () => {
     const { addToCart, addToFav } = useGlobalContext()
-    var data = localStorage.getItem('favData') ? JSON.parse(localStorage.getItem('favData')) : [];
-    localStorage.setItem('favData', JSON.stringify(data));
+    // user token
+    let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
+    // getting fav data from local storage using user token
+    var data = localStorage.getItem("fav"+tok) ? JSON.parse(localStorage.getItem("fav"+tok)) : [];
+    localStorage.setItem("fav"+tok, JSON.stringify(data));
     const [favData, setFavData] = useState(data)
     console.log(favData)
 

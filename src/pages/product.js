@@ -6,7 +6,6 @@ import { BsStarFill} from "react-icons/bs";
 import { FaCircle } from "react-icons/fa";
 import Modal from './Modal3d.js';
 import { OBJModel, DirectionLight } from "react-3d-viewer";
-import productData from "./productData";
 
 
 
@@ -45,23 +44,22 @@ class Dashboard extends Component {
         .then((response) => response.json())
         .then(res => {
           this.setState({ data: res.data })
-        }).catch(() => {
-          this.setState({
-            data:productData })
-            });
+        }).catch((err) => {
+          console.log(err.message)
+        });
   }
   // 
   render() {
-    let cart = localStorage.getItem('cartData') ? JSON.parse(localStorage.getItem('cartData')): [];
-    localStorage.setItem('cartData', JSON.stringify(cart));
-    console.log(cart)
+    // user token
+    let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
+    let cart = localStorage.getItem("cart" + tok) ? JSON.parse(localStorage.getItem("cart" + tok)) : [];
+    localStorage.setItem("cart"+tok, JSON.stringify(cart));
     function add_to_cart(elem) {
       let check = cart.some(item => item.id === elem.id);
       if (!check) {
         cart.push(elem)
       }
-      localStorage.setItem('cartData', JSON.stringify(cart));
-      console.log("cart:",cart)
+      localStorage.setItem("cart"+tok, JSON.stringify(cart));
     }
 
     let elem = this.state.data
