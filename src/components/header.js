@@ -24,25 +24,26 @@ const Header = () => {
   const handleShow = () => setShow(true);
   const data = [
     {
-      url: "videos/vid1.mp4",
+      url: "https://galleryinhome.blob.core.windows.net/fileupload/vid1.mp4",
+      
     },
     {
-      url: "videos/vid22.mp4",
+      url: "https://galleryinhome.blob.core.windows.net/fileupload/vid22.mp4",
     },
     {
-      url: "videos/vid2.mp4",
+      url: "https://galleryinhome.blob.core.windows.net/fileupload/vid2.mp4",
     },
     {
-      url: "videos/vid4.mp4",
+      url: "https://galleryinhome.blob.core.windows.net/fileupload/vid4.mp4",
     },
     {
-      url: "videos/vid5.mp4",
+      url: "https://galleryinhome.blob.core.windows.net/fileupload/vid5.mp4",
     },
     {
-      url: "videos/vid33.mp4",
+      url: "https://galleryinhome.blob.core.windows.net/fileupload/vid33.mp4",
     },
     {
-      url: "videos/vid11.mp4",
+      url: "https://galleryinhome.blob.core.windows.net/fileupload/vid11.mp4",
     },
   ];
 
