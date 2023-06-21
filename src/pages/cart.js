@@ -11,12 +11,13 @@ import AdminDashboard from "../Admin Pages/adminDashboard";
 
 const Cart = () => {
   // get data from local storage using user token
-  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : "";
-  const cartItems = JSON.parse(localStorage.getItem("cart" + tok)) || [];
-
-  cartItems.map((elem) => (elem.qnt = 1));
-  localStorage.setItem("cart"+tok, JSON.stringify(cartItems));
-  const [cartData, setCartData] = useState(cartItems);
+  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
+  var data = localStorage.getItem("cart" + tok)
+    ? JSON.parse(localStorage.getItem("cart"+tok))
+    : [];
+  data.map((elem) => (elem.qnt = 1));
+  localStorage.setItem("cart"+tok, JSON.stringify(data));
+  const [cartData, setCartData] = useState(data);
 
   const calculateTotal = () => {
     return cartItems.reduce((total, product) => total + product.price, 0);
@@ -86,6 +87,7 @@ const Cart = () => {
                                 +
                               </button>
                             </div>
+                            <button className="remove" onClick={()=>remove(id)}>remove</button>
                           </div>
                         </td>
                       </tr>
