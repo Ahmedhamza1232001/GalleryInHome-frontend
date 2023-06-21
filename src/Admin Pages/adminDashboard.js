@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import './adminDashboard.css'
 import './simpleBar.css'
 import { BsCart } from "react-icons/bs";
@@ -10,13 +11,21 @@ import Card from 'react-bootstrap/Card';
 import SimpleBar from 'simplebar-react';
 import {useGlobalContext} from "../context"
 import { useState } from 'react';
+import { useLocation } from "react-router-dom";
 
 
-const AdminDashboard =() =>{
+
+const AdminDashboard = () => {
 
     const { products } = useGlobalContext()
     const [bestSales, setBestSales] = useState(products);
     const [Recent, setRecent] = useState(products);
+    const [totalQuantity, setTotalSum] = useState('');
+    useEffect(() => {
+        const totalQuantity = localStorage.getItem('totalQuantity');
+        setTotalSum(totalQuantity);
+      }, []);
+
     return(
         <div className='dashboard-page'>
             <div className='page-content'>
@@ -27,7 +36,7 @@ const AdminDashboard =() =>{
                                 <Card.Subtitle className='d-flex align-items-center'>
                                     <div>
                                         <p className='mb-0 text-white'>Total Orders</p>
-                                        <h5 className='mb-0 text-white'>867</h5>
+                                        <h5 className='mb-0 text-white'>{totalQuantity}</h5>
                                     </div>
                                     <div className='ms-auto text-white'>
                                         <span className='bx bx-cart font-30'><BsCart/></span>

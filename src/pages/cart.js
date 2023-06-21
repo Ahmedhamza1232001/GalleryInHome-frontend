@@ -6,22 +6,34 @@ import Table from "react-bootstrap/Table";
 import { useState } from "react";
 import { useGlobalContext } from "../context";
 import CardData from "./cardData";
+import AdminDashboard from "../Admin Pages/adminDashboard";
+
 
 const Cart = () => {
   // get data from local storage using user token
-  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
-  var data = localStorage.getItem("cart" + tok)
-    ? JSON.parse(localStorage.getItem("cart"+tok))
-    : [];
-  data.map((elem) => (elem.qnt = 1));
-  localStorage.setItem("cart"+tok, JSON.stringify(data));
-  const [cartData, setCartData] = useState(data);
+  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : "";
+  const cartItems = JSON.parse(localStorage.getItem("cart" + tok)) || [];
+
+  cartItems.map((elem) => (elem.qnt = 1));
+  localStorage.setItem("cart"+tok, JSON.stringify(cartItems));
+  const [cartData, setCartData] = useState(cartItems);
 
   const calculateTotal = () => {
-    return cartData.reduce((total, product) => total + product.price, 0);
+    return cartItems.reduce((total, product) => total + product.price, 0);
+  };
+  
+  const calculateTotalQuantity = () => {
+    return cartItems.reduce((total, product) => total + product.qnt, 0);
   };
 
+  const totalQuantity = calculateTotalQuantity();
+
   const totalSum = calculateTotal().toFixed(2);
+  useEffect(() => {
+    // Save the total and total quantity to localStorage
+    localStorage.setItem("total", totalSum);
+    localStorage.setItem("totalQuantity", totalQuantity);
+  }, [totalSum, totalQuantity]);
 
   return (
     <div className="cart-table-area section-padding-100">
@@ -84,6 +96,7 @@ const Cart = () => {
             </div>
           </div>
           <div className="col-12 col-lg-4">
+            
             {/* Cart total information */}
             <div className="cart-summary">
               <h5>Cart Total</h5>
@@ -108,12 +121,19 @@ const Cart = () => {
                 >
                   Checkout
                 </Link>
+                <Link to={`../Admin Pages/adminDashboard?cartItemsLength=${cartItems.length}`}>
+  <AdminDashboard />
+</Link>
               </div>
+
+
             </div>
           </div>
         </div>
+        
       </div>
     </div>
+    
   );
 };
 
