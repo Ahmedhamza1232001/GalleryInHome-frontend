@@ -38,8 +38,11 @@ function LogIn() {
       .then(res => res.json())
       .then(res => {
         if (res.success) {
+          const { id, token } = res.data; // Extract the user ID from the API response
+          sessionStorage.setItem('userId', id); // Store the user ID in session storage
+
           sessionStorage.setItem('userData', JSON.stringify(res.data));
-          sessionStorage.setItem('token', res.data.token);
+          sessionStorage.setItem('token', token);
           toast.success('Login successfully!', {
             position: 'top-right',
             autoClose: 5000,

@@ -20,12 +20,11 @@ data.map((elem) => (elem.qnt = 1));
 localStorage.setItem("cart"+tok, JSON.stringify(data));
 
 const [cartData, setCartData] = useState(data);
-const remove=(id) => {
-  let products = data.filter(elem => elem.id !== id);
-  localStorage.setItem("cart"+tok,JSON.stringify(products))
-  setCartData(products)
-  // console.log(cartData)
-}
+const remove = (id) => {
+  const updatedData = data.filter((elem) => elem.id !== id);
+  localStorage.setItem("cart" + tok, JSON.stringify(updatedData));
+  setCartData(updatedData);
+};
   const calculateTotal = () => {
     return data.reduce((total, product) => total + product.price, 0);
   };
@@ -58,12 +57,13 @@ const remove=(id) => {
                     <th></th>
                     <th>Name</th>
                     <th>Price</th>
+                    <th>UserId</th>
                     <th>Quantity</th>
                   </tr>
                 </thead>
                 <tbody>
                   {cartData.map((product) => {
-                    const { id, images, name, price, qnt } = product;
+                    const { id, images, name, price, qnt , userId } = product;
                     let count = 1;
                     return (
                       <tr key={id}>
@@ -75,6 +75,9 @@ const remove=(id) => {
                         </td>
                         <td className="cart_product_price">
                           <span className="pricee">{price} EGP</span>
+                        </td>
+                        <td className="cart_product_price">
+                          <span className="userId">{userId} </span>
                         </td>
                         <td className="cart_product_qty">
                           <div className="qty">

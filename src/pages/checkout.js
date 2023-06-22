@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './checkout.css';
 import Form from 'react-bootstrap/Form';
@@ -9,6 +9,8 @@ const CheckOut = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const totalSum = queryParams.get('total');
+  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : "";
+  const products = JSON.parse(localStorage.getItem("cart"+ tok));
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -26,13 +28,19 @@ const CheckOut = () => {
   });
 
 
+  useEffect(() => {
+
+  }, [products]);
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Process the form data or send it to an API
 
     const paymentMethod = formData.paymentMethod;
-    
+
+
+
     if (paymentMethod === 'CashOnDelivery') {
 
     // Redirect to the confirmation page with the form data in the URL
@@ -58,6 +66,7 @@ const CheckOut = () => {
     
 
     localStorage.setItem('checkoutFormData', JSON.stringify(formData));
+    performAPICall();
 
     window.location.href = url;}
     else if (paymentMethod === 'CreditCard') {
@@ -67,6 +76,45 @@ const CheckOut = () => {
 
       }
   };
+  const performAPICall = () => {
+    // Group products by userId
+    const userOrders = {};
+    for (const product of products) {
+      const userId = product.userId;
+      if (userOrders[userId]) {
+        userOrders[userId] += 1; // Increment order count for existing user
+      } else {
+        userOrders[userId] = 1; // Initialize order count for new user
+      }
+    }
+  
+    // Iterate over the userOrders object and send requests for each user
+    for (const userId in userOrders) {
+      const orderCount = userOrders[userId];
+  
+      // Send the request to the API endpoint
+      fetch('https://galleryinhome.azurewebsites.net/Auth/UpdateUserDetails', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: userId,
+          orders: orderCount,
+          amount: 0
+        })
+      })
+        .then(response => {
+          // Handle the response if needed
+          console.log(`Order count updated for userId ${userId}`);
+        })
+        .catch(error => {
+          // Handle any errors that occur during the request
+          console.error(`Error updating order count for userId ${userId}: ${error}`);
+        });
+    }
+  };
+
 
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;
