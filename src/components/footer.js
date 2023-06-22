@@ -12,6 +12,13 @@ import footer from "../images/logo2.png"
 
 function Footer() {
 
+  // Get the user role from session storage
+  const userRole = sessionStorage.getItem("userData")
+    ? JSON.parse(sessionStorage.getItem("userData")).role
+    : "";
+
+
+    
   return (
     <section className='footer-area'>
     <div className="container">
@@ -31,11 +38,25 @@ function Footer() {
                 <Nav className="me-auto">
 
                   <Link className="nav-link" to="/">Home</Link>
+
+                  {userRole === "Client" ? (
                   <Link className="nav-link" to="/profile">Profile</Link>
+                  ) : null}
+
+
                   <Link className="nav-link" to="/Category">Shop</Link>
+
+                  {userRole === "Client" ? (
                   <Link className="nav-link" to="/Cart">Cart</Link>
+                  ) : null}
+
+                  {userRole === "Client" ? (
                   <Link className="nav-link" to="/Checkout">Checkout</Link>
+                  ) : null}
+
+
                   <Link className="nav-link" to="/feedback">Feedback</Link>
+
                 </Nav>
               </Navbar.Collapse>
             </Container>
