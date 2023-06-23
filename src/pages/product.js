@@ -51,7 +51,7 @@ class Dashboard extends Component {
   // 
   render() {
     // user token
-    let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : ""
+    let tok =  JSON.parse(localStorage.getItem("userData")).token
     let cart = localStorage.getItem("cart" + tok) ? JSON.parse(localStorage.getItem("cart" + tok)) : [];
     localStorage.setItem("cart"+tok, JSON.stringify(cart));
     function add_to_cart(elem) {
@@ -60,6 +60,7 @@ class Dashboard extends Component {
         cart.push(elem)
       }
       localStorage.setItem("cart"+tok, JSON.stringify(cart));
+      localStorage.setItem("cartt", JSON.stringify(cart));
     }
 
     let elem = this.state.data
@@ -136,7 +137,7 @@ class Dashboard extends Component {
                   <p className='avaibility'><span className='circle'><FaCircle/></span>In Stock</p>
                 </div>
                 <div className='shortOverview'>
-                  <p>{elem.desc}.</p>
+                  <p>{elem.description}.</p>
                 </div>
                 <div className='cartClearfix'>
                   <button className='cart-link' onClick={()=>add_to_cart(this.state.data)}>Add to cart</button>

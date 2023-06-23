@@ -9,7 +9,7 @@ const CheckOut = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const totalSum = queryParams.get('total');
-  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : "";
+  let tok =JSON.parse(localStorage.getItem("userData")).token
   const products = JSON.parse(localStorage.getItem("cart"+ tok));
 
   const [formData, setFormData] = useState({
@@ -38,8 +38,9 @@ const CheckOut = () => {
     // Process the form data or send it to an API
 
     const paymentMethod = formData.paymentMethod;
+    const token  = JSON.parse(localStorage.getItem("userData")).token
 
-
+    localStorage.setItem('orders', JSON.parse(localStorage.getItem("cartt")));
 
     if (paymentMethod === 'CashOnDelivery') {
 

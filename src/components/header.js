@@ -48,14 +48,14 @@ const Header = () => {
   ];
 
   // Get the user role from session storage
-  const userRole = sessionStorage.getItem("userData")
-    ? JSON.parse(sessionStorage.getItem("userData")).role
+  const userRole = localStorage.getItem("userData")
+    ? JSON.parse(localStorage.getItem("userData")).role
     : "";
 
     const handleLogout = () => {
       // Remove token and session data
-      sessionStorage.removeItem("token");
-      sessionStorage.removeItem("userData");
+      localStorage.removeItem("token");
+      localStorage.removeItem("userData");
     
       // Redirect to the login page
       navigate("/login");

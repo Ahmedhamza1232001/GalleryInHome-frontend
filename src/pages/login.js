@@ -18,7 +18,7 @@ function LogIn() {
 
   useEffect(() => {
     // Check if the user is already authenticated
-    const isAuthenticated = sessionStorage.getItem('userData');
+    const isAuthenticated = localStorage.getItem('userData');
     if (isAuthenticated) {
       navigate('/'); // Redirect to the profile page or another appropriate page
     }
@@ -39,9 +39,18 @@ function LogIn() {
       .then(res => {
         if (res.success) {
           const { id, token } = res.data; // Extract the user ID from the API response
-          sessionStorage.setItem('userId', id); // Store the user ID in session storage
+          const expirationTime = new Date().getTime() + 3600000; // Set expiration time to 1 hour from now
+          const userData = {
+            id: id,
+            token: token,
+            UserName : res.data.userName,
+            Email : res.data.email,
+            expirationTime: expirationTime,
+            role : res.data.role
+          };
 
-          sessionStorage.setItem('userData', JSON.stringify(res.data));
+          localStorage.setItem('userData', JSON.stringify(userData));
+          sessionStorage.setItem('token', res.data.token);
           sessionStorage.setItem('token', token);
           toast.success('Login successfully!', {
             position: 'top-right',

@@ -11,7 +11,7 @@ import AdminDashboard from "../Admin Pages/adminDashboard";
 
 const Cart = () => {
   // get data from local storage using user token
-  let tok = sessionStorage.getItem("token") ? sessionStorage.getItem("token") : "";
+  let tok =  JSON.parse(localStorage.getItem("userData")).token
   var data = localStorage.getItem("cart" + tok)
   ? JSON.parse(localStorage.getItem("cart"+tok))
   : [];
@@ -23,6 +23,7 @@ const [cartData, setCartData] = useState(data);
 const remove = (id) => {
   const updatedData = data.filter((elem) => elem.id !== id);
   localStorage.setItem("cart" + tok, JSON.stringify(updatedData));
+  localStorage.setItem("cartt", JSON.stringify(updatedData));
   setCartData(updatedData);
 };
   const calculateTotal = () => {
