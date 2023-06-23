@@ -13,7 +13,7 @@ global.Buffer = Buffer.Buffer;
 
 const NewProduct = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const token = sessionStorage.getItem('token');
+    const token  = JSON.parse(localStorage.getItem("userData")).token
   
     const submitForm = async (data) => {
       try {
