@@ -11,9 +11,9 @@ import { Link } from "react-router-dom";
 const AdminProfile = () => {
 
       // Retrieve user data from session storage
-  const userData = JSON.parse(sessionStorage.getItem("userData"));
-  const name = userData ? userData.userName : "";
-  const email = userData ? userData.email : "";
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const name = userData ? userData.UserName : "";
+  const email = userData ? userData.Email : "";
 
   const ProfileData = [
     {

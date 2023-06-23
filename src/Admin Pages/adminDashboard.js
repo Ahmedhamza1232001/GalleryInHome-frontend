@@ -18,14 +18,80 @@ import { useLocation } from "react-router-dom";
 const AdminDashboard = () => {
 
     const { products } = useGlobalContext()
-    const [bestSales, setBestSales] = useState(products);
-    const [Recent, setRecent] = useState(products);
+    const [filteredProducts, setfilteredProducts] = useState([])
     const [totalQuantity, setTotalSum] = useState('');
+    const [orders, setOrderNumbers] = useState('');
+    const [income, setIncome] = useState('');
+    const token  = JSON.parse(localStorage.getItem("userData")).token
+
+    const Adminproducts = JSON.parse(localStorage.getItem("cartt"));
+
+    const userId  = JSON.parse(localStorage.getItem("userData")).id
+
+
     useEffect(() => {
+        setfilteredProducts (Adminproducts.filter(product => product.userId == userId));
+
         const totalQuantity = localStorage.getItem('totalQuantity');
         setTotalSum(totalQuantity);
+        const url = "https://galleryinhome.azurewebsites.net/Auth/Token/?token="
+        fetch(url+token)
+            .then((response) => response.json())
+            .then(res => {
+                const orderNumbers = res.orders;
+                const incomeVal = res.amount;
+                // Store the order numbers in a state variable
+                setOrderNumbers(orderNumbers);
+                setIncome(incomeVal);
+            }).catch((err) => {
+              console.log(err.message)
+            });
+    
+        
       }, []);
 
+
+
+      const handleDoneClick = (productId , productPrice) => {
+        performAPICall(productPrice);
+
+        // Filter out the product with the given productId
+        const updatedProducts = Adminproducts.filter((product) => product.id !== productId);
+      
+        // Update the localStorage with the updated products
+        localStorage.setItem("cart" + token, JSON.stringify(updatedProducts));
+        localStorage.setItem("cartt", JSON.stringify(updatedProducts));
+      
+        // Update the state with the filtered products
+        setfilteredProducts(updatedProducts);
+      };
+      
+
+
+      const performAPICall = (productPrice) => {
+      
+        // Send the request to the API endpoint
+        fetch('https://galleryinhome.azurewebsites.net/Auth/UpdateUserDetails', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userId: userId,
+            orders: 0,
+            amount: productPrice
+          })
+        })
+          .then(response => {
+            // Handle the response if needed
+            console.log(`Order count updated for userId ${userId}`);
+          })
+          .catch(error => {
+            // Handle any errors that occur during the request
+            console.error(`Error updating order count for userId ${userId}: ${error}`);
+          });
+      }
+  
     return(
         <div className='dashboard-page'>
             <div className='page-content'>
@@ -36,7 +102,7 @@ const AdminDashboard = () => {
                                 <Card.Subtitle className='d-flex align-items-center'>
                                     <div>
                                         <p className='mb-0 text-white'>Total Orders</p>
-                                        <h5 className='mb-0 text-white'>{totalQuantity}</h5>
+                                        <h5 className='mb-0 text-white'>{orders}</h5>
                                     </div>
                                     <div className='ms-auto text-white'>
                                         <span className='bx bx-cart font-30'><BsCart/></span>
@@ -54,7 +120,7 @@ const AdminDashboard = () => {
                                 <Card.Subtitle className='d-flex align-items-center'>
                                     <div>
                                         <p className='mb-0 text-white'>Total Income</p>
-                                        <h5 className='mb-0 text-white'>52,945 EGP</h5>
+                                        <h5 className='mb-0 text-white'>{income} EGP</h5>
                                     </div>
                                     <div className='ms-auto text-white'>
                                         <span className='bx bx-cart font-30'><IoWalletOutline/></span>
@@ -66,42 +132,8 @@ const AdminDashboard = () => {
                             </Card.Body>
                         </Card>
                     </div>
-                    <div className='col'>
-                        <Card className='card radius-10 overflow-hidden bg-gradient-Ohhappiness'>
-                            <Card.Body className='card-body'>
-                                <Card.Subtitle className='d-flex align-items-center'>
-                                    <div>
-                                        <p className='mb-0 text-white'>Total Users</p>
-                                        <h5 className='mb-0 text-white'>24.5k</h5>
-                                    </div>
-                                    <div className='ms-auto text-white'>
-                                        <span className='bx bx-cart font-30'><AiOutlineBulb/></span>
-                                    </div>
-                                </Card.Subtitle>
-                                <div className='progress bg-white-2 radius-10 mt-4'>
-                                    <div className='progress-bar bg-white' role="progressbar"></div>
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    </div>
-                    <div className='col'>
-                        <Card className='card radius-10 overflow-hidden bg-gradient-moonlit'>
-                            <Card.Body className='card-body'>
-                                <Card.Subtitle className='d-flex align-items-center'>
-                                    <div>
-                                        <p className='mb-0 text-white'>Comments</p>
-                                        <h5 className='mb-0 text-white'>869</h5>
-                                    </div>
-                                    <div className='ms-auto text-white'>
-                                        <span className='bx bx-cart font-30'><BiChat/></span>
-                                    </div>
-                                </Card.Subtitle>
-                                <div className='progress bg-white-2 radius-10 mt-4'>
-                                    <div className='progress-bar bg-white' role="progressbar"></div>
-                                </div>
-                            </Card.Body>
-                        </Card>
-                    </div>
+                    
+                 
                     <div className='col'></div>
                 </div>
                 <div className='row row-cols-1 row-cols-lg-3'>
@@ -110,25 +142,27 @@ const AdminDashboard = () => {
                             <Card.Body className='card-body'>
                                 <Card.Subtitle className='d-flex align-items-center'>
                                     <div>
-                                        <h6 className='title mb-0'>Best Selling Products</h6>
+                                        <h6 className='title mb-0'> Ordered Products</h6>
                                     </div>
                                 </Card.Subtitle>
                             </Card.Body>
                             <SimpleBar style={{ maxHeight: 500}}>
                             <Card.Body className='best-selling-products p-3 mb-3 ps ps--activity-y'>
-                            {bestSales.map(product => {
+                            {filteredProducts.map(product => {
                                 const { images, id, price, name } = product;
                                 return (
                                     <>
                                     <div key ={id} className='d-flex align-items-center'>
                                         <div className='product-img'>
-                                            <img src={images} alt="logo" className='p-1'/>
+                                            <img src={images[0].name} alt="logo" className='p-1'/>
                                         </div>
                                         <div className='ps-3'>
                                             <h6 className='mb-0 '>{name}</h6>
-                                            <p className='mb-0 text-secondary'>{price} EGP/Each 56 Orders</p>
+                                            <p className='ms-auto mb=0 text-secondary'>{price} EGP</p>
                                         </div>
-                                        <p className='ms-auto mb=0 text-secondary'>{price} EGP</p>
+                                        <div className="text-center mb-3">
+                                        <button className="btn btn-primary" onClick={() => handleDoneClick(id,price)}>Done</button>
+                                      </div>
                                     </div>
                                     <hr></hr>
                                 </>
@@ -137,124 +171,11 @@ const AdminDashboard = () => {
 
                             </Card.Body>
                             </SimpleBar>
+                  
                         </Card>
                     </div>
-                    <div className='col d-flex'>
-                        <Card className='card radius-10 w-100'>
-                            <Card.Body className='card-body'>
-                                <Card.Subtitle className='d-flex align-items-center'>
-                                    <div>
-                                        <h6 className='title mb-0'>Recent Reviews</h6>
-                                    </div>
-                                </Card.Subtitle>
-                            </Card.Body>
-                            <SimpleBar style={{ maxHeight: 500}}>
-                            <Card.Body className='recent-reviews p-3 mb-3 ps ps--activity-y'>
-                                {Recent.map(product => {
-                                    const { images, id, rating, name } = product;
-                                    return (
-                                        <>
-                                        <div className='d-flex align-items-center'>
-                                            <div className='product-img'>
-                                                <img src={images} alt="logo" className='p-1'/>
-                                            </div>
-                                            <div className='ps-3'>
-                                                    <h6 className='mb-0 '>{name}</h6>
-                                            </div>
-                                            <p className='ms-auto mb=0 text-secondary'>
-                                                <span className='text-warning mr-1'><FaStar/></span>
-                                                {rating}.00
-                                            </p>
-                                        </div>
-                                        <hr></hr>
-                                        
-                                    </>
-                                    )
-                                })}
-                            </Card.Body>
-                            </SimpleBar>
-                        </Card>
-                    </div>
-                    <div className='col d-flex'>
-                        <Card className='card radius-10 w-100'>
-                            <Card.Body className='card-body'>
-                                <Card.Subtitle className='d-flex align-items-center'>
-                                    <div>
-                                        <h6 className='title mb-0'>Support Inbox</h6>
-                                    </div>
-                                </Card.Subtitle>
-                            </Card.Body>
-                            <SimpleBar style={{ maxHeight: 500}}>
-                            <Card.Body className='support-list p-3 mb-3 ps ps--activity-y'>
-                                <div className='d-flex align-items-top'>
-                                    <div className='user-img'>
-                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-1 '>User Name
-                                        <span className='text-primary float-end font-13'>2 hours ago</span></h6>
-                                        <p className='mb-0 font-13 text-secondary'>My item doesn't ship to correct address. Please check it proper</p>
-                                    </div>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-top'>
-                                    <div className='user-img'>
-                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-1 '>User Name
-                                        <span className='text-primary float-end font-13'>3 hours ago</span></h6>
-                                        <p className='mb-0 font-13 text-secondary'>My item doesn't ship to correct address. Please check it proper</p>
-                                    </div>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-top'>
-                                    <div className='user-img'>
-                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-1 '>User Name
-                                        <span className='text-primary float-end font-13'>12 hours ago</span></h6>
-                                        <p className='mb-0 font-13 text-secondary'>My item doesn't ship to correct address. Please check it proper</p>
-                                    </div>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-top'>
-                                    <div className='user-img'>
-                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-1 '>User Name
-                                        <span className='text-primary float-end font-13'>yesterday</span></h6>
-                                        <p className='mb-0 font-13 text-secondary'>My item doesn't ship to correct address. Please check it proper</p>
-                                    </div>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-top'>
-                                    <div className='user-img'>
-                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-1 '>User Name
-                                        <span className='text-primary float-end font-13'>2 days ago</span></h6>
-                                        <p className='mb-0 font-13 text-secondary'>My item doesn't ship to correct address. Please check it proper</p>
-                                    </div>
-                                </div>
-                                <hr></hr>
-                                <div className='d-flex align-items-top'>
-                                    <div className='user-img'>
-                                        <img src="https://furniturehubapp.com/public/assets/img/avatar-place.png" alt="logo" className='p-1'/>
-                                    </div>
-                                    <div className='ps-3'>
-                                        <h6 className='mb-1 '>User Name
-                                        <span className='text-primary float-end font-13'>3 hours ago</span></h6>
-                                        <p className='mb-0 font-13 text-secondary'>My item doesn't ship to correct address. Please check it proper</p>
-                                    </div>
-                                </div>
-                            </Card.Body>
-                            </SimpleBar>
-                        </Card>
-                    </div>
+       
+
                 </div>
             </div>
         </div>

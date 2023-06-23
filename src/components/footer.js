@@ -13,8 +13,8 @@ import footer from "../images/logo2.png"
 function Footer() {
 
   // Get the user role from session storage
-  const userRole = sessionStorage.getItem("userData")
-    ? JSON.parse(sessionStorage.getItem("userData")).role
+  const userRole = localStorage.getItem("userData")
+    ? JSON.parse(localStorage.getItem("userData")).role
     : "";
 
 
