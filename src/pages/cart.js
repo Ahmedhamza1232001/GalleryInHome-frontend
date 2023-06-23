@@ -10,22 +10,25 @@ import AdminDashboard from "../Admin Pages/adminDashboard";
 
 
 const Cart = () => {
-  // get data from local storage using user token
-  let tok =  JSON.parse(localStorage.getItem("userData")).token
-  var data = localStorage.getItem("cart" + tok)
+// get data from local storage using user token
+let tok = localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData")).token : "";
+var data = localStorage.getItem("cart" + tok)
   ? JSON.parse(localStorage.getItem("cart"+tok))
   : [];
-data.map((elem) => (elem.qnt = 1));
-
 localStorage.setItem("cart"+tok, JSON.stringify(data));
-
 const [cartData, setCartData] = useState(data);
 const remove = (id) => {
   const updatedData = data.filter((elem) => elem.id !== id);
   localStorage.setItem("cart" + tok, JSON.stringify(updatedData));
   localStorage.setItem("cartt", JSON.stringify(updatedData));
   setCartData(updatedData);
-};
+  };
+  const inc = (id) => {
+    let elem = data.find(elm => elm.id = id)
+    elem.qnt += 1
+    localStorage.setItem("cart" + tok, JSON.stringify(data));
+    setCartData(data)
+  }
   const calculateTotal = () => {
     return data.reduce((total, product) => total + product.price, 0);
   };
@@ -41,6 +44,7 @@ const remove = (id) => {
     // Save the total and total quantity to localStorage
     localStorage.setItem("total", totalSum);
     localStorage.setItem("totalQuantity", totalQuantity);
+    // setCartData(data)
   }, [totalSum, totalQuantity]);
 
   return (
@@ -92,7 +96,7 @@ const remove = (id) => {
                               </button>
                               {qnt}
                               <button
-                                onClick={() => console.log("inc")}
+                                onClick={() => inc(id)}
                                 className="qty-symbol"
                               >
                                 +

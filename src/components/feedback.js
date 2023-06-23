@@ -13,36 +13,42 @@ const Feedback = () => {
     let feedbacksData = [
         {
             name: 'Rabab Hamdy',
-            description: '" the team working very good , achieve my service and my dreams about my business solution from branding to developing my platforms as i want to achieve "',
+            description: ' the team working very good ',
             img: 'https://i.ibb.co/FDryBdg/4.jpg'
         },
         {
             name: 'Ghada Wahb',
-            description: '" the team working very good , achieve my service and my dreams about my business solution from branding to developing my platforms as i want to achieve "',
+            description: 'achieve my service and my dreams about my business solution from branding to developing my platforms as i want to achieve ',
             img: 'https://i.ibb.co/FDryBdg/4.jpg'
         },
         {
             name: 'Abdulsalam Abulwafa',
-            description: '" the team working very good , achieve my service and my dreams about my business solution from branding to developing my platforms as i want to achieve "',
+            description: 'i love the website it is simple and very helpful',
             img: 'https://i.ibb.co/fvF7qbf/5.jpg'
         },
 
     ]
-    const [feedbacks, setFeedbacks] = useState(feedbacksData)
+    var feeds = localStorage.getItem("feedbacks")
+    ? JSON.parse(localStorage.getItem("feedbacks"))
+    : feedbacksData;
+    localStorage.setItem("feedbacks", JSON.stringify(feeds));
+
+    const [feedbacks, setFeedbacks] = useState(feeds)
     const [description, setDescription] = useState("");
     const addFeedBack = (e) => {
         e.preventDefault();
-        const userData = JSON.parse(sessionStorage.getItem("userData"));
-        const name = userData ? userData.userName : "";
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        const name = userData ? userData.UserName : "user";
   
         let newObj = {
             name,
             description,
             img: 'https://i.ibb.co/fvF7qbf/5.jpg'
         };
-        setFeedbacks((feedbacks) => [...feedbacksData, newObj]);
+        feeds.push(newObj)
+        localStorage.setItem("feedbacks", JSON.stringify(feeds));
+        setFeedbacks(feeds)
         setDescription("");
-        console.log(feedbacks);   
 }    
     //Owl Carousel Settings
 
