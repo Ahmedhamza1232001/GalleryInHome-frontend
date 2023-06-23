@@ -37,8 +37,8 @@ const Feedback = () => {
     const [description, setDescription] = useState("");
     const addFeedBack = (e) => {
         e.preventDefault();
-        const userData = JSON.parse(sessionStorage.getItem("userData"));
-        const name = userData ? userData.userName : "random";
+        const userData = JSON.parse(localStorage.getItem("userData"));
+        const name = userData ? userData.UserName : "user";
   
         let newObj = {
             name,
