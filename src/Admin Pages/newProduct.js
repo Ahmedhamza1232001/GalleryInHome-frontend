@@ -172,24 +172,24 @@ const NewProduct = () => {
                                         <Form.Label className='form-label'>Catagory</Form.Label>
                                         {<span style={{ color:"red"}}>{errors.Catagory?.message}</span>}
                                         <Form.Select aria-label="Default select example" className='form-select' name="Catagory" {...register("Catagory", { required:"  is requierd*" })}>
-                                            <option value="1">Chairs</option>
-                                            <option value="2">Beds</option>
-                                            <option value="3">Accesories</option>
-                                            <option value="4">Furniture</option>
-                                            <option value="5">Home Deco</option>
-                                            <option value="6">Dressings</option>    
-                                            <option value="7">Tables</option>                                        
+                                            <option value="Chairs">Chairs</option>
+                                            <option value="Beds">Beds</option>
+                                            <option value="Accesories">Accesories</option>
+                                            <option value="Furniture">Furniture</option>
+                                            <option value="Home-Deco">Home-Deco</option>
+                                            <option value="Dressings">Dressings</option>    
+                                            <option value="Tables">Tables</option>                                        
                                         </Form.Select>                      
                                     </Form.Group >
                                     <Form.Group  className='col-12'>
                                         <Form.Label className='form-label'>Brands</Form.Label>
                                         {<span style={{ color:"red"}}>{errors.brands?.message}</span>}
                                         <Form.Select aria-label="Default select example" className='form-select'  name="brands" {...register("brands", { required:"  is requierd*" })} >
-                                            <option value="1">Amado</option>
-                                            <option value="2">Ikea</option>
-                                            <option value="3">The Factory</option>
-                                            <option value="4">Artdeco</option>
-                                            <option value="5">Furniture Inc</option>                                      
+                                            <option value="Amado">Amado</option>
+                                            <option value="Ikea">Ikea</option>
+                                            <option value="Factory">The Factory</option>
+                                            <option value="Artdeco">Artdeco</option>
+                                            <option value="Furniture">Furniture Inc</option>                                      
                                         </Form.Select>                      
                                     </Form.Group >
                                     <div className='col-12'>

@@ -76,8 +76,11 @@ function AppProvider({children}) {
 // add the product to the localstorage
     let product = products.find(product => product.id === id)
     if (e.target.classList.contains("select")) {
+      let check = favorite.some(item => item.id === id);
+      if (!check) {
         favorite.push(product)
         localStorage.setItem("fav"+tok,JSON.stringify(favorite))
+      };
     }
     else {
       favorite = favorite.filter(p => p.id !== id)
