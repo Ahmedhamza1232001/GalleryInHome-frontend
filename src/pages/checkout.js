@@ -65,11 +65,26 @@ const CheckOut = () => {
       formData.comment
     )}&totalSum=${encodeURIComponent(totalSum)}`;
     
+// ...
+localStorage.setItem('checkoutFormData', JSON.stringify(formData));
+console.log('Before performAPICall');
 
-    localStorage.setItem('checkoutFormData', JSON.stringify(formData));
-    performAPICall();
+performAPICall(products,url)
+  .then(() => {
+    console.log('Error performing :');
 
-    window.location.href = url;}
+    window.location.href = url;
+  })
+  .catch(error => {
+    // Handle any errors that occur during the API call
+    console.error('Error performing API call:', error);
+  });
+  console.log('After performAPICall');
+
+  
+  }
+
+
     else if (paymentMethod === 'CreditCard') {
         // Open the PayPal payment page
         // You can add your own logic to open the PayPal page here.
@@ -77,24 +92,21 @@ const CheckOut = () => {
 
       }
   };
-  const performAPICall = () => {
-    // Group products by userId
+
+  const performAPICall = (products, url) => {
     const userOrders = {};
     for (const product of products) {
       const userId = product.userId;
       if (userOrders[userId]) {
-        userOrders[userId] += 1; // Increment order count for existing user
+        userOrders[userId] += 1;
       } else {
-        userOrders[userId] = 1; // Initialize order count for new user
+        userOrders[userId] = 1;
       }
     }
   
-    // Iterate over the userOrders object and send requests for each user
-    for (const userId in userOrders) {
+    const updateUserDetailsPromises = Object.keys(userOrders).map(userId => {
       const orderCount = userOrders[userId];
-  
-      // Send the request to the API endpoint
-      fetch('https://galleryinhome.azurewebsites.net/Auth/UpdateUserDetails', {
+      return fetch('https://galleryinhome.azurewebsites.net/Auth/UpdateUserDetails', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -105,17 +117,41 @@ const CheckOut = () => {
           amount: 0
         })
       })
-        .then(response => {
-          // Handle the response if needed
-          console.log(`Order count updated for userId ${userId}`);
+      .then(response => {
+        console.log(`Order count updated for userId ${userId}`);
+      })
+      .catch(error => {
+        console.error(`Error updating order count for userId ${userId}: ${error}`);
+        throw error; // Propagate the error to the outer catch block
+      });
+    });
+  
+    const addOrderedProductPromises = products.map(product => {
+      return fetch('https://galleryinhome.azurewebsites.net/Auth/AddOrderedProduct', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: product.userId,
+          productImage: product.images[0].name,
+          productPrice: product.price,
+          productTitle: product.name,
+          clientName: JSON.parse(localStorage.getItem("userData")).UserName
         })
-        .catch(error => {
-          // Handle any errors that occur during the request
-          console.error(`Error updating order count for userId ${userId}: ${error}`);
-        });
-    }
+      })
+      .then(response => {
+        console.log(`Product added for userId ${product.userId}`);
+      })
+      .catch(error => {
+        console.error(`Error adding product for userId ${product.userId}: ${error}`);
+        throw error; // Propagate the error to the outer catch block
+      });
+    });
+  
+    return Promise.all([...updateUserDetailsPromises, ...addOrderedProductPromises]);
   };
-
+  
 
   const handleInputChange = (event) => {
     const { name, value, type, checked } = event.target;

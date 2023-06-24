@@ -32,20 +32,24 @@ class Dashboard extends Component {
       try {
         var url_string = (window.location.href);
         var url = new URL(url_string);
-        var name = url.pathname.split("").slice(-1).join("");
+        var name = url.pathname.split("/").pop();
         return +name
       } catch (err) {
         console.log("Issues with Parsing URL Parameter's - " + err);
       }
     }
     var id = getId();
+    console.log("Fetch error:", id);
+
     const url = "https://galleryinhome.azurewebsites.net/api/Client/all/"
     fetch(url+id)
         .then((response) => response.json())
         .then(res => {
+          console.log("Response data:", res.data);
+
           this.setState({ data: res.data })
         }).catch((err) => {
-          console.log(err.message)
+          console.log("Fetch error:", err.message);
         });
   }
   // 

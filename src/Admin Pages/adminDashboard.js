@@ -22,6 +22,7 @@ const AdminDashboard = () => {
     const [totalQuantity, setTotalSum] = useState('');
     const [orders, setOrderNumbers] = useState('');
     const [income, setIncome] = useState('');
+    const [OrderedProducts, setOrderedProducts] = useState([])
     const token  = JSON.parse(localStorage.getItem("userData")).token
 
     const Adminproducts = JSON.parse(localStorage.getItem("cartt"));
@@ -40,9 +41,11 @@ const AdminDashboard = () => {
             .then(res => {
                 const orderNumbers = res.orders;
                 const incomeVal = res.amount;
+                const OrderedProduts = res.orderedProducts;
                 // Store the order numbers in a state variable
                 setOrderNumbers(orderNumbers);
                 setIncome(incomeVal);
+                setOrderedProducts(OrderedProduts)
             }).catch((err) => {
               console.log(err.message)
             });
@@ -50,48 +53,72 @@ const AdminDashboard = () => {
         
       }, []);
 
-
-
-      const handleDoneClick = (productId , productPrice) => {
-        performAPICall(productPrice);
-
-        // Filter out the product with the given productId
-        const updatedProducts = Adminproducts.filter((product) => product.id !== productId);
-      
-        // Update the localStorage with the updated products
-        localStorage.setItem("cart" + token, JSON.stringify(updatedProducts));
-        localStorage.setItem("cartt", JSON.stringify(updatedProducts));
-      
-        // Update the state with the filtered products
-        setfilteredProducts(updatedProducts);
+      const performAPICall = (userId, productPrice) => {
+        return new Promise((resolve, reject) => {
+          // Send the request to the API endpoint
+          fetch('https://galleryinhome.azurewebsites.net/Auth/UpdateUserDetails', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              userId: userId,
+              orders: 0,
+              amount: productPrice
+            })
+          })
+            .then(response => {
+              // Handle the response if needed
+              console.log(`Order count updated for userId ${userId}`);
+              resolve(); // Resolve the promise
+            })
+            .catch(error => {
+              // Handle any errors that occur during the request
+              console.error(`Error updating order count for userId ${userId}: ${error}`);
+              reject(error); // Reject the promise
+            });
+        });
       };
       
-
-
-      const performAPICall = (productPrice) => {
+      const handleDoneClick = (productId, productPrice) => {
+        performAPICall(userId, productPrice)
+          .then(() => {
+            console.log("done");
+            // Delete the product using the API
+            fetch(`https://galleryinhome.azurewebsites.net/Auth/DeleteOrderedProduct/${productId}`, {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.success) {
+                  // Filter out the product with the given productId
+                  const updatedProducts = Adminproducts.filter((product) => product.id !== productId);
       
-        // Send the request to the API endpoint
-        fetch('https://galleryinhome.azurewebsites.net/Auth/UpdateUserDetails', {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            userId: userId,
-            orders: 0,
-            amount: productPrice
+                  // Update the localStorage with the updated products
+                  localStorage.setItem("cart" + token, JSON.stringify(updatedProducts));
+                  localStorage.setItem("cartt", JSON.stringify(updatedProducts));
+      
+                  // Update the state with the filtered products
+                  setfilteredProducts(updatedProducts);
+                } else {
+                  // Handle error response from the API if necessary
+                  console.error(data.error);
+                }
+              })
+              .catch((error) => {
+                // Handle fetch error if necessary
+                console.error(error);
+              });
           })
-        })
-          .then(response => {
-            // Handle the response if needed
-            console.log(`Order count updated for userId ${userId}`);
-          })
-          .catch(error => {
-            // Handle any errors that occur during the request
-            console.error(`Error updating order count for userId ${userId}: ${error}`);
+          .catch((error) => {
+            // Handle performAPICall error if necessary
+            console.error(error);
           });
-      }
-  
+      };
+      
     return(
         <div className='dashboard-page'>
             <div className='page-content'>
@@ -148,20 +175,20 @@ const AdminDashboard = () => {
                             </Card.Body>
                             <SimpleBar style={{ maxHeight: 500}}>
                             <Card.Body className='best-selling-products p-3 mb-3 ps ps--activity-y'>
-                            {filteredProducts.map(product => {
-                                const { images, id, price, name } = product;
+                            {OrderedProducts.map(product => {
+                                const { productImage, id, productPrice, productTitle ,clientName} = product;
                                 return (
                                     <>
                                     <div key ={id} className='d-flex align-items-center'>
                                         <div className='product-img'>
-                                            <img src={images[0].name} alt="logo" className='p-1'/>
+                                            <img src={productImage} alt="logo" className='p-1'/>
                                         </div>
                                         <div className='ps-3'>
-                                            <h6 className='mb-0 '>{name}</h6>
-                                            <p className='ms-auto mb=0 text-secondary'>{price} EGP</p>
+                                            <h6 className='mb-0 '>{productTitle}</h6>
+                                            <p className='ms-auto mb=0 text-secondary'>{productPrice} EGP</p>
                                         </div>
                                         <div className="text-center mb-3">
-                                        <button className="btn btn-primary" onClick={() => handleDoneClick(id,price)}>Done</button>
+                                        <button className="btn btn-primary" onClick={() => handleDoneClick(id,productPrice)}>Done</button>
                                       </div>
                                     </div>
                                     <hr></hr>
