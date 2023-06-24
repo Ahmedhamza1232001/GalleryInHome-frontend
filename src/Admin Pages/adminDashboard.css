@@ -47,6 +47,8 @@
 .dashboard-page .page-content .row .col .card .card-body .d-flex {
     display: flex!important;
     align-items: center!important;
+    justify-content: space-around;
+
 }
 
 .dashboard-page .page-content .row .col .card .card-body .progress {
@@ -125,8 +127,8 @@
 
 .dashboard-page .page-content .row .card 
 .best-selling-products .d-flex .product-img{
-    width: 45px;
-    height: 45px;
+    width: 100px;
+    height: 100px;
     background-color: var(--background-color);
     display: flex;
     align-items: center;
@@ -137,8 +139,8 @@
 
 .dashboard-page .page-content .row .card 
 .best-selling-products .d-flex .product-img img {
-    width: 45px;
-    height: 45px;
+    width: 100%;
+    height: 100%;
 }
 
 .dashboard-page .page-content .row .card 

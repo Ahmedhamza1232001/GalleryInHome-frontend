@@ -163,7 +163,7 @@ const AdminDashboard = () => {
                  
                     <div className='col'></div>
                 </div>
-                <div className='row row-cols-1 row-cols-lg-3'>
+                <div className='row'>
                     <div className='col d-flex'>
                         <Card className='card radius-10 w-100'>
                             <Card.Body className='card-body'>
@@ -183,13 +183,14 @@ const AdminDashboard = () => {
                                         <div className='product-img'>
                                             <img src={productImage} alt="logo" className='p-1'/>
                                         </div>
-                                        <div className='ps-3'>
-                                            <h6 className='mb-0 '>{productTitle}</h6>
-                                            <p className='ms-auto mb=0 text-secondary'>{productPrice} EGP</p>
-                                        </div>
-                                        <div className="text-center mb-3">
-                                        <button className="btn btn-primary" onClick={() => handleDoneClick(id,productPrice)}>Done</button>
-                                      </div>
+                                        <h4 className=''>{productTitle}</h4>
+                                        <h4 className=''>{productPrice} EGP</h4>
+                                        <h6 className='mb-0 '>{clientName}</h6>
+                                       
+                                      <button className="btn btn-primary"
+                                        style={{ margin: "0" }} onClick={() => handleDoneClick(id, productPrice)}>
+                                          Done
+                                        </button>                          
                                     </div>
                                     <hr></hr>
                                 </>
