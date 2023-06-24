@@ -42,7 +42,12 @@
     color: #ffc107;
     cursor: pointer;
   }
-  
+  .sidebarList .catBtn{
+    background: none;
+    border: none;
+    text-transform: capitalize;
+    color: gray;
+  }
   .catagories #active{
     color: #ffc107;
   }

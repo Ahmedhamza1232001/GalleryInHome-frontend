@@ -1,32 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './category.css';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import { FaThLarge, FaBars } from 'react-icons/fa';
 import { BsStarFill } from 'react-icons/bs';
 import Form from 'react-bootstrap/Form';
 import { SidebarData } from './sidebarData';
 import { useGlobalContext } from '../context';
+import CardData from './cardData';
 
 const Category = () => {
   const [DisRow, setDisRow] = useState(false);
-  const { addToCart, products, loading ,addToFav} = useGlobalContext();
-  
-  // const [products, setProducts] = useState([]);
-
-  // useEffect(() => {
-  //   fetchProducts();
-  // }, []);
-
-  // const fetchProducts = async () => {
-  //   try {
-  //     const response = await fetch('https://galleryinhome.azurewebsites.net/api/Client/GetAll');
-  //     const data = await response.json();
-  //     setProducts(data.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const { addToCart, loading ,addToFav} = useGlobalContext();
+  const [products, setProducts] = useState(CardData)
+  const [categories, setCategories] = useState(["all", ...new Set(products.map(item => item.catagory))])
+  const [brands, setBrands] = useState(["all", ...new Set(products.map(item => item.brand))])
+  const filterBrand = (brand) => {
+    if (brand === "all") {
+      setProducts(CardData)
+      return
+    } 
+    const newItem = CardData.filter(item => item.brand === brand);
+    setProducts(newItem);
+  }
+  const filterCat = (cat) => {
+    if (cat=== "all") {
+      setProducts(CardData)
+      return
+    } 
+    const newItem = CardData.filter(item => item.catagory === cat);
+    console.log(newItem);
+    setProducts(newItem);
+  }
   if (loading) {
     return <h3 style={{ width: 'auto', margin: '30px auto' }}>Loading...</h3>;
   }
@@ -43,33 +48,25 @@ const Category = () => {
             <Col className="catagories">
               <h1 className="title">Catagories</h1>
               <ul className="sidebarList">
-                {SidebarData.map((val, key) => {
+                {categories.map((val,i) => {
                   return (
-                    <li
-                      key={key}
-                      className={`row ${window.location.pathname === val.link ? 'active' : ''}`}
-                      onClick={() => {
-                        window.location.pathname = val.link;
-                      }}
-                    >
-                      <div>{val.title}</div>
+                    <li key={i} className="row justify-content-center">
+                      <button className='catBtn' onClick={()=>filterCat(val)}>{val}</button>
                     </li>
                   );
                 })}
               </ul>
               <div>
                 <h1 className="title">Brands</h1>
-                <Form className="brand">
-                  {['checkbox'].map((type) => (
-                    <div key={`default-${type}`} className="mb-3">
-                      <Form.Check className="check" type={type} id={`default-${type}`} label={`Amado`} />
-                      <Form.Check className="check" type={type} label={`Ikea`} id={`default-${type}`} />
-                      <Form.Check className="check" type={type} label={`The Factory`} id={`default-${type}`} />
-                      <Form.Check className="check" type={type} label={`Artdeco`} id={`default-${type}`} />
-                      <Form.Check className="check" type={type} label={`Furniture Inc`} id={`default-${type}`} />
-                    </div>
-                  ))}
-                </Form>
+                <ul className="sidebarList">
+                  {brands.map((val, i) => {
+                    return (
+                    <li key={i} className="row justify-content-center">
+                      <button className='catBtn' onClick={()=>filterBrand(val)}>{val}</button>
+                    </li>
+                    )
+                  })}
+                </ul>
               </div>
             </Col>
           </div>
