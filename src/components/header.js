@@ -169,6 +169,9 @@ const Header = () => {
         <a href="https://www.facebook.com/profile.php?id=100092156276818&mibextid=ZbWKwL">
           <FaFacebookF />
         </a>
+        <a href="">
+          |
+        </a>
 
         <a href="https://instagram.com/galleryinhome_?igshid=MTI1ZDU5ODQ3Yw==">
           <FaInstagram />

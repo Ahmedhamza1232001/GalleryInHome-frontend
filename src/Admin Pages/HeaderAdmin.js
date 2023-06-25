@@ -54,14 +54,11 @@ function Header() {
         <a href="https://www.facebook.com/">
           <FaFacebookF />
         </a>
-        <a href="https://www.twitter.com/">
-          <FaTwitter />
+        <a href="">
+          |
         </a>
         <a href="https://www.instagram.com/">
           <FaInstagram />
-        </a>
-        <a href="https://www.pinterest.com/">
-          <FaPinterestP />
         </a>
       </div>
     </div>
