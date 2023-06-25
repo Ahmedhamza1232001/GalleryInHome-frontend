@@ -122,7 +122,7 @@ const AdminDashboard = () => {
     return(
         <div className='dashboard-page'>
             <div className='page-content'>
-                <div className='row row-cols-1 row-cols-lg-4'>
+                <div className='row row-cols-1 row-cols-lg-3'>
                     <div className='col'>
                         <Card className='card radius-10 overflow-hidden bg-gradient-cosmic'>
                             <Card.Body className='card-body'>
