@@ -71,8 +71,7 @@ console.log('Before performAPICall');
 
 performAPICall(products,url)
   .then(() => {
-    console.log('Error performing :');
-
+    window.location.href = url;
   })
   .catch(error => {
     // Handle any errors that occur during the API call
