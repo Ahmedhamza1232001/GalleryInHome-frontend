@@ -16,6 +16,9 @@ const Category = () => {
   const [productDatas, setProductDatas] = useState(data);
   const [categories, setCategories] = useState(["all", ...new Set(products.map(item => item.catagory))])
   const [brands, setBrands] = useState(["all", ...new Set(products.map(item => item.brand))])
+  const Acategories = ["Bed Room","Dining & Kitchen","Decor","Living Room","Office"]
+
+ 
   const filterBrand = (brand) => {
     if (brand === "all") {
       setProductDatas(data)
@@ -51,7 +54,7 @@ const Category = () => {
                 {categories.map((val,i) => {
                   return (
                     <li key={i} className="row justify-content-center">
-                      <button className='catBtn' onClick={()=>filterCat(val)}>{val}</button>
+                      <button className='catBtn' onClick={()=>filterCat(val)}>{Acategories[val]}</button>
                     </li>
                   );
                 })}

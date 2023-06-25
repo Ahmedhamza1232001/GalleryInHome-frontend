@@ -53,6 +53,7 @@ const NewProduct = () => {
           {
             name: data.name,
             description: data.description,
+            oldPrice : parseFloat(data.oldPrice),
             price: parseFloat(data.price),
             discount: parseFloat(data.discount),
             color: data.color,
@@ -140,6 +141,11 @@ const NewProduct = () => {
                         <div className='col-lg-4'>
                             <div className='border border-3 p-4 rounded'>
                                 <div className='row g-3'>
+                                <Form.Group  className='col-12'>
+                                        <Form.Label>Old Price</Form.Label>
+                                        {<span style={{ color:"red"}}>{errors.oldPrice?.message}</span>}
+                                        <Form.Control placeholder="00.00" name="oldPrice" {...register("oldPrice", { required:"  is requierd*" })}/>                       
+                                    </Form.Group >
 
                                     <Form.Group  className='col-12'>
                                         <Form.Label>Price</Form.Label>
@@ -169,16 +175,19 @@ const NewProduct = () => {
                                     </Form.Group >
 
                                     <Form.Group  className='col-12'>
+                                        <Form.Label>Model</Form.Label>
+                                        <Form.Control  placeholder="00.00" name="model"  {...register("model", { required:"  is requierd*" })}/>                       
+                                    </Form.Group >
+
+                                    <Form.Group  className='col-12'>
                                         <Form.Label className='form-label'>Catagory</Form.Label>
                                         {<span style={{ color:"red"}}>{errors.Catagory?.message}</span>}
                                         <Form.Select aria-label="Default select example" className='form-select' name="Catagory" {...register("Catagory", { required:"  is requierd*" })}>
-                                            <option value="0">Chairs</option>
-                                            <option value="1">Beds</option>
-                                            <option value="2">Accesories</option>
-                                            <option value="3">Furniture</option>
-                                            <option value="4">Home-Deco</option>
-                                            <option value="5">Dressings</option>    
-                                            <option value="6">Tables</option>                                        
+                                            <option value="0">Bed Room</option>
+                                            <option value="1">Dining & Kitchen</option>
+                                            <option value="2">Decor</option>
+                                            <option value="3">Living Room</option>
+                                            <option value="4">Office</option>            
                                         </Form.Select>                      
                                     </Form.Group >
                                     <Form.Group  className='col-12'>
