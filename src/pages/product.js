@@ -178,11 +178,11 @@ class Dashboard extends Component {
                         >
                           <DirectionLight           
                             className="canv_1"
-                            color={0x800000} />
+                            color={0x964B00} />
                           <DirectionLight
                             className="canv_1"
                             position={{ x: 180, y: 100, z: 100 }}
-                            color={0x800000}
+                            color={0x964B00}
                           />
                         </OBJModel>
                       </div>

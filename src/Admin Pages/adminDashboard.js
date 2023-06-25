@@ -18,20 +18,17 @@ import { useLocation } from "react-router-dom";
 const AdminDashboard = () => {
 
     const { products } = useGlobalContext()
-    const [filteredProducts, setfilteredProducts] = useState([])
     const [totalQuantity, setTotalSum] = useState('');
     const [orders, setOrderNumbers] = useState('');
     const [income, setIncome] = useState('');
     const [OrderedProducts, setOrderedProducts] = useState([])
     const token  = JSON.parse(localStorage.getItem("userData")).token
 
-    const Adminproducts = JSON.parse(localStorage.getItem("cartt"));
 
     const userId  = JSON.parse(localStorage.getItem("userData")).id
 
 
     useEffect(() => {
-        setfilteredProducts (Adminproducts.filter(product => product.userId == userId));
 
         const totalQuantity = localStorage.getItem('totalQuantity');
         setTotalSum(totalQuantity);
@@ -95,14 +92,10 @@ const AdminDashboard = () => {
               .then((data) => {
                 if (data.success) {
                   // Filter out the product with the given productId
-                  const updatedProducts = Adminproducts.filter((product) => product.id !== productId);
       
                   // Update the localStorage with the updated products
-                  localStorage.setItem("cart" + token, JSON.stringify(updatedProducts));
-                  localStorage.setItem("cartt", JSON.stringify(updatedProducts));
       
                   // Update the state with the filtered products
-                  setfilteredProducts(updatedProducts);
                 } else {
                   // Handle error response from the API if necessary
                   console.error(data.error);
