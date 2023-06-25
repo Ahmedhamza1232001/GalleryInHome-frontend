@@ -121,7 +121,7 @@ function LogIn() {
                         {...register("email", {
                           required: "This field is required",
                           pattern: {
-                            value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,6}$/,
+                            value: /^[a-zA-Z]+[a-zA-Z0-9._-]*@[a-zA-Z.-]+[a-zA-Z]{2,6}$/,
                             message: "Please enter a valid email"
                           }
                         })}
@@ -142,7 +142,9 @@ function LogIn() {
                           minLength: {
                             value: 6,
                             message: "Password must be at least 6 characters long"
-                          }
+                          }, validate: {
+                            noSpaces: value => !/^\s+$/.test(value),
+                          },
                         })}
                       />
                       <div>

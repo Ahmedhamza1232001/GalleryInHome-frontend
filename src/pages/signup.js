@@ -94,6 +94,7 @@ function SignUp() {
                       />
                     </div>
                   </div>
+
                   <div className="form-group">
                     {<p className="error">{errors.email?.message}</p>}
                     <div className="input-field">
@@ -105,13 +106,14 @@ function SignUp() {
                         {...register('email', {
                           required: 'This field is required*',
                           pattern: {
-                            value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,6}$/,
+                            value: /^[a-zA-Z]+[a-zA-Z0-9._-]*@[a-zA-Z.-]+[a-zA-Z]{2,6}$/,
                             message: 'Please enter a valid email',
                           },
                         })}
                       />
                     </div>
                   </div>
+
                   <div className="form-group">
                     {<p className="error">{errors.password?.message}</p>}
 
@@ -127,6 +129,8 @@ function SignUp() {
                           minLength: {
                             value: 6,
                             message: 'Password must be at least 6 characters long',
+                          }, validate: {
+                            noSpaces: value => !/^\s+$/.test(value),
                           },
                         })}
                       />
@@ -144,19 +148,7 @@ function SignUp() {
                   </div>
                 </form>
               </div>
-              <div className="mx-3 my-2 py-2 bordert">
-                <div className="text-center py-3">
-                  <a href="https://wwww.facebook.com" title="Facebook" target="_blank" className="px-2">
-                    <img src={facbook} alt="facebook" />
-                  </a>
-                  <a href="https://www.google.com" title="Google" target="_blank" className="px-2">
-                    <img src={google} alt="Google" />
-                  </a>
-                  <a href="https://www.twitter.com" title="twitter" target="_blank">
-                    <img src={twitter} alt="twitter" />
-                  </a>
-                </div>
-              </div>
+ 
             </div>
           </div>
         </div>
