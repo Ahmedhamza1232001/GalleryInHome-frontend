@@ -117,7 +117,7 @@
 /* social information */
 .main-content .header-area .social-info {
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 }
 .main-content .header-area .social-info  a{
 color: var(--clr-icons);
