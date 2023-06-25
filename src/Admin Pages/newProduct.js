@@ -170,13 +170,13 @@ const NewProduct = () => {
                                     </Form.Group >
 
                                     <Form.Group  className='col-12'>
-                                        <Form.Label>Model</Form.Label>
-                                        <Form.Control  placeholder="00.00" name="model"  {...register("model", { required:"  is requierd*" })}/>                       
+                                        <Form.Label>Reel</Form.Label>
+                                        <Form.Control placeholder="Enter Product Reel URL" name="reel"  {...register("reel", { required:"  is requierd*" })}/>                       
                                     </Form.Group >
 
                                     <Form.Group  className='col-12'>
                                         <Form.Label>Model</Form.Label>
-                                        <Form.Control  placeholder="00.00" name="model"  {...register("model", { required:"  is requierd*" })}/>                       
+                                        <Form.Control placeholder="Enter Product Model URL" name="model"  {...register("model", { required:"  is requierd*" })}/>                       
                                     </Form.Group >
 
                                     <Form.Group  className='col-12'>
