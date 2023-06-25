@@ -166,18 +166,14 @@ const Header = () => {
       </div>
       {/* social information links */}
       <div className="social-info ">
-        <a href="https://www.facebook.com/">
+        <a href="https://www.facebook.com/profile.php?id=100092156276818&mibextid=ZbWKwL">
           <FaFacebookF />
         </a>
-        <a href="https://www.twitter.com/">
-          <FaTwitter />
-        </a>
-        <a href="https://www.instagram.com/">
+
+        <a href="https://instagram.com/galleryinhome_?igshid=MTI1ZDU5ODQ3Yw==">
           <FaInstagram />
         </a>
-        <a href="https://www.pinterest.com/">
-          <FaPinterestP />
-        </a>
+
       </div>
     </div>
   );
