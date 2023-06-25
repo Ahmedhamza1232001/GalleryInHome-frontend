@@ -47,6 +47,9 @@ const remove = (id) => {
     // setCartData(data)
   }, [totalSum, totalQuantity]);
 
+  
+  // Check if cartData is empty
+  const isCartEmpty = cartData.length === 0;
   return (
     <div className="cart-table-area section-padding-100">
       <div className="container-fluid">
@@ -62,7 +65,6 @@ const remove = (id) => {
                     <th></th>
                     <th>Name</th>
                     <th>Price</th>
-                    <th>UserId</th>
                     <th>Quantity</th>
                   </tr>
                 </thead>
@@ -81,9 +83,7 @@ const remove = (id) => {
                         <td className="cart_product_price">
                           <span className="pricee">{price} EGP</span>
                         </td>
-                        <td className="cart_product_price">
-                          <span className="userId">{userId} </span>
-                        </td>
+   
                         <td className="cart_product_qty">
                           <div className="qty">
                             <p>Qty</p>
@@ -130,13 +130,20 @@ const remove = (id) => {
                   <span>{totalSum} EGP</span>
                 </li>
               </ul>
-              <div className="cart-btn mt-100">
-                <Link
-                  to={{ pathname: "/checkout", search: `?total=${totalSum}` }}
-                  className="btn amado-btn w-100"
-                >
-                  Checkout
-                </Link>
+                {/* Checkout button */}
+                <div className="cart-btn mt-100">
+                {isCartEmpty ? (
+                  <button className="btn amado-btn w-100" disabled>
+                    Checkout
+                  </button>
+                ) : (
+                  <Link
+                    to={{ pathname: "/checkout", search: `?total=${totalSum}` }}
+                    className="btn amado-btn w-100"
+                  >
+                    Checkout
+                  </Link>
+                )}
               </div>
             </div>
           </div>

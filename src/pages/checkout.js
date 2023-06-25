@@ -27,6 +27,7 @@ const CheckOut = () => {
 
   });
 
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
 
@@ -36,7 +37,16 @@ const CheckOut = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Process the form data or send it to an API
+    const requiredFields = ['firstName', 'lastName', 'companyName', 'email', 'country', 'address', 'town', 'zipCode', 'phoneNo'];
+    const isAnyFieldEmpty = requiredFields.some(field => formData[field].trim() === '');
+    if (isAnyFieldEmpty) {
+      // Handle the case where there are empty required fields
+      setErrorMessage('Please fill in all required fields');
+      return;
+    }
+    setErrorMessage('');
 
+  
     const paymentMethod = formData.paymentMethod;
     const token  = JSON.parse(localStorage.getItem("userData")).token
 
@@ -171,7 +181,10 @@ performAPICall(products,url)
             <div className='checkout_details_area mt-50 clearfix'>
               <div className='cart-title'>
                 <h2>Checkout</h2>
-
+                  {/* Error message */}
+                    {errorMessage && (
+                        <div className="error-message">{errorMessage}</div>
+                      )}
                 {/* form of checkout */}
                 <form onSubmit={handleSubmit}>
                   <div className='row'>
@@ -184,8 +197,10 @@ performAPICall(products,url)
                         name='firstName'
                         value={formData.firstName}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
+
                     <div className='col-md-6 mb-3'>
                       <Form.Control
                         className='form-control'
@@ -195,6 +210,7 @@ performAPICall(products,url)
                         name='lastName'
                         value={formData.lastName}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
                     <div className='col-12 mb-3'>
@@ -206,6 +222,7 @@ performAPICall(products,url)
                         name='companyName'
                         value={formData.companyName}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
                     <div className='col-12 mb-3'>
@@ -217,6 +234,7 @@ performAPICall(products,url)
                         name='email'
                         value={formData.email}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
                     <div className='col-12 mb-3'>
@@ -226,8 +244,9 @@ performAPICall(products,url)
                         name='country'
                         value={formData.country}
                         onChange={handleInputChange}
+                        required
                       >
-                        <option>United States</option>
+                        <option>Egypt</option>
                         <option value='1'>United Kingdom</option>
                         <option value='2'>Germany</option>
                         <option value='3'>Egypt</option>
@@ -246,6 +265,7 @@ performAPICall(products,url)
                         name='address'
                         value={formData.address}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
                     <div className='col-12 mb-3'>
@@ -257,6 +277,7 @@ performAPICall(products,url)
                         name='town'
                         value={formData.town}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
                     <div className='col-md-6 mb-3'>
@@ -268,6 +289,7 @@ performAPICall(products,url)
                         name='zipCode'
                         value={formData.zipCode}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
                     <div className='col-md-6 mb-3'>
@@ -280,6 +302,7 @@ performAPICall(products,url)
                         name='phoneNo'
                         value={formData.phoneNo}
                         onChange={handleInputChange}
+                        required
                       />
                     </div>
                     <div className='col-12 mb-3'>
@@ -295,7 +318,8 @@ performAPICall(products,url)
                         />
                       </FloatingLabel>
                     </div>
- 
+       
+
                   </div>
 
                 </form>

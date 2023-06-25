@@ -55,7 +55,12 @@ class Dashboard extends Component {
   // 
   render() {
     // user token
-    let tok =  JSON.parse(localStorage.getItem("userData")).token
+    let tok = null;
+    const userData = localStorage.getItem("userData");
+    if (userData) {
+      const parsedUserData = JSON.parse(userData);
+      tok = parsedUserData.token;
+    }
     let cart = localStorage.getItem("cart" + tok) ? JSON.parse(localStorage.getItem("cart" + tok)) : [];
     localStorage.setItem("cart"+tok, JSON.stringify(cart));
     function add_to_cart(elem) {

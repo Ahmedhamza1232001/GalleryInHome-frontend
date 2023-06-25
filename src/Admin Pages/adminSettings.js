@@ -12,10 +12,11 @@ import {Link} from "react-router-dom";
 
 const AdminSettings =() => {
 
-          // Retrieve user data from session storage
-  const userData = JSON.parse(sessionStorage.getItem("userData"));
-  const name = userData ? userData.userName : "";
-  const email = userData ? userData.email : "";
+    // Retrieve user data from session storage
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    const name = userData ? userData.UserName : "";
+    const email = userData ? userData.Email : "";
+  
 
         const ProfileData =[
         {
@@ -84,21 +85,9 @@ const AdminSettings =() => {
                                 </Row>
                                 <div className="form">
                                     <Form action='#' method='post'>
+
                                         <Row>
-                                            <div className='col-md-6 mb-3'>
-                                                <Form.Label> Name :</Form.Label>
-                                                <Form.Control  className='form-control' size="lg" type="text"  placeholder={name} />
-                                            </div>
-                     
-                                        </Row>
-                                        <Row>
-                                            <div className='col-12 mb-3'>
-                                                <Form.Label>Email :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="email"  placeholder={email} />
-                                            </div>
-                                        </Row>
-                                        <Row>
-                                            <div className='col-12 mb-3'>
+                                            <div className='col-12 mb-3 mt-3'>
                                                 <Form.Label>Password :</Form.Label>
                                                 <Form.Control className='form-control' size="lg" type="password"  placeholder="Enter New Password" />
                                             </div>

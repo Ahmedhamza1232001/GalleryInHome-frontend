@@ -95,25 +95,10 @@ const Settings =() => {
                   </Row>
                   <div>
                     <Form action='#' method='post'>
+     
                       <Row>
-                        <div className='col-md-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="text" placeholder="User Name" />
-                        </div>
-            
-                      </Row>
-                      <Row>
-                        <div className='col-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="email" placeholder="Email" />
-                        </div>
-                      </Row>
-                      <Row>
-                        <div className='col-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="password" placeholder="Old Password" />
-                        </div>
-                      </Row>
-                      <Row>
-                        <div className='col-12 mb-3'>
-                          <Form.Control className='form-control' size="lg" type="password" placeholder="New password" />
+                        <div className='col-12 mb-3 mt-3'>
+                          <Form.Control className='form-control' size="lg" type="password" placeholder="Enter New password" />
                         </div>
                       </Row>
    

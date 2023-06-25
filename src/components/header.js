@@ -87,9 +87,6 @@ const Header = () => {
             <li><NavLink to="/cart">Cart</NavLink></li>
           ) : null}
 
-          {userRole === "Client" ? (
-            <li><NavLink to="/checkout">Checkout</NavLink></li>
-          ) : null}
 
           <li><NavLink to="/feedback">Feedback</NavLink></li>
 
@@ -143,19 +140,29 @@ const Header = () => {
       <DarkMode />
       {/* special pages */}
       <div className="cart-fav-search my-5">
+
+      {userRole === "Client" ? (
         <Link to="/cart">
-          <BsCart4 className='mr-2' />
-          Cart
-          <span> (0)</span>
-        </Link>
-        <Link to="/favorite">
+        <BsCart4 className='mr-2' />
+        Cart
+        <span> (0)</span>
+      </Link>
+        ) : null}
+
+          {userRole === "Client" ? (
+
+          <Link to="/favorite">
           <BsStars className='mr-2' />
           Favorite
-        </Link>
+          </Link>
+        ) : null}
+
+
         <Link onClick={openSearch}>
           <BsSearch className='mr-2' />
           Search
         </Link>
+
       </div>
       {/* social information links */}
       <div className="social-info ">

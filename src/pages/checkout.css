@@ -22,6 +22,11 @@
     margin-right: auto;
     margin-left: auto;
 }
+.error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
 
 .cart-table-area .container-fluid .row{
     display: flex;

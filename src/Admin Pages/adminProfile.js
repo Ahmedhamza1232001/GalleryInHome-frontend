@@ -23,7 +23,7 @@ const AdminProfile = () => {
     },
     {
       icoon: <BsGear className='mr-2' />,
-      title: "Settings",
+      title: "Change Password",
       link: "/adminSettings",
     },
     {
