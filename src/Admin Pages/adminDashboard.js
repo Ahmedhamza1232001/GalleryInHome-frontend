@@ -128,6 +128,24 @@ const AdminDashboard = () => {
                             <Card.Body className='card-body'>
                                 <Card.Subtitle className='d-flex align-items-center'>
                                     <div>
+                                        <p className='mb-0 text-white'>Recent Orders</p>
+                                        <h5 className='mb-0 text-white'>{orders}</h5>
+                                    </div>
+                                    <div className='ms-auto text-white'>
+                                        <span className='bx bx-cart font-30'><BsCart/></span>
+                                    </div>
+                                </Card.Subtitle>
+                                <div className='progress bg-white-2 radius-10 mt-4'>
+                                    <div className='progress-bar bg-white' role="progressbar"></div>
+                                </div>
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className='col'>
+                        <Card className='card radius-10 overflow-hidden bg-gradient-cosmic'>
+                            <Card.Body className='card-body'>
+                                <Card.Subtitle className='d-flex align-items-center'>
+                                    <div>
                                         <p className='mb-0 text-white'>Total Orders</p>
                                         <h5 className='mb-0 text-white'>{orders}</h5>
                                     </div>
@@ -163,7 +181,7 @@ const AdminDashboard = () => {
                  
                     <div className='col'></div>
                 </div>
-                <div className='row row-cols-1 row-cols-lg-3'>
+                <div className='row row-cols-1 row-cols-lg-1'>
                     <div className='col d-flex'>
                         <Card className='card radius-10 w-100'>
                             <Card.Body className='card-body'>
@@ -186,6 +204,9 @@ const AdminDashboard = () => {
                                         <div className='ps-3'>
                                             <h6 className='mb-0 '>{productTitle}</h6>
                                             <p className='ms-auto mb=0 text-secondary'>{productPrice} EGP</p>
+                                        </div>
+                                        <div className='ps-3'>
+                                            <h6 className='mb-0 '>{clientName}</h6>
                                         </div>
                                         <div className="text-center mb-3">
                                         <button className="btn btn-primary" onClick={() => handleDoneClick(id,productPrice)}>Done</button>

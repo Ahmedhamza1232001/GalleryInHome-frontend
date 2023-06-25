@@ -172,13 +172,13 @@ const NewProduct = () => {
                                         <Form.Label className='form-label'>Catagory</Form.Label>
                                         {<span style={{ color:"red"}}>{errors.Catagory?.message}</span>}
                                         <Form.Select aria-label="Default select example" className='form-select' name="Catagory" {...register("Catagory", { required:"  is requierd*" })}>
-                                            <option value="Chairs">Chairs</option>
-                                            <option value="Beds">Beds</option>
-                                            <option value="Accesories">Accesories</option>
-                                            <option value="Furniture">Furniture</option>
-                                            <option value="Home-Deco">Home-Deco</option>
-                                            <option value="Dressings">Dressings</option>    
-                                            <option value="Tables">Tables</option>                                        
+                                            <option value="0">Chairs</option>
+                                            <option value="1">Beds</option>
+                                            <option value="2">Accesories</option>
+                                            <option value="3">Furniture</option>
+                                            <option value="4">Home-Deco</option>
+                                            <option value="5">Dressings</option>    
+                                            <option value="6">Tables</option>                                        
                                         </Form.Select>                      
                                     </Form.Group >
                                     <Form.Group  className='col-12'>
