@@ -54,7 +54,7 @@ const Header = () => {
 
     const handleLogout = () => {
       // Remove token and session data
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
       localStorage.removeItem("userData");
     
       // Redirect to the login page

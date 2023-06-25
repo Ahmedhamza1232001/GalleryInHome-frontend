@@ -9,15 +9,45 @@ import Card from 'react-bootstrap/Card';
 import { BiLogOutCircle } from "react-icons/bi";
 import Button from 'react-bootstrap/Button';
 import {Link} from "react-router-dom";
+import  { useState } from "react";
 
 const AdminSettings =() => {
+    const [newPassword, setNewPassword] = useState("");
 
     // Retrieve user data from session storage
     const userData = JSON.parse(localStorage.getItem("userData"));
     const name = userData ? userData.UserName : "";
     const email = userData ? userData.Email : "";
   
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
 
+    
+        fetch("https://galleryinhome.azurewebsites.net/Auth/updatePassword", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userData ? userData.id : 0,
+            newPassword: newPassword,
+          })
+            })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("Network response was not ok.");
+            }
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
         const ProfileData =[
         {
             icoon: <BsHouseDoor className='mr-2' /> ,
@@ -84,22 +114,19 @@ const AdminSettings =() => {
                                     </div>
                                 </Row>
                                 <div className="form">
-                                    <Form action='#' method='post'>
-
-                                        <Row>
-                                            <div className='col-12 mb-3 mt-3'>
-                                                <Form.Label>Password :</Form.Label>
-                                                <Form.Control className='form-control' size="lg" type="password"  placeholder="Enter New Password" />
-                                            </div>
-                                        </Row>
-                    
-                     
-                                        <Row>
-                                            <div className='subs-btn'>
-                                                <Link to="/adminProfile" className='btn sub-btn w-100 '>Submit</Link>
-                                            </div>
-                                        </Row>
-                                    </Form>
+                                <Form onSubmit={handleSubmit}>
+                                    <Row>
+                                    <div className='col-12 mb-3 mt-3'>
+                                        <Form.Label>Password :</Form.Label>
+                                        <Form.Control className='form-control' size="lg" type="password" placeholder="Enter New Password" onChange={(e) => setNewPassword(e.target.value)} />
+                                    </div>
+                                    </Row>
+                                    <Row>
+                                    <div className='subs-btn'>
+                                        <Button type="submit" className='btn sub-btn w-100'>Submit</Button>
+                                    </div>
+                                    </Row>
+                                </Form>
                                 </div>
                             </div>
                         </div>

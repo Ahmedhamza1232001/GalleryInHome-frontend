@@ -4,7 +4,7 @@ import { Row, Col } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import { BsGear, BsHouseDoor } from "react-icons/bs"
 import { BiLogOutCircle } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 
 
@@ -14,6 +14,16 @@ const AdminProfile = () => {
   const userData = JSON.parse(localStorage.getItem("userData"));
   const name = userData ? userData.UserName : "";
   const email = userData ? userData.Email : "";
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove token and session data
+    sessionStorage.removeItem("token");
+    localStorage.removeItem("userData");
+
+    // Redirect to the login page
+    navigate("/login");
+  };
 
   const ProfileData = [
     {
@@ -26,11 +36,6 @@ const AdminProfile = () => {
       title: "Change Password",
       link: "/adminSettings",
     },
-    {
-      icoon: <BiLogOutCircle className='mr-2' />,
-      title: "Logout",
-      link: "/login",
-    }
   ]
 
 

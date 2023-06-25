@@ -9,12 +9,16 @@ import Card from 'react-bootstrap/Card';
 import { BiLogOutCircle } from "react-icons/bi";
 import Button from 'react-bootstrap/Button';
 import {Link} from "react-router-dom";
+import  { useState } from "react";
+
 
 const Settings =() => {
   // Retrieve user data from session storage
-  const userData = JSON.parse(sessionStorage.getItem("userData"));
-  const name = userData ? userData.userName : "";
-  const email = userData ? userData.email : "";
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  const name = userData ? userData.UserName : "";
+  const email = userData ? userData.Email : "";
+
+  const [newPassword, setNewPassword] = useState("");
 
   const ProfileData = [
     {
@@ -43,6 +47,37 @@ const Settings =() => {
       link: "/login",
     }
   ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+
+    // Send the API request
+    fetch("https://galleryinhome.azurewebsites.net/Auth/updatePassword", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: userData ? userData.id : 0,
+        newPassword: newPassword,
+      })
+    })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Network response was not ok.");
+      } }).then((data) => {
+        // Handle the API response here
+        console.log(data);
+      })
+      .catch((error) => {
+        // Handle any errors here
+        console.error(error);
+      });
+  };
+  
 
   return (
     <>
@@ -98,15 +133,25 @@ const Settings =() => {
      
                       <Row>
                         <div className='col-12 mb-3 mt-3'>
-                          <Form.Control className='form-control' size="lg" type="password" placeholder="Enter New password" />
+                        <Form.Control
+                        className="form-control"
+                        size="lg"
+                        type="password"
+                        placeholder="Enter New password"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                      />
                         </div>
                       </Row>
    
           
                       <Row>
-                        <div className='subs-btn'>
-                          <Link to="/profile" className='btn sub-btn w-100 '>Submit</Link>
-                        </div>
+                      <div className="subs-btn">
+                      <Link to="/profile" className="btn sub-btn w-100" onClick={handleSubmit}>
+                        Submit
+                      </Link>
+                    </div>
+
                       </Row>
                     </Form>
                   </div>
