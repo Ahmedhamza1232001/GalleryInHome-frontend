@@ -73,6 +73,7 @@ performAPICall(products,url)
   .then(() => {
     console.log('Error performing :');
 
+    window.location.href = url;
   })
   .catch(error => {
     // Handle any errors that occur during the API call
@@ -93,7 +94,6 @@ performAPICall(products,url)
   };
 
   const performAPICall = (products, url) => {
-    console.log(products[0]);
     const userOrders = {};
     for (const product of products) {
       const userId = product.userId;
