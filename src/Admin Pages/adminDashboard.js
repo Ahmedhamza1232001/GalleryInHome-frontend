@@ -181,7 +181,7 @@ const AdminDashboard = () => {
                  
                     <div className='col'></div>
                 </div>
-                <div className='row row-cols-1 row-cols-lg-1'>
+                <div className='row row-cols-1 row-cols-lg-3'>
                     <div className='col d-flex'>
                         <Card className='card radius-10 w-100'>
                             <Card.Body className='card-body'>
@@ -204,9 +204,6 @@ const AdminDashboard = () => {
                                         <div className='ps-3'>
                                             <h6 className='mb-0 '>{productTitle}</h6>
                                             <p className='ms-auto mb=0 text-secondary'>{productPrice} EGP</p>
-                                        </div>
-                                        <div className='ps-3'>
-                                            <h6 className='mb-0 '>{clientName}</h6>
                                         </div>
                                         <div className="text-center mb-3">
                                         <button className="btn btn-primary" onClick={() => handleDoneClick(id,productPrice)}>Done</button>

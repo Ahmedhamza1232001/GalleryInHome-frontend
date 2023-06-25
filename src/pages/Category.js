@@ -11,31 +11,31 @@ import CardData from './cardData';
 
 const Category = () => {
   const [DisRow, setDisRow] = useState(false);
-  const { addToCart, loading ,addToFav} = useGlobalContext();
-  const [products, setProducts] = useState(CardData)
+  const { addToCart, products, loading, addToFav } = useGlobalContext();
+  let data = [...products];
+  const [productDatas, setProductDatas] = useState(data);
   const [categories, setCategories] = useState(["all", ...new Set(products.map(item => item.catagory))])
   const [brands, setBrands] = useState(["all", ...new Set(products.map(item => item.brand))])
   const filterBrand = (brand) => {
     if (brand === "all") {
-      setProducts(CardData)
+      setProductDatas(data)
       return
     } 
-    const newItem = CardData.filter(item => item.brand === brand);
-    setProducts(newItem);
+    const newItem = data.filter(item => item.brand === brand);
+    setProductDatas(newItem);
   }
   const filterCat = (cat) => {
     if (cat=== "all") {
-      setProducts(CardData)
+      setProductDatas(data)
       return
     } 
-    const newItem = CardData.filter(item => item.catagory === cat);
-    console.log(newItem);
-    setProducts(newItem);
+    const newItem = data.filter(item => item.catagory === cat);
+    setProductDatas(newItem);
   }
   if (loading) {
     return <h3 style={{ width: 'auto', margin: '30px auto' }}>Loading...</h3>;
   }
-  if (products.length === 0) {
+  if (productDatas.length === 0) {
     return <h3 style={{ width: 'auto', margin: '30px auto' }}>NO DATA EXIST</h3>;
   }
 
@@ -97,7 +97,7 @@ const Category = () => {
 
               {/* cards */}
               <Row>
-                {products.map((item) => {
+                {productDatas.map((item) => {
                   const {
                     id,
                     price,
