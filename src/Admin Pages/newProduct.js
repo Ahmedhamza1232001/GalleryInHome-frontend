@@ -194,7 +194,8 @@ const NewProduct = () => {
                                         <Form.Label className='form-label'>Brands</Form.Label>
                                         {<span style={{ color:"red"}}>{errors.brands?.message}</span>}
                                         <Form.Select aria-label="Default select example" className='form-select'  name="brands" {...register("brands", { required:"  is requierd*" })} >
-                                            <option value="Amado">Amado</option>
+                                        <option value="Abo Gomaa">Abo Gomaa</option>
+                                        <option value="Amado">Amado</option>
                                             <option value="Ikea">Ikea</option>
                                             <option value="Factory">The Factory</option>
                                             <option value="Artdeco">Artdeco</option>

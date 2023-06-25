@@ -157,19 +157,7 @@ function LogIn() {
                   </div>
                 </form>
               </div>
-              <div className="mx-3 my-2 py-2 bordert">
-                <div className="text-center py-3">
-                  <a href="https://wwww.facebook.com" title="Facebook" target="_blank" className="px-2">
-                    <img src={facbook} alt="facebook" />
-                  </a>
-                  <a href="https://www.google.com" title="Google" target="_blank" className="px-2">
-                    <img src={google} alt="google" />
-                  </a>
-                  <a href="https://www.twitter.com" title="twitter" target="_blank">
-                    <img src={twitter} alt="twitter" />
-                  </a>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
