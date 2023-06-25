@@ -1,0 +1,250 @@
+.dashboard-page{
+    margin-top: 60px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% - 340px);
+    width: calc(100% - 340px);
+    max-width: calc(100% - 340px);
+}
+
+.dashboard-page .page-content{
+    position: relative;
+}
+
+.dashboard-page .page-content .row{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    flex-wrap: wrap; 
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.dashboard-page .page-content .row .col{
+    width: 260px;
+}
+
+
+.dashboard-page .page-content .row .col .card {
+    border: 0 solid transparent;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 var(--BoxShadow-color1), 0 2px 6px 0 var(--BoxShadow-color2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    border-radius: 10px;
+    overflow: hidden!important;
+}
+
+
+.dashboard-page .page-content .row .col .card .card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+
+
+.dashboard-page .page-content .row .col .card .card-body .d-flex {
+    display: flex!important;
+    align-items: center!important;
+    justify-content: space-around;
+
+}
+
+.dashboard-page .page-content .row .col .card .card-body .progress {
+    display: flex;
+    overflow: hidden;
+    font-size: .75rem;
+    background-color: rgb(255 255 255 / 12%) !important;
+    margin-top: 1.5rem!important;
+    height: 4.5px;
+}
+
+.dashboard-page .page-content .row .col .card .card-body .d-flex .text-white {
+    color: #fff!important;
+    margin-left: auto!important;
+    --bs-text-opacity: 1;
+    margin-bottom: 0!important;
+    margin-top: 0;
+}
+
+.dashboard-page .page-content .row .col .card 
+.card-body .d-flex .text-white .bx {
+    font-family: 'boxicons' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: inherit;
+    display: inline-block;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    font-size: 30px
+}
+
+.dashboard-page .page-content .row .col .card .card-body .progress .progress-bar {
+    --bs-bg-opacity: 1;
+    --bs-white-rgb: 255,255,255;
+    background-color: rgba(var(--bs-white-rgb),var(--bs-bg-opacity))!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: scroll;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    transition: width .6s ease;
+    width: 46%;
+}
+
+/* card colors */
+
+.bg-gradient-cosmic {
+    background: linear-gradient(to right, rgb(142, 45, 226), rgb(74, 0, 224)) !important;
+}
+
+.bg-gradient-burning {
+    background: linear-gradient(to right, rgb(255, 65, 108), rgb(255, 75, 43))!important;
+}
+
+.bg-gradient-Ohhappiness {
+    background: linear-gradient(to right, rgb(0, 176, 155), rgb(150, 201, 61))!important;
+}
+
+.bg-gradient-moonlit {
+    background: linear-gradient(to right, rgb(15, 32, 39), rgb(32, 58, 67), rgb(44, 83, 100))!important;
+}
+
+/* ----------------------------- */
+
+.dashboard-page .page-content .row .card .d-flex {
+    display: flex!important;
+}
+
+.dashboard-page .page-content .row .card .best-selling-products{
+    position: relative;
+    height: 450px;
+}
+
+.dashboard-page .page-content .row .card 
+.best-selling-products .d-flex .product-img{
+    width: 100px;
+    height: 100px;
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+}
+
+.dashboard-page .page-content .row .card 
+.best-selling-products .d-flex .product-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.dashboard-page .page-content .row .card 
+.best-selling-products .d-flex .ps-3 {
+    padding-left: 1rem!important;
+}
+
+.dashboard-page .page-content .row .card 
+.best-selling-products .d-flex .ms-auto {
+    margin-left: auto!important;
+    margin-bottom: 0!important;
+}
+
+.dashboard-page .page-content .row 
+.col .card .recent-reviews {
+    position: relative;
+    height: 450px;
+}
+
+
+.dashboard-page .page-content .row .card 
+.recent-reviews .d-flex .product-img{
+    width: 45px;
+    height: 45px;
+    background-color: var(--background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+}
+
+.dashboard-page .page-content .row .card 
+.recent-reviews .d-flex .product-img img{
+    width: 45px;
+    height: 45px;
+}
+
+.dashboard-page .page-content .row .card 
+.recent-reviews .d-flex .ps-3 {
+    padding-left: 1rem!important;
+}
+
+.dashboard-page .page-content .row .card 
+.recent-reviews .d-flex .ms-auto {
+    margin-left: auto!important;
+    margin-bottom: 0!important;
+}
+
+.dashboard-page .page-content .row 
+.col .card .support-list {
+    position: relative;
+    height: 450px;
+}
+
+.dashboard-page .page-content .row .col .card 
+.support-list .d-flex .user-img img {
+    border-radius: 50%!important;
+    width: 50px;
+    height: 50px;
+}
+
+.dashboard-page .page-content .row .card 
+.support-list .d-flex .ps-3 {
+    padding-left: 1rem!important;
+}
+
+.dashboard-page .page-content .row .card 
+.support-list .d-flex .ms-auto {
+    margin-left: auto!important;
+    margin-bottom: 0!important;
+}
+
+.dashboard-page .page-content .row .col .card 
+.support-list .d-flex .ps-3 .text-primary {
+    color: var(--clr-primary-1)!important;
+    float: right!important;
+    --bs-text-opacity: 1;
+    font-size: 13px;
+    margin-left: 130px;
+}
+
+.dashboard-page .page-content .row .col .card 
+.support-list .d-flex .ps-3 .text-secondary{
+    font-size: 13px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .main-content .dashboard-page{
+      position: relative;
+      z-index: 1;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: calc(100% - 300px);
+      width: calc(100% - 300px);
+      max-width: calc(100% - 300px);
+    }
+  }
+  @media only screen and (max-width: 767px){
+    .main-content .dashboard-page{
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 98%;
+      flex: 0 0 98%;
+      width: 98%;
+      max-width: 98%;
+    }
+  }

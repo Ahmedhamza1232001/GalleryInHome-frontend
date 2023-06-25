@@ -8,7 +8,7 @@
     flex: 0 0 320px;
     width: 320px;
     max-width: 320px;
-    background-color: var(--clr-white);
+    background-color: var(--background-color);
     padding: 60px 75px;
 }
 .main-content .header-area.on{
@@ -24,7 +24,7 @@
     top: 0;
     right: 15px;
     text-align: center;
-    color: #fff;
+    color: #FFF;
     line-height: 40px;
     font-size: 12px;
     cursor: pointer;
@@ -48,7 +48,7 @@
     padding: 20px 0;
     display: block;
     line-height: .9;
-    color: var(--clr-dark);
+    color: var(--font-color);
     font-weight: normal;
 }
 .main-content .header-area .header-nav li a:hover,
@@ -88,6 +88,7 @@
     background-color: var(--clr-primary-1);
     font-weight: 400;
 }
+
 .main-content .header-area .login-cont .login-btn:hover,.main-content .header-area .login-cont .login-btn:focus{
     font-size: 18px;
     color: var(--clr-white);
@@ -101,7 +102,7 @@
     font-size: 16px;
     padding: 15px 0;
     line-height: 1;
-    color: var(--clr-dark);
+    color: var(--font-color);
 }
 .main-content .header-area .cart-fav-search span,  
 .main-content .header-area .cart-fav-search svg{
@@ -116,7 +117,7 @@
 /* social information */
 .main-content .header-area .social-info {
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 }
 .main-content .header-area .social-info  a{
 color: var(--clr-icons);

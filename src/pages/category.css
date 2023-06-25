@@ -10,29 +10,29 @@
 }
 
 .sidebar{
-    background-color:rgb(245, 247, 250);
+    background-color:var(--SideBarShop-color);
     position: relative;
     z-index: 1;
     -webkit-box-flex: 0;
     flex: 0 0 230px;
     width: 230px;
     max-width: 230px;
-    padding: 100px 40px;
-    
+    padding: 100px 40px; 
   }
+
   .catagories .title{
-    color: rgb(8, 8, 10);
+   color: var(--font-color);
    font-size: 25px;
-  
   } 
+
   .catagories .brands{
-    color: rgb(8, 8, 10);
+    color: var(--font-color);
     padding-right: 50px;
     margin-left: 5px;
   }
   
   .sidebarList .row {
-    color: gray;
+    color: var(--BrandsColors);
     padding: 20px;
     margin-top: 15px;
     font-size: large;
@@ -42,17 +42,22 @@
     color: #ffc107;
     cursor: pointer;
   }
-  
+  .sidebarList .catBtn{
+    background: none;
+    border: none;
+    text-transform: capitalize;
+    color: gray;
+  }
   .catagories #active{
     color: #ffc107;
   }
   .brand{
-    color: gray;
+    color: var(--BrandsColors);
     margin-top: 15px;
     margin-left: 5px;
     font-size: large;
-
   }
+
   .brand .check{
     padding: 20px 0;
   }
@@ -63,11 +68,15 @@
     width: calc(100% - 230px);
     max-width: calc(100% - 230px);
   }
-  .card{
+.product-area  .card{
     margin-bottom: 40px;
     border: none;
     display: flex;
+    background-color: var(--background-color) !important;
+    color: var(--font-color);
+    box-shadow: 0 2px 6px 0 var(--BoxShadow-color1), 0 2px 6px 0 var(--BoxShadow-color2);
   }
+
   .card-price{
     position: relative;
     color: #ffc107;
@@ -81,11 +90,10 @@
     background-color: #ffc107;
   }
 
-
   .product-topbar{
     position: relative;
     z-index: 100;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   .product-sorting , .view {
     display: flex !important;
@@ -110,13 +118,18 @@
   margin-top: 25px;
   padding: 0;
 }
-.dropdown button:hover{
-  background-color: #ffc107;
-  border: none;
-}
+
 .btn-group button:hover{
   background-color: #ffc107;
   border: none;
+}
+
+.product-area i{ 
+  cursor: pointer;
+}
+.category-main .product-area img{
+  height: 70vh;
+
 }
 /* media query */
 @media only screen and (min-width: 992px) and (max-width: 1199px){

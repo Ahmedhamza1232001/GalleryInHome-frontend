@@ -1,9 +1,6 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 import "./footer.css"
-import $ from "jquery"
-// global context
-import {useGlobalContext} from "../context"
 // bootstrap
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -15,6 +12,13 @@ import footer from "../images/logo2.png"
 
 function Footer() {
 
+  // Get the user role from session storage
+  const userRole = localStorage.getItem("userData")
+    ? JSON.parse(localStorage.getItem("userData")).role
+    : "";
+
+
+    
   return (
     <section className='footer-area'>
     <div className="container">
@@ -23,7 +27,7 @@ function Footer() {
           <div className="footer-logo mr-50">
             <Link to="/"><img src={footer} alt="logo" width="250px" height="250px"/></Link>
           </div>
-          <p className='copy-rights'>This template is made by team-name | credits for <a href="https://colorlib.com" target="_blank">Colorlib</a> &copy; 2022</p>
+          <p className='copy-rights'>Website designed by Gallary in home team &copy; 2022</p>
         </div>
         <div className="col-12 col-lg-8">
           <div className="footer_menu">
@@ -34,11 +38,25 @@ function Footer() {
                 <Nav className="me-auto">
 
                   <Link className="nav-link" to="/">Home</Link>
+
+                  {userRole === "Client" ? (
+                  <Link className="nav-link" to="/profile">Profile</Link>
+                  ) : null}
+
+
                   <Link className="nav-link" to="/Category">Shop</Link>
-                  <Link className="nav-link" to="/Product">Product</Link>
+
+                  {userRole === "Client" ? (
                   <Link className="nav-link" to="/Cart">Cart</Link>
+                  ) : null}
+
+                  {userRole === "Client" ? (
                   <Link className="nav-link" to="/Checkout">Checkout</Link>
+                  ) : null}
+
+
                   <Link className="nav-link" to="/feedback">Feedback</Link>
+
                 </Nav>
               </Navbar.Collapse>
             </Container>

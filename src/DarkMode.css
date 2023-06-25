@@ -1,0 +1,102 @@
+/* 1 */
+:root {
+    --font-color: #333;
+    --background-color: var(--clr-white);
+    --link-color: cornflowerblue;
+    --gray-color: gray;
+    --grad-color: rgb(245, 247, 250);
+    --checkBox-color: #6b6b6b;
+    --SideBarShop-color: rgb(245, 247, 250);
+    --BrandsColors: gray;
+    --BoxShadow-color1: rgb(218 218 253 / 65%);
+    --BoxShadow-color2: rgb(206 206 238 / 54%);
+    --Border-color: rgb(245, 247, 250);
+    --PaymentBackRow2: rgba(221, 228, 236, 0.301);
+}
+
+/* 2 */
+[data-theme="dark"] {
+--font-color: var(--clr-white);
+--background-color: #333;
+--link-color: cornflowerblue;
+--gray-color: var(--clr-white);
+--grad-color: var(--clr-white);
+--checkBox-color: var(--clr-white);
+--SideBarShop-color: #6b6b6b;
+--BrandsColors: rgba(245, 247, 250, 0.815);
+--BoxShadow-color1: #333;
+--BoxShadow-color2: rgb(206 206 238 / 54%);
+--Border-color: #fbb710;
+--PaymentBackRow2: #333;
+}
+
+/* 3 */
+body {
+background-color: var(--background-color);
+color: var(--font-color);
+}
+
+a {
+color: var(--link-color);
+}
+
+/* Custom Dark Mode Toggle Element */
+.toggle-theme-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.toggle-theme-wrapper span {
+font-size: 28px;
+}
+
+.toggle-theme {
+position: relative;
+display: inline-block;
+height: 34px;
+width: 60px;
+}
+
+.toggle-theme input {
+display: none;
+}
+
+.slider {
+background-color: #ccc;
+position: absolute;
+cursor: pointer;
+bottom: 0;
+left: 0;
+right: 0;
+top: 0;
+transition: 0.2s;
+}
+
+.slider:before {
+background-color: #fff;
+bottom: 4px;
+content: "";
+height: 26px;
+left: 4px;
+position: absolute;
+transition: 0.4s;
+width: 26px;
+}
+
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+
+input:checked + .slider {
+background-color: var(--clr-primary-1);
+}
+
+.slider.round {
+border-radius: 34px;
+}
+
+.slider.round:before {
+border-radius: 50%;
+}

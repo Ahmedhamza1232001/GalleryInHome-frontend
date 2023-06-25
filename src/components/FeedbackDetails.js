@@ -2,7 +2,6 @@ import React from 'react';
 
 const FeedbackDetails = ({FeedBackDetail}) => {
     const {name, description, img} = FeedBackDetail;
-    console.log("FeedBackDetail"+FeedBackDetail)
     return (
         <div class="item">
             <div class="testimonial-name">

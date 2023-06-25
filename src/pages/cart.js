@@ -1,146 +1,156 @@
-import React from "react";
-import './cart.css';
-import Button from 'react-bootstrap/Button'
-import {Link} from "react-router-dom";
-import Table from 'react-bootstrap/Table';
-import {useState} from 'react'
-import chair from "../images/chair.webp"
-import vase from "../images/vase.webp"
-import table from "../images/table.webp"
+import React, { useEffect } from "react";
+import "./cart.css";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
+import Table from "react-bootstrap/Table";
+import { useState } from "react";
+import { useGlobalContext } from "../context";
+import CardData from "./cardData";
+import AdminDashboard from "../Admin Pages/adminDashboard";
 
-const Cart =() => {
-    const[count1,setCount1]=useState(1);
-    const inc1=()=>{
-        setCount1(count1+1);
-      }
-      const dec1=()=>{
-        if(count1>1)
-        setCount1(count1-1);
-      }
 
-    const[count2,setCount2]=useState(1);
-    const inc2=()=>{
-        setCount2(count2+1);
-     }
-    const dec2=()=>{
-        if(count2>1)
-        setCount2(count2-1);
-     }
+const Cart = () => {
+// get data from local storage using user token
+let tok = localStorage.getItem("userData") ? JSON.parse(localStorage.getItem("userData")).token : "";
+var data = localStorage.getItem("cart" + tok)
+  ? JSON.parse(localStorage.getItem("cart"+tok))
+  : [];
+localStorage.setItem("cart"+tok, JSON.stringify(data));
+const [cartData, setCartData] = useState(data);
+const remove = (id) => {
+  const updatedData = data.filter((elem) => elem.id !== id);
+  localStorage.setItem("cart" + tok, JSON.stringify(updatedData));
+  localStorage.setItem("cartt", JSON.stringify(updatedData));
+  setCartData(updatedData);
+  };
+  const inc = (id) => {
+    let elem = data.find(elm => elm.id = id)
+    elem.qnt += 1
+    localStorage.setItem("cart" + tok, JSON.stringify(data));
+    setCartData(data)
+  }
+  const calculateTotal = () => {
+    return data.reduce((total, product) => total + product.price, 0);
+  };
+  
+  const calculateTotalQuantity = () => {
+    return data.reduce((total, product) => total + product.qnt, 0);
+  };
 
-    const[count3,setCount3]=useState(1);
-    const inc3=()=>{
-        setCount3(count3+1);
-     }
-    const dec3=()=>{
-        if(count3>1)
-        setCount3(count3-1);
-     }
+  const totalQuantity = calculateTotalQuantity();
 
-    return(
-        <div className='cart-table-area section-padding-100'>
-            <div className='container-fluid'>
-                <div className='row'>
-                    <div className='col-12 col-lg-8'>
-                        <div className="cart-title mt-50">
-                            <h2>Shopping Cart</h2>
-                        </div>
-                        <div className="cart-table clearfix">
-                            <Table responsive >
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Quantity</th>
-                                    </tr>                                   
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td className="cart_product_image">
-                                            <img src={chair} alt="chair" />
-                                        </td>
-                                        <td className="cart_product_desc">
-                                            <h5>White Modern Chair</h5>
-                                        </td>
-                                        <td className="cart_product_price">
-                                            <span className="pricee">$130</span>
-                                        </td>
-                                        <td className="cart_product_qty">
-                                            <div className="qty">
-                                                <p>Qty</p>
-                                                <div className="quantity">
-                                                    <button onClick={dec1} className="qty-symbol" >-</button>
-                                                    {count1}
-                                                    <button onClick={inc1} className="qty-symbol">+</button>
-                                                </div>  
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="cart_product_image">
-                                            <img src={vase} alt="vase" />
-                                        </td>
-                                        <td className="cart_product_desc">
-                                            <h5>Minimal Plant Pot</h5>
-                                        </td>
-                                        <td className="cart_product_price">
-                                            <span className="pricee">$10</span>
-                                        </td>
-                                        <td className="cart_product_qty">
-                                            <div className="qty">
-                                                <p>Qty</p>
-                                                <div className="quantity">
-                                                    <button onClick={dec2} className="qty-symbol" >-</button>
-                                                    {count2}
-                                                    <button onClick={inc2} className="qty-symbol">+</button>
-                                                </div>  
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="cart_product_image">
-                                            <img src={table} alt="table" />
-                                        </td>
-                                        <td className="cart_product_desc">
-                                            <h5>White Modern Table</h5>
-                                        </td>
-                                        <td className="cart_product_price">
-                                            <span className="pricee">$200</span>
-                                        </td>
-                                        <td className="cart_product_qty">
-                                            <div className="qty">
-                                                <p>Qty</p>
-                                                <div className="quantity">
-                                                    <button onClick={dec3} className="qty-symbol" >-</button>
-                                                    {count3}
-                                                    <button onClick={inc3} className="qty-symbol">+</button>
-                                                </div>  
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                        </div>
-                    </div>
-                    <div className='col-12 col-lg-4'>
+  const totalSum = calculateTotal().toFixed(2);
+  useEffect(() => {
+    // Save the total and total quantity to localStorage
+    localStorage.setItem("total", totalSum);
+    localStorage.setItem("totalQuantity", totalQuantity);
+    // setCartData(data)
+  }, [totalSum, totalQuantity]);
 
-                        {/* Cart total information */}
-                        <div className='cart-summary'>
-                            <h5>Cart Total</h5>
-                            <ul>
-                                <li><span>Subtotal:</span><span>$140.00</span></li>
-                                <li><span>Delivery:</span><span>Free</span></li>
-                                <li><span>Total:</span><span>$140.00</span></li>
-                            </ul>
-                            <div className='cart-btn mt-100'>
-                                <Link to="/checkout" className='btn amado-btn w-100'>Checkout</Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  
+  // Check if cartData is empty
+  const isCartEmpty = cartData.length === 0;
+  return (
+    <div className="cart-table-area section-padding-100">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-12 col-lg-8">
+            <div className="cart-title mt-50">
+              <h2>Shopping Cart</h2>
             </div>
+            <div className="cart-table clearfix">
+              <Table responsive>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cartData.map((product) => {
+                    const { id, images, name, price, qnt , userId } = product;
+                    let count = 1;
+                    return (
+                      <tr key={id}>
+                        <td className="cart_product_image">
+                          <img src={images[0].name} alt={id} />
+                        </td>
+                        <td className="cart_product_desc">
+                          <h5>{name}</h5>
+                        </td>
+                        <td className="cart_product_price">
+                          <span className="pricee">{price} EGP</span>
+                        </td>
+   
+                        <td className="cart_product_qty">
+                          <div className="qty">
+                            <p>Qty</p>
+                            <div className="quantity">
+                              <button
+                                onClick={() => count--}
+                                className="qty-symbol"
+                              >
+                                -
+                              </button>
+                              {qnt}
+                              <button
+                                onClick={() => inc(id)}
+                                className="qty-symbol"
+                              >
+                                +
+                              </button>
+                            </div>
+                            <button className="remove" onClick={()=>remove(id)}>remove</button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </div>
+          </div>
+          <div className="col-12 col-lg-4">
+            {/* Cart total information */}
+            <div className="cart-summary">
+              <h5>Cart Total</h5>
+              <ul>
+                <li>
+                  <span>Subtotal:</span>
+                  <span>0.00 EGP</span>
+                </li>
+                <li>
+                  <span>Delivery:</span>
+                  <span>Free</span>
+                </li>
+                <li>
+                  <span>Total:</span>
+                  <span>{totalSum} EGP</span>
+                </li>
+              </ul>
+                {/* Checkout button */}
+                <div className="cart-btn mt-100">
+                {isCartEmpty ? (
+                  <button className="btn amado-btn w-100" disabled>
+                    Checkout
+                  </button>
+                ) : (
+                  <Link
+                    to={{ pathname: "/checkout", search: `?total=${totalSum}` }}
+                    className="btn amado-btn w-100"
+                  >
+                    Checkout
+                  </Link>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
 export default Cart;

@@ -1,0 +1,28 @@
+.table-body .cell-1{
+  border-collapse: separate;
+  border-spacing: 0 4em;
+  border-bottom: 3px solid #d3d7dc29;
+  background-clip: padding-box;
+} 
+
+.table thead{
+    background-color: #d3d7dc29;
+    color: var(--font-color);
+}
+
+.table tbody tr td p:hover{
+  color: gray;
+}
+
+@media(min-width: 768px) and (max-width: 991px){
+  .main-content .purchases{
+      width: 65%;
+      /* padding: 1.5rem; */
+  }
+}
+
+@media(min-width: 992px) and (max-width: 1366px){
+  .main-content .purchases{
+      width: 65%;
+  }
+}

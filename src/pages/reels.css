@@ -1,0 +1,53 @@
+html {
+    scroll-snap-type: y mandatory;
+}
+
+.reel {
+    display: grid;
+    place-items: center;
+    width:100%;
+    background-color: white;
+    color: #fff;   
+}
+
+
+.video-container {
+    position: relative;
+    height: 70vh;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 20px;
+    background-color: white;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+}
+
+/* for chrome and opera */
+.video-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+.reels .button{
+    min-width: 160px;
+    height: 55px;
+    color: var(--clr-white);
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    padding: 0 7px;
+    font-size: 18px;
+    line-height: 57px;
+    background-color: var(--clr-primary-1);
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+}
+
+.reels .button:hover,
+.reels .button:focus{
+    font-size: 18px;
+    color: var(--clr-white);
+    background-color: var(--clr-dark)
+}

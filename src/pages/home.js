@@ -1,105 +1,37 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-import "./home.css"
-// global context
-import {useGlobalContext} from "../context"
-// images
-import pot from "../images/vase.webp"
-import chair from "../images/chair.webp"
-import table from "../images/table.webp"
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './home.css';
+import { useGlobalContext } from '../context';
 
 function Home() {
+const {products , loading} = useGlobalContext()
+  if (loading) {
+    return <h3 style={{ width: 'auto', margin: '30px auto' }}>Loading...</h3>;
+  }
+
+  if (products.length === 0) {
+    return <h3 style={{ width: 'auto', margin: '30px auto' }}>NO DATA EXIST</h3>;
+  }
+
   return (
     <>
-        {/* product category */}
-        <div className="products-catagories-area">
-          <div className="products-center">
-            <article className="single-product">
-              <Link to="/">
-                <img src={chair} alt="chair" />
+      <div className="products-catagories-area">
+        <div className="products-center">
+          {products.map((product) => (
+            <article className="single-product" key={product.id}>
+              <Link to={`/product/${product.id}`}>
+                <img src={product.images[0].name} alt={product.name} />
                 <div className="product-content">
-                  <p>from $13</p>
-                  <h4>modern chair</h4>
+                  <p>{product.price} EGP</p>
+                  <h4>{product.name}</h4>
                 </div>
               </Link>
             </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="vase" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-            <Link to="/">
-                <img src={table} alt="table" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>small table</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="vase" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={chair} alt="chair" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>modern chair</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="vase" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={table} alt="table" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>small table</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={pot} alt="pot" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>plant pot</h4>
-                </div>
-              </Link>
-            </article>
-            <article className="single-product">
-              <Link to="/">
-                <img src={table} alt="table" />
-                <div className="product-content">
-                  <p>from $13</p>
-                  <h4>small table</h4>
-                </div>
-              </Link>
-            </article>
-          </div>
-        </div>  
-      {/* footer section */}
+          ))}
+        </div>
+      </div>
     </>
-    )
+  );
 }
 
-export default Home
+export default Home;

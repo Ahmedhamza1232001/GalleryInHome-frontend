@@ -1,175 +1,185 @@
-import React from "react";
-import {useState} from "react";
-import { Row , Col } from "react-bootstrap";
-import "./category.css";
-import {SidebarData} from './sidebarData';
-import CardData from './cardData';
-import img2 from "../images/5.jpeg";
-import {FaThLarge , FaBars} from "react-icons/fa";
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
-import {BsCart3 , BsStarFill} from "react-icons/bs";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './category.css';
+import { Row, Col, Card } from 'react-bootstrap';
+import { FaThLarge, FaBars } from 'react-icons/fa';
+import { BsStarFill } from 'react-icons/bs';
 import Form from 'react-bootstrap/Form';
+import { SidebarData } from './sidebarData';
+import { useGlobalContext } from '../context';
+import CardData from './cardData';
 
+const Category = () => {
+  const [DisRow, setDisRow] = useState(false);
+  const { addToCart, products, loading, addToFav } = useGlobalContext();
+  let data = [...products];
+  const [productDatas, setProductDatas] = useState(data);
+  const [categories, setCategories] = useState(["all", ...new Set(products.map(item => item.catagory))])
+  const [brands, setBrands] = useState(["all", ...new Set(products.map(item => item.brand))])
+  const Acategories = ["Bed Room","Dining & Kitchen","Decor","Living Room","Office"]
 
-const Category =() =>{
-        const [data ] = useState(CardData);
-        return(
-            <>
-            <div className="category-main">
-                <div className="d-flex flex-wrap">
-                    {/* sidebar */}
-                    <div className="sidebar">
-                    <Col className="catagories ">
-                    <h1 className="title">Catagories</h1>
-                    <ul className="sidebarList">
-                    {SidebarData.map((val,key) => {
-                        return(
-                            <li key={key} 
-                            className="row"
-                            id = {window.location.pathname === val.link ? "active" : " "}  
-                            onClick={()=> {window.location.pathname= val.link}}>  
-                            <div>
-                                {val.title}
-                            </div>
-                            </li>
-                        )
-                    })}
-                    </ul>
-                    <div>
-                        <h1 className="title">Brands</h1>
-                        <Form className="brand" >
-                            {['checkbox'].map((type) => (
-                                <div key={`default-${type}`} className="mb-3">
-                                <Form.Check 
-                                className="check"
-                                type={type}
-                                id={`default-${type}`}
-                                label={`Amado`}
-                                />
+ 
+  const filterBrand = (brand) => {
+    if (brand === "all") {
+      setProductDatas(data)
+      return
+    } 
+    const newItem = data.filter(item => item.brand === brand);
+    setProductDatas(newItem);
+  }
+  const filterCat = (cat) => {
+    if (cat=== "all") {
+      setProductDatas(data)
+      return
+    } 
+    const newItem = data.filter(item => item.catagory === cat);
+    setProductDatas(newItem);
+  }
+  if (loading) {
+    return <h3 style={{ width: 'auto', margin: '30px auto' }}>Loading...</h3>;
+  }
+  if (productDatas.length === 0) {
+    return <h3 style={{ width: 'auto', margin: '30px auto' }}>NO DATA EXIST</h3>;
+  }
 
-                                <Form.Check
-                                className="check"
-                                type={type}
-                                label={`Ikea`}
-                                id={`default-${type}`}
-                                />
-                                <Form.Check
-                                className="check"
-                                type={type}
-                                label={`The Factory`}
-                                id={`default-${type}`}
-                                />
-                                <Form.Check
-                                className="check"
-                                type={type}
-                                label={`Artdeco`}
-                                id={`default-${type}`}
-                                />
-                                <Form.Check
-                                className="check"
-                                type={type}
-                                label={`Furniture Inc`}
-                                id={`default-${type}`}
-                                />
-                                </div>
-                            ))}
-                            </Form>
+  return (
+    <>
+      <div className="category-main">
+        <div className="d-flex flex-wrap">
+          {/* sidebar */}
+          <div className="sidebar">
+            <Col className="catagories">
+              <h1 className="title">Catagories</h1>
+              <ul className="sidebarList">
+                {categories.map((val,i) => {
+                  return (
+                    <li key={i} className="row justify-content-center">
+                      <button className='catBtn' onClick={()=>filterCat(val)}>{Acategories[val]}</button>
+                    </li>
+                  );
+                })}
+              </ul>
+              <div>
+                <h1 className="title">Brands</h1>
+                <ul className="sidebarList">
+                  {brands.map((val, i) => {
+                    return (
+                    <li key={i} className="row justify-content-center">
+                      <button className='catBtn' onClick={()=>filterBrand(val)}>{val}</button>
+                    </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            </Col>
+          </div>
+
+          {/* cards */}
+          <div className="product-area py-100">
+            <div className="container-fluid">
+              <Row>
+                <div className="col-12">
+                  <div className="product-topbar d-xl-flex align-items-end justify-content-between">
+                    <div className="total-products">
+                      <div className="view d-flex">
+                        <FaThLarge
+                          size="30px"
+                          color={`${DisRow ? 'black' : '#ffc107'}`}
+                          onClick={() => setDisRow(false)}
+                        />
+                        <FaBars
+                          size="30px"
+                          color={`${DisRow ? '#ffc107' : 'black'}`}
+                          onClick={() => setDisRow(true)}
+                        />
+                      </div>
                     </div>
-                    </Col>
-                    </div>
-                    
-                        {/* cards */}
-                    <div className="product-area py-100">
-                        <div className="container-fluid">
-
-                            <Row>
-                                <div className="col-12">
-                                    <div className="product-topbar d-xl-flex align-items-end justify-content-between">
-                                        <div className="total-products">
-                                            <p> showing 1-8 of 25</p>
-                                            <div className="view d-flex">
-                                                <a href="..."> <FaThLarge size="30px" color="#ffc107"/> </a>
-                                                <a href="..."> <FaBars size="30px" color="black"/> </a>
-                                            </div>
-                                        </div>
-                                        <div className="product-sorting d-flex">
-                                            <div className="sort-by-date d-flex align-items-center mr-15">
-                                                <Dropdown as={ButtonGroup} >
-                                                    <Button variant="success" >Sort by</Button>
-                                                    <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-                                                    <Dropdown.Menu>
-                                                        <Dropdown.Item href="#/Date">Date</Dropdown.Item>
-                                                        <Dropdown.Item href="#/Newest">Newest</Dropdown.Item>
-                                                        <Dropdown.Item href="#/Popular">Popular</Dropdown.Item>
-                                                        </Dropdown.Menu>
-                                                        </Dropdown>
-                                            </div>
-                                            <div className="view-product d-flex align-items-center">
-                                            <Dropdown as={ButtonGroup}>
-                                            <Button variant="success">View</Button>
-                                            <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-                                            <Dropdown.Menu>
-                                                <Dropdown.Item href="#/action-1">12</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-2">24</Dropdown.Item>
-                                                <Dropdown.Item href="#/action-3">48</Dropdown.Item>
-                                            </Dropdown.Menu>
-                                            </Dropdown>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Row>
-
-                                {/* cards */}
-                            <Row >
-                                {data.map((items) =>{
-                                    const {id ,price, image} = items;
-                                    return(
-                                        <>
-                                        <div className='col-12 col-sm-6 col-md-12 col-xl-6' key={id}>
-                                            <div className="card">
-                                                <img src= {img2} 
-                                                className="card-img-top" alt="..." />
-                                                <div className="card-body d-flex">
-                                                    <div>
-                                                        <h4 className="card-price">{price}</h4>
-                                                        <p className="card-description">
-                                                            Modern Chair
-                                                        </p>
-                                                    </div>
-                                                    <div className="icon">
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        <span><BsStarFill color="#ffc107"/></span>
-                                                        
-                                                        <div className="d-flex justify-content-end">
-                                                            <a href="..."><BsCart3 size="20px" color="gray"/></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </>
-                                    )
-                                })}
-                                
-                            </Row>
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" class="btn btn-primary">1.</button>
-                                <button type="button" class="btn btn-primary">2.</button>
-                                <button type="button" class="btn btn-primary">3.</button>
-                                <button type="button" class="btn btn-primary">4.</button>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </Row>
+
+              {/* cards */}
+              <Row>
+                {productDatas.map((item) => {
+                  const {
+                    id,
+                    price,
+                    images,
+                    description,
+                    rating,
+                    name,
+                    factory,
+                    materials,
+                    inStock,
+                  } = item;
+                  return (
+                    <div
+                      className={`col-12 col-sm-6 col-md-12 ${
+                        DisRow ? 'col-xl-12 col-sm-12' : 'col-xl-6'
+                      }`}
+                      key={id}
+                    >
+                      <div className="card">
+                        <Link to={`/product/${id}`}>
+                          <img src={images[0].name} className="card-img-top" alt={id} />
+                        </Link>
+                        <div className="card-body d-flex">
+                          <div>
+                            <h4 className="card-price">{price} EGP</h4>
+                            <p className="card-description">{name}</p>
+                          </div>
+                          <div className="icon">
+                            <div className="stars">
+                              {[...Array(rating)].map((star, i) => {
+                                return <BsStarFill key={i} color="var(--clr-primary-1)" />;
+                              })}
+                            </div>
+                            <div
+                              className="d-flex"
+                              style={{ justifyContent: 'center', marginTop: '8px', gap: '5px' }}
+                            >
+                              <i
+                                className="fa fa-cart-plus"
+                                aria-hidden="true"
+                                style={{ fontSize: '23px', color: 'gray', paddingRight: '5px' }}
+                                onClick={(e) => addToCart(e,id)}
+                              ></i>
+                              <i
+                                className="far fa-heart"
+                                aria-hidden="true"
+                                style={{ fontSize: '25px', color: 'red' }}
+                                onClick={(e) => {
+                                  addToFav(e,id)
+                                }}
+                              ></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </Row>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary">
+                  1.
+                </button>
+                <button type="button" class="btn btn-primary">
+                  2.
+                </button>
+                <button type="button" class="btn btn-primary">
+                  3.
+                </button>
+                <button type="button" class="btn btn-primary">
+                  4.
+                </button>
+              </div>
             </div>
-            </>
-        )
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Category;
